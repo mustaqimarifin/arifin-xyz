@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Geist Sans";
+  src: url("/fonts/GeistVariableVF.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400 600;
+}
+
+@font-face {
+  font-family: "Grotesk";
+  src: url("/fonts/es-boner-reg.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Grotesk";
+  src: url("/fonts/es-boner-bold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@layer base {
+  :root {
+    --page-primary: theme(colors.white);
+    --text-color-primary: theme(colors.neutral.700);
+    --text-color-secondary: theme(colors.neutral.500);
+    --text-color-subtle: theme(colors.neutral.300);
+    --border-color-primary: theme(colors.neutral.200);
+    --decoration-color-subtle: theme(colors.neutral.300);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-primary: theme(colors.neutral.900);
+      --text-color-primary: theme(colors.neutral.100);
+      --text-color-secondary: theme(colors.neutral.400);
+      --text-color-subtle: theme(colors.neutral.500);
+      --border-color-primary: theme(colors.neutral.700);
+      --decoration-color-subtle: theme(colors.neutral.500);
+    }
+  }
+
+  html {
+    font-size: 0.875rem;
+  }
+}
+
+@layer components {
+  .prose :where(* + *) {
+    @apply mt-4;
+  }
+
+  .prose :where(h2, h3) {
+    @apply font-semibold scroll-mt-4;
+  }
+
+  .prose :where(* + h2, * + h3) {
+    @apply mt-8;
+  }
+
+  .prose :where(a) {
+    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
+  }
+
+  .prose :where(strong) {
+    @apply font-semibold;
+  }
+
+  .prose :where(ul) {
+    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
+  }
+
+  .prose :where(ul li ul) {
+    @apply mt-0.5;
+  }
+
+  .prose :where(code),
+  .prose :where(kbd) {
+    @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
+  }
+
+  .prose :where(pre) {
+    @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
+  }
+
+  .prose :where(dl) {
+    @apply grid grid-cols-[max-content_minmax(0,1fr)] -my-2;
+  }
+
+  .prose :where(dt) {
+    @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
+  }
+
+  .prose :where(dd) {
+    @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
+  }
+
+  .prose :where(blockquote) {
+    @apply border-l-2 border-primary pl-4;
+  }
+
+  .prose :where(table) {
+    @apply w-full;
+  }
+
+  .prose :where(tr:not(:last-child) > td) {
+    @apply pb-2;
+  }
+
+  .prose :where(th) {
+    @apply pb-2 font-semibold;
+  }
+
+  .prose :where(th:not([align="right"])) {
+    @apply text-left;
+  }
+
+  .prose :where(td) {
+    @apply pt-2 border-t border-dashed border-primary align-top;
+  }
+
+  .prose :where(td + td) {
+    @apply pl-2;
+  }
+
+  .prose :where(td[align="right"]) {
+    @apply font-mono text-secondary text-nowrap;
+  }
+}

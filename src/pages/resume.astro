@@ -1,0 +1,117 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Badge from "@/components/Badge.astro";
+type JobProps = CollectionEntry<"jobs">;
+const jobs = await getCollection("jobs");
+type RecommendationProps = CollectionEntry<"recommendations">;
+const recommendations = await getCollection("recommendations");
+import ProjectCarousel from "@/components/ProjectCarousel.astro";
+---
+
+<BaseLayout
+  title="Resume"
+  description="UI engineer who enjoys working at the intersection of design and engineering teams."
+>
+  <header class="pb-8 pt-40">
+    <h1 class="font-semibold">Resume&nbsp;&not;</h1>
+    <p class="text-secondary text-pretty">
+      User Interface Engineer who enjoys working at the intersection of design
+      and engineering teams. Currently apart of the design team at Clerk.
+    </p>
+  </header>
+
+  <section class="py-8 border-t border-primary" id="experience">
+    <h2 class="font-semibold mb-8">Experience</h2>
+    <ul class="-my-8 divide-y divide-primary divide-dashed">
+      {
+        jobs
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.startDate.toString()) -
+              Date.parse(a.data.startDate.toString())
+          )
+          .map((job: JobProps) =>
+            job.render().then(({ Content }) => (
+              <li class="py-8 grid sm:grid-cols-3 gap-x-8 gap-y-4">
+                <h3 class="sm:col-span-3 font-semibold flex items-center gap-x-1">
+                  {job.data.title} at {job.data.company}
+                  {!job.data.endDate && <Badge>Current</Badge>}
+                </h3>
+                <div class="sm:col-span-2 prose">
+                  <Content />
+                </div>
+                <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
+                  {job.data.tools.map((tool) => (
+                    <li>{tool}</li>
+                  ))}
+                </ul>
+                {job.data.projects && (
+                  <div class="mt-4 col-span-full">
+                    <ProjectCarousel projects={job.data.projects} />
+                  </div>
+                )}
+              </li>
+            ))
+          )
+      }
+    </ul>
+  </section>
+
+  <!-- <section class="pt-8 pb-16 border-t border-primary" id="interests">
+    <h2 class="font-semibold mb-8">Interests</h2>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded">
+        <p class="mb-24 text-secondary">01.</p>
+        <h3 class="font-semibold">CSS</h3>
+        <p class="mt-4 text-balance">
+          I've spent most of my career obsessing over CSS architecture. These
+          days I am all in on Tailwind CSS and can't see myself not using it
+          anymore.
+        </p>
+      </div>
+
+      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded">
+        <p class="mb-24 text-secondary">02.</p>
+        <h3 class="font-semibold">Component API design</h3>
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+          molestiae.
+        </p>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="pt-8 pb-16 border-t border-primary" id="recommendations">
+    <h2 class="font-semibold mb-8">Recommendations</h2>
+    <ul class="-my-8 divide-y divide-primary divide-dashed">
+      {
+        recommendations
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.published.toString()) -
+              Date.parse(a.data.published.toString())
+          )
+          .map((recommendation: RecommendationProps) =>
+            recommendation.render().then(({ Content }) => (
+              <li class="py-8">
+                <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
+                  <blockquote class="col-span-2 sm:col-start-2">
+                    <Content />
+                  </blockquote>
+                  <figcaption class="sm:col-start-1 sm:row-start-1">
+                    <p>{recommendation.data.name}</p>
+                    <p class="text-secondary sm:text-sm">
+                      {recommendation.data.title}
+                      <br class="hidden sm:block" />
+                      {recommendation.data.company}
+                    </p>
+                  </figcaption>
+                </figure>
+              </li>
+            ))
+          )
+      }
+    </ul>
+  </section>
+</BaseLayout>
