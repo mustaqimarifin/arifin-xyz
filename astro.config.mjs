@@ -14,6 +14,7 @@ export default defineConfig({
   site: "https://arifin.xyz",
   integrations: [sitemap(), tailwind()],
   markdown: {
+  gfm:true,
     remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
     remarkRehype: {
       handlers: {

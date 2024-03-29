@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+import t from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,7 +7,7 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      sans: ["Grotesk", ...defaultTheme.fontFamily.sans],
+      sans: ["GTAmerica", ...defaultTheme.fontFamily.sans],
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
@@ -33,5 +34,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [t],
 };

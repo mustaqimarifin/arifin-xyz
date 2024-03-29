@@ -8,7 +8,7 @@ updated: 2024-03-20
 ## Currently
 
 - Getting back into photography with my Fujifilm XE-4
-- Working on the [Clerk](https://clerk.com) dashboard and [components](https://clerk.com/docs/components/overview)
+- Working on the [MuseGroup](https://musegroup.asia) dashboard and [components](https://musegroup.asia/docs/components/overview)
 - Practicing cold water therapy
 - Eagerly awaiting the spring weather
 

@@ -1,6 +1,6 @@
 ---
-title: Senior UI Engineer
-company: Clerk
+title: Senior Music Production | Marketing Manager
+company: MuseGroup
 startDate: 2023-01-04
 tools:
   - Next.js
@@ -9,4 +9,4 @@ tools:
   - Framer Motion
 ---
 
-UI Engineer apart of the design team, currently working on dashboard UI.
+Music Production | Marketing Manager apart of the design team, currently working on dashboard UI.

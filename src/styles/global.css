@@ -29,31 +29,76 @@
   font-display: swap;
   font-weight: 400;
 }
+@font-face {
+  font-family: "GTAmerica";
+  src: url("/fonts/GTAmerica-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "GTAmerica";
+  src: url("/fonts/GTAmerica-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "GTAmerica";
+  src: url("/fonts/GTAmerica-Light.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "GTAmerica";
+  src: url("/fonts/GTAmerica-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "GTAmerica Mono";
+  src: url("/fonts/GTAmerica-Mono-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
 
 @layer base {
   :root {
     --page-primary: theme(colors.white);
-    --text-color-primary: theme(colors.neutral.700);
-    --text-color-secondary: theme(colors.neutral.500);
-    --text-color-subtle: theme(colors.neutral.300);
-    --border-color-primary: theme(colors.neutral.200);
-    --decoration-color-subtle: theme(colors.neutral.300);
+    --text-color-primary: theme(colors.zinc.700);
+    --text-color-secondary: theme(colors.zinc.500);
+    --text-color-subtle: theme(colors.zinc.300);
+    --border-color-primary: theme(colors.zinc.200);
+    --decoration-color-subtle: theme(colors.zinc.300);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --page-primary: theme(colors.neutral.900);
-      --text-color-primary: theme(colors.neutral.100);
-      --text-color-secondary: theme(colors.neutral.400);
-      --text-color-subtle: theme(colors.neutral.500);
-      --border-color-primary: theme(colors.neutral.700);
-      --decoration-color-subtle: theme(colors.neutral.500);
+      --page-primary: theme(colors.zinc.900);
+      --text-color-primary: theme(colors.zinc.100);
+      --text-color-secondary: theme(colors.zinc.400);
+      --text-color-subtle: theme(colors.zinc.500);
+      --border-color-primary: theme(colors.zinc.700);
+      --decoration-color-subtle: theme(colors.zinc.500);
     }
   }
 
   html {
     font-size: 0.875rem;
   }
+  pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  @apply max-w-none sm:max-w-[80%] lg:max-w-none;
+  overflow-x: auto;
+  padding: 1rem 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+pre [data-line] {
+  padding: 0 1rem;
+}
 }
 
 @layer components {
@@ -78,20 +123,19 @@
   }
 
   .prose :where(ul) {
-    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
+    @apply pl-6  list-square marker:text-[var(--text-color-subtle)];
   }
 
   .prose :where(ul li ul) {
     @apply mt-0.5;
   }
 
-  .prose :where(code),
   .prose :where(kbd) {
-    @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
+    @apply bg-zinc-100 dark:bg-zinc-800 py-px px-1 rounded;
   }
 
   .prose :where(pre) {
-    @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
+    @apply !bg-zinc-100 dark:!bg-zinc-800 text-sm rounded p-4;
   }
 
   .prose :where(dl) {

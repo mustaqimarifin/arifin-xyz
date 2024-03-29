@@ -3,18 +3,18 @@ import "../styles/global.css";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Mustaqim Arifin` : "Mustaqim Arifin";
-const metaDescription = description ? description : "UI Engineer";
+const metaDescription = description ? description : "Music Production | Marketing Manager";
 ---
 
 <html lang="en">
   <head>
-    <link
+<!--     <link
       rel="preload"
       href="/fonts/GeistVariableVF.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
-    />
+    /> -->
 
     <!-- Global Metadata -->
     <meta charset="utf-8" />
@@ -56,20 +56,15 @@ const metaDescription = description ? description : "UI Engineer";
   </head>
 
   <body
-    class="antialiased text-primary flex flex-col min-h-dvh px-4 overflow-x-hidden bg-primary"
+    class="subpixel-antialiased text-primary flex flex-col min-h-dvh px-4 overflow-x-hidden bg-primary"
   >
     <div class="max-w-prose w-full mx-auto flex flex-col flex-1 min-w-0">
       <div class="flex h-1.5 flex-none" aria-hidden="true">
-        <span class="bg-red-500 w-6"></span>
-        <span class="bg-green-500 w-6"></span>
-        <span class="bg-purple-500 w-6"></span>
-        <span class="bg-teal-500 w-6"></span>
-        <span class="bg-yellow-500 w-6"></span>
-        <span class="bg-fuchsia-500 w-6"></span>
         <span class="bg-neutral-900 w-6"></span>
         <span class="bg-neutral-800 w-6"></span>
         <span class="bg-neutral-700 w-6"></span>
         <span class="bg-neutral-600 w-6"></span>
+        <span class="bg-green-500 w-6"></span>
         <span class="bg-neutral-500 w-6"></span>
         <span class="bg-neutral-400 w-6"></span>
         <span class="bg-neutral-300 w-6"></span>
@@ -78,9 +73,9 @@ const metaDescription = description ? description : "UI Engineer";
       </div>
       <header class="relative py-4 border-b border-primary">
         <p>
-          <a href="/" class="font-semibold">[ǟʀɨʄɨռ.Ӽʏʐ]Mustaqim Arifin</a>
+          <a href="/" class="font-semibold">Mustaqim Arifin</a>
         </p>
-        <p class="text-secondary">User Interface Engineer at Clerk</p>
+        <p class="text-secondary">Regional Marketing Manager at MuseGroup</p>
       </header>
 
       <main id="main" class="flex-1">

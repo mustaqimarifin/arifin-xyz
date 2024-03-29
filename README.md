@@ -7,7 +7,7 @@
 ## Running locally
 
 ```bash
-git clone https://github.com/alexcarpenter/alexcarpenter.me.git
+git clone https://github.com/mustaqimarifin/arifin-xyz.git
 cd alexcarpenter.me
 bun install
 bun dev
