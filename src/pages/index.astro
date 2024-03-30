@@ -1,46 +1,173 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
+//import { getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+//import ArrowCard from "@components/ArrowCard"
+//import StackCard from "@components/StackCard.astro"
+import { SITE, SOCIALS } from "@consts"
+/* import PostList from "@components/Posts"
+
+const posts = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0,3)
+
+const projects = (await getCollection("projects"))
+  .filter(project => !project.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0,3) */
+
+/* const stack = [
+  { 
+    text: "Astro", 
+    icon: "astro", 
+    href: "https://astro.build" 
+  },
+  { 
+    text: "Javascript", 
+    icon: "javascript", 
+    href: "https://www.javascript.com" 
+  },
+  { 
+    text: "Typescript", 
+    icon: "typescript", 
+    href: "https://www.typescriptlang.org" 
+  },
+  { 
+    text: "Tailwind", 
+    icon: "tailwind", 
+    href: "https://tailwindcss.com" 
+  },
+] */
 ---
 
-<BaseLayout>
-  <h1 class="sr-only">Homepage</h1>
-  <section class="prose py-40">
-    <dl>
-      <dt>Name</dt>
-      <dd>Mustaqim Arifin</dd>
-      <dt>Location</dt>
-      <dd>Kuala Lumpur, MY</dd>
-      <dt>Work</dt>
-      <dd>
-        Regional Marketing Manager, SEA at <a href="https://musegroup.asia">MuseGroup</a>, previously <a
-          href="https://watershed.com">Watershed</a
-        >, <a href="https://hashicorp.com">HashiCorp</a>
-      </dd>
-      <dt>Stack</dt>
-      <dd>Astro, TailwindCSS, Geist Sans/Mono</dd>
-      <dt>Version</dt>
-      <dd><code>4.0.0-alpha</code></dd>
-      <dt>View source</dt>
-      <dd>
-        <a href="https://github.com/mustaqimarifin/arifin-xyz"
-          >mustaqimarifin/arifin-xyz</a
-        >
-      </dd>
-      {
-        commitSha && (
-          <>
-            <dt>Latest commit</dt>
-            <dd>
-              <a
-                href={`https://github.com/mustaqimarifin/arifin-xyz/commit/${commitSha}`}
-              >
-                <code>{commitSha.slice(0, 7)}</code>
-              </a>
-            </dd>
-          </>
-        )
-      }
-    </dl>
+<PageLayout title="Home" description={SITE.DESCRIPTION}>
+
+  <!-- Light Mode: Particles -->
+  <div class='absolute inset-0 block dark:hidden'>
+    <div id='particles1' class='fixed inset-0'></div>
+    <div id='particles2' class='fixed inset-0'></div>
+    <div id='particles3' class='fixed inset-0'></div>
+  </div>
+
+  <!-- Dark Theme: Stars -->
+  <div class='absolute inset-0 bg-black hidden dark:block'>
+    <div id='stars1' class='fixed inset-0'></div>
+    <div id='stars2' class='fixed inset-0'></div>
+    <div id='stars3' class='fixed inset-0'></div>
+  </div>
+
+<!--   <script is:inline src="/js/bg.js"></script>
+ -->  
+  <!-- HERO -->
+
+
+ 
+
+      <!-- Blog Preview Section -->
+      <section class="animate">
+              
+      </section>
+        <section class="relative h-screen w-full">
+<!--     <div id="planetcont" class='animate absolute inset-0 top-1/4 overflow-hidden'>
+      <div id="crescent" class='absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 dark:from-white/75 from-0% to-transparent to-5%'>
+        <div id="planet" class='w-full h-full bg-white dark:bg-black rounded-full p-[1px] overflow-hidden flex justify-center'>
+          <div id="blur" class='w-full h-20 rounded-full bg-neutral-900/25 dark:bg-white/25 blur-3xl'/>
+        </div>
+      </div>
+    </div> -->
+    <div class="animate absolute h-full w-full flex items-center justify-center">
+      <div class='relative w-full h-full flex items-center justify-center'>
+        <div class='p-5 text-center'>
+          <a href="/" class="flex gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+          <svg class="size-6 fill-current">
+            <use href="/kit.svg#kit"></use>
+          </svg>
+          <div>
+            {SITE.TITLE}
+          </div>
+        </a>
+
+        </div>
+      </div>
+    </div>
   </section>
-</BaseLayout>
+
+      <!-- Tech Stack Section -->
+      <!-- <section class="animate">
+        <div class="space-y-4">
+          <p class="font-semibold text-black dark:text-white">
+            Website build with
+          </p>
+          <div class="flex flex-wrap items-center gap-2 mt-5">
+            {stack.map(item => (
+              <StackCard 
+                text={item.text}
+                icon={item.icon}
+                href={item.href}
+              />
+            ))}
+          </div>
+          <div>
+            Performing reactivity and statefulness, special guest
+            <a href="https://www.solidjs.com/" target="_blank" class="w-fit group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                SolidJS
+              </span>
+            </a>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Project Preview Section -->
+      <!-- <section class="animate">
+        <div class="space-y-4">
+          <div class="flex justify-between">
+            <p class="font-semibold text-black dark:text-white">
+              Recent projects
+            </p>
+            <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                All projects
+              </span>
+            </a>
+          </div>
+          <ul class="space-y-4">
+            {projects.map((project) => (
+              <li>
+                <ArrowCard entry={project} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section> -->
+
+      <!-- Contact Section -->
+<!--       <section class="animate">
+        <div>
+          <p class="font-semibold text-black dark:text-white">
+            Let's Connect
+          </p>
+          <p>
+            Reach out to me via email or on social media.
+          </p>
+          <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
+            {SOCIALS.map(social => (
+              <div class="col-span-1 flex items-center gap-1">
+                <span class="whitespace-nowrap truncate">
+                  {social.NAME}
+                </span>
+              </div>
+              <div class="col-span-3 truncate">
+                <a href={social.HREF} target="_blank" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                  <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                    {social.TEXT}
+                  </span>
+                </a>
+              </div>
+            ))}
+        </div>
+      </section> -->
+
+
+ 
+</PageLayout>

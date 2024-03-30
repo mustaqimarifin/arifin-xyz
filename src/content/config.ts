@@ -1,72 +1,45 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from "astro:content"
 
-const bookmarks = defineCollection({
+const work = defineCollection({
   type: "content",
   schema: z.object({
-    title: z.string(),
-    published: z.coerce.date(),
-    link: z.string(),
-    tags: z.array(z.string()).optional(),
-  }),
-});
-
-const jobs = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
     company: z.string(),
-    startDate: z.coerce.date(),
-    endDate: z.coerce.date().optional(),
-    tools: z.array(z.string()),
-    projects: z
-      .array(
-        z.object({
-          title: z.string(),
-          href: z.string(),
-          img: z.object({
-            src: z.string(),
-            alt: z.string(),
-          }),
-        })
-      )
-      .optional(),
+    role: z.string(),
+    dateStart: z.coerce.date(),
+    dateEnd: z.union([z.coerce.date(), z.string()]),
   }),
-});
+})
 
-const notes = defineCollection({
+const blog = defineCollection({
   type: "content",
   schema: z.object({
-    published: z.coerce.date(),
+    title: z.string(),
+    summary: z.string(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()),
     draft: z.boolean().optional(),
   }),
-});
+})
 
-const posts = defineCollection({
+const projects = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    description: z.string().optional(),
-    published: z.coerce.date(),
-    updated: z.coerce.date().optional(),
-    toc: z.boolean().optional(),
+    summary: z.string(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()),
     draft: z.boolean().optional(),
+    demoUrl: z.string().optional(),
+    repoUrl: z.string().optional(),
   }),
-});
+})
 
-const recommendations = defineCollection({
+const legal = defineCollection({
   type: "content",
   schema: z.object({
-    name: z.string(),
     title: z.string(),
-    company: z.string(),
-    published: z.coerce.date(),
+    date: z.coerce.date(),
   }),
-});
+})
 
-export const collections = {
-  bookmarks,
-  jobs,
-  notes,
-  posts,
-  recommendations,
-};
+export const collections = { work, blog, projects, legal }

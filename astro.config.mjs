@@ -1,28 +1,23 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
-// Remark plugins
-import {
-  remarkDefinitionList,
-  defListHastHandlers,
-} from "remark-definition-list";
-import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
+import { defineConfig } from "astro/config"
+import mdx from "@astrojs/mdx"
+import sitemap from "@astrojs/sitemap"
+import tailwind from "@astrojs/tailwind"
+import solidJs from "@astrojs/solid-js"
 
-import tailwind from "@astrojs/tailwind";
+import db from "@astrojs/db"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://arifin.xyz",
-  integrations: [sitemap(), tailwind()],
-  markdown: {
-  gfm:true,
-    remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
-    remarkRehype: {
-      handlers: {
-        ...defListHastHandlers,
-      },
-    },
+  site: "https://astro-sphere-demo.vercel.app",
+    markdown: {
     shikiConfig: {
-      theme: "css-variables",
-    },
-  },
-});
+      // Choose from Shiki's built-in themes (or add your own)
+      // https://shiki.style/themes
+      theme: "one-dark-pro"	
+
+,
+    }},
+  integrations: [mdx(), sitemap(), solidJs(), tailwind({
+    applyBaseStyles: false
+  }), db()]
+})
