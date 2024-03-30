@@ -8,7 +8,7 @@ import db from "@astrojs/db"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-sphere-demo.vercel.app",
+  site: "https://arifin.xyz",
     markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
