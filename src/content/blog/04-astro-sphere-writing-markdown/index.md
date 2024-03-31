@@ -4,10 +4,10 @@ summary: "Basic Markdown syntax that can be used when writing Markdown content i
 date: "Mar 13 2024"
 draft: false
 tags:
-- Tutorial
-- Astro
-- Astro Sphere
-- Markdown
+  - Tutorial
+  - Astro
+  - Astro Sphere
+  - Markdown
 ---
 
 ## Inline Code Highlighting
@@ -28,7 +28,6 @@ The result of `[1, 2, 3].join('-'){:js}` is `'1-2-3'{:js}`.
 ##### H5
 
 ###### H6
-
 ```
 
 # H1

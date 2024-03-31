@@ -4,25 +4,27 @@ import ArrowCard from "@components/ArrowCard"
 //mport { cn } from "@lib/utils"
 
 type Props = {
-  tags?: string[]
-  data: CollectionEntry<"blog">[]
-}
+  tags?: string[];
+  data: CollectionEntry<"blog">[];
+};
 
 export default function Blog({ data }: Props) {
   const [filter] = createSignal(new Set<string>())
   const [posts, setPosts] = createSignal<CollectionEntry<"blog">[]>([])
 
   createEffect(() => {
-    setPosts(data.filter((entry) => 
-      Array.from(filter()).every((value) => 
-        entry.data.tags.some((tag:string) => 
-          tag.toLowerCase() === String(value).toLowerCase()
-        )
-      )
-    ))
+    setPosts(
+      data.filter((entry) =>
+        Array.from(filter()).every((value) =>
+          entry.data.tags.some(
+            (tag: string) => tag.toLowerCase() === String(value).toLowerCase(),
+          ),
+        ),
+      ),
+    )
   })
 
-/*   function toggleTag(tag: string) {
+  /*   function toggleTag(tag: string) {
     setFilter((prev) => 
       new Set(prev.has(tag) 
         ? [...prev].filter((t) => t !== tag) 
@@ -33,7 +35,7 @@ export default function Blog({ data }: Props) {
  */
   return (
     <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
-       {/*  <div class="sticky top-24">
+      {/*  <div class="sticky top-24">
           <div class="text-sm font-semibold uppercase mb-2 text-black dark:text-white">Filter</div>
           <ul class="flex flex-wrap sm:flex-col gap-1.5">
             <For each={tags}>

@@ -8,21 +8,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "sans": ["GTAmerica", ...defaultTheme.fontFamily.sans],
-        "serif": ["Roboto Serif", ...defaultTheme.fontFamily.serif],
-        "mono": ["Roboto Mono", ...defaultTheme.fontFamily.mono],
+        sans: ["Public Sans", ...defaultTheme.fontFamily.sans],
+        serif: ["Roboto Serif", ...defaultTheme.fontFamily.serif],
+        mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
       },
-          fontSize: {
-      xs: "0.7142857143rem", // 10px
-      sm: "0.8571428571rem", // 12px
-    },
+      fontSize: {
+        xs: "0.7142857143rem", // 10px
+        sm: "0.8571428571rem", // 12px
+      },
       typography: {
         DEFAULT: {
           css: {
             maxWidth: "full",
           },
         },
-      }
+      },
     },
   },
   plugins: [t],

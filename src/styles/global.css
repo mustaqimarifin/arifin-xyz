@@ -3,62 +3,61 @@
 @tailwind utilities;
 
 @layer base {
-
-    @font-face {
+  @font-face {
     font-family: "Geist";
-    src: url("/fonts/Geist.woff2") format('woff2-variations');
-    src: url("/fonts/Geist.woff2") format('woff2') tech('variations'); 
+    src: url("/fonts/Geist.woff2") format("woff2-variations");
+    src: url("/fonts/Geist.woff2") format("woff2") tech("variations");
     font-weight: 300 700;
     font-stretch: 25% 151%;
     font-style: normal;
     font-display: swap;
   }
-  
-@font-face {
-  font-family: "GTAmerica";
-  src: url("/fonts/GTAmerica-Bold.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 700;
-}
-@font-face {
-  font-family: "GTAmerica";
-  src: url("/fonts/GTAmerica-Regular.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "GTAmerica";
-  src: url("/fonts/GTAmerica-Light.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 300;
-}
-@font-face {
-  font-family: "GTAmerica";
-  src: url("/fonts/GTAmerica-Medium.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 600;
-}
 
-    @font-face {
+  @font-face {
+    font-family: "GTAmerica";
+    src: url("/fonts/GTAmerica-Bold.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "GTAmerica";
+    src: url("/fonts/GTAmerica-Regular.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "GTAmerica";
+    src: url("/fonts/GTAmerica-Light.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: "GTAmerica";
+    src: url("/fonts/GTAmerica-Medium.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 600;
+  }
+
+  @font-face {
     font-family: "Roboto Serif";
     src: url("/fonts/roboto-serif.ttf") format("ttf");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
-    @font-face {
+  @font-face {
     font-family: "Roboto Mono";
-    src: url("/fonts/roboto-mono.woff2") format('woff2-variations');
-    src: url("/fonts/roboto-mono.woff2") format('woff2') tech('variations'); 
+    src: url("/fonts/roboto-mono.woff2") format("woff2-variations");
+    src: url("/fonts/roboto-mono.woff2") format("woff2") tech("variations");
     font-weight: 300 700;
     font-stretch: 25% 151%;
     font-style: normal;
     font-display: swap;
   }
-      @font-face {
-    font-family: "Roboto Flex";
-    src: url("/fonts/roboto-flex.woff2") format('woff2-variations');
-    src: url("/fonts/roboto-flex.woff2") format('woff2') tech('variations'); 
+  @font-face {
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans.woff2") format("woff2-variations");
+    src: url("/fonts/PublicSans.woff2") format("woff2") tech("variations");
     font-weight: 300 800;
     font-stretch: 25% 151%;
     font-style: normal;
@@ -70,8 +69,7 @@ html {
   overflow-y: scroll;
   color-scheme: light;
   background-color: white;
-  font-family: "GTAmerica", sans-serif;
-  
+  font-family: "Public Sans", sans-serif;
 }
 
 html.dark {
@@ -98,14 +96,14 @@ header {
   @apply border-b;
   @apply transition-all duration-300 ease-in-out;
 
-&.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
-  @apply backdrop-blur-sm saturate-200;
-} 
+  &.scrolled {
+    @apply bg-white/75 dark:bg-black/50;
+    @apply border-black/10 dark:border-white/25;
+    @apply backdrop-blur-sm saturate-200;
+  }
   &:not(.scrolled) {
-  @apply bg-transparent border-transparent;
-}
+    @apply bg-transparent border-transparent;
+  }
 }
 
 /* header:not(.scrolled) {
@@ -118,11 +116,9 @@ header.scrolled {
   @apply backdrop-blur-sm saturate-200;
 }
  */
- 
+
 article {
   @apply prose dark:prose-invert prose-headings:font-bold max-w-full pb-12;
- 
-
 }
 
 .page-heading {
@@ -147,11 +143,13 @@ article {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
   &.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* .animate.show {
@@ -173,32 +171,35 @@ pre::-webkit-scrollbar {
 pre {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  
 }
 
 /* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-
-
-
+.top {
+  --distance-to-scroll: 50px;
+  margin-top: calc(var(--container-height) + var(--distance-to-scroll));
+  position: sticky;
+  bottom: 0;
+  left: 5px;
+}
 
 @layer components {
-.prose :where(code):not(:where([class~='not-prose'] *))::before {
-  content: none;
-}
+  .prose :where(code):not(:where([class~="not-prose"] *))::before {
+    content: none;
+  }
 
-.prose :where(code):not(:where([class~='not-prose'] *))::after {
-  content: none;
-}
+  .prose :where(code):not(:where([class~="not-prose"] *))::after {
+    content: none;
+  }
 
-.prose mark {
-@apply bg-pink-300
-}
+  .prose mark {
+    @apply bg-pink-300;
+  }
 
   .prose a {
     @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
@@ -216,12 +217,7 @@ input[type='email'] {
     @apply mt-0.5;
   }
 
-
   .prose kbd {
     @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
   }
-
-
-
-  
 }

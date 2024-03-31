@@ -1,0 +1,26 @@
+---
+import { type MarkdownHeading } from "astro"
+interface Props {
+  headings: MarkdownHeading[];
+}
+const { headings } = Astro.props;
+---
+
+<aside id="#toc">
+    <ul>{headings.map(h => {
+        return <li> <a href={`#${h.slug}`}>{h.text}</a></li>
+    })}</ul>
+</aside>
+<style>
+    #toc {
+        position: fixed;
+        top: 0;
+        right: 5rem;
+    }
+    ul {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+</style>

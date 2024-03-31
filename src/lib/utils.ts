@@ -5,7 +5,8 @@
   return twMerge(clsx(inputs))
 } */
 
-export const cn = (...classes: (string | boolean)[]) => classes.filter(Boolean).join(" ")
+export const cn = (...classes: (string | boolean)[]) =>
+  classes.filter(Boolean).join(" ")
 
 export function formatDate(date: Date) {
   return Intl.DateTimeFormat("en-US", {

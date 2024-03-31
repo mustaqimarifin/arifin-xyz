@@ -7,9 +7,10 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "format": "pnpm dlx prettier --write . --ignore-path .gitignore",
     "astro": "astro",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "pnpm format && pnpm lint --fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
