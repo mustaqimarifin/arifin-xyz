@@ -1,76 +1,58 @@
-![Astro Sphere Lighthouse Score](_astrosphere.jpg)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Farifin.xyz)
 
-Astro Sphere is a static, minimalist, lightweight, lightning fast portfolio and blog theme based on my personal website.
+# arifin.xyz
 
-It is primarily Astro, Tailwind and Typescript, with a very small amount of SolidJS for stateful components.
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [Postgres](https://vercel.com/postgres)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 
-## 🚀 Deploy your own
+## Running Locally
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/mustaqimarifin/arifin-xyz) [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mustaqimarifin/arifin-xyz)
+This application requires Node.js v18.17+.
 
-## 📋 Features
+```bash
+git clone https://github.com/leerob/arifin.xyz.git
+cd arifin.xyz
+bun install
+bun run setup # Remove all of my personal information
+bun dev
+```
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
-- ✅ Searchable content (posts and projects)
+Create a `.env.local` file similar to [`.env.example`](https://github.com/leerob/arifin.xyz/blob/main/.env.example).
 
-## 💯 Lighthouse score
+## Database Schema
 
-![Astro Sphere Lighthouse Score](_lighthouse.png)
+```sql
+CREATE TABLE redirects (
+  id SERIAL PRIMARY KEY,
+  source VARCHAR(255) NOT NULL,
+  destination VARCHAR(255) NOT NULL,
+  permanent BOOLEAN NOT NULL
+);
 
-## 🕊️ Lightweight
+CREATE TABLE guestbook (
+  id TEXT PRIMARY KEY UNIQUE,
+  email TEXT NOT NULL UNIQUE,
+  body TEXT NOT NULL,
+  created_by TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT,
+  avatar TEXT
+);
 
-All pages under 100kb (including fonts)
+CREATE TABLE views (
+  slug VARCHAR(255) PRIMARY KEY,
+  count INT NOT NULL
+);
+```
 
-## ⚡︎ Fast
+## License
 
-Rendered in ~40ms on localhost
+1. You are free to use this code as inspiration.
+2. Please do not copy it directly.
+3. Crediting the author is appreciated.
 
-## 📄 Configuration
-
-The blog posts on the demo serve as the documentation and configuration.
-
-## 💻 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
-
-| Command                   | Action                                            |
-| :------------------------ | :------------------------------------------------ |
-| `npm install`             | Installs dependencies                             |
-| `npm run dev`             | Starts local dev server at `localhost:4321`       |
-| `npm run sync`            | Generates TypeScript types for all Astro modules. |
-| `npm run build`           | Build your production site to `./dist/`           |
-| `npm run preview`         | Preview your build locally, before deploying      |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check`  |
-| `npm run astro -- --help` | Get help using the Astro CLI                      |
-| `npm run lint`            | Run ESLint                                        |
-| `npm run lint:fix`        | Auto-fix ESLint issues                            |
-
-## 🗺️ Roadmap
-
-A few features I plan to implement
-
-- ⬜ Code Blocks - copy to clipboard
-- ⬜ Article Pages - Table of Contents
-- ⬜ Article Pages - Share on social media
-
-## ✨ Acknowledgement
-
-Theme inspired by [Paco Coursey](https://paco.me/), [Lee Robinson](https://leerob.io/) and [Hayden Bleasel](https://www.haydenbleasel.com/)
-
-## 🏛️ License
-
-MIT
+Please remove all of my personal information (blog posts, images, etc.) by running `bun run setup`.

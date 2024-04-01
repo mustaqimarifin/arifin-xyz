@@ -1,6 +1,0 @@
-{
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  },
-  "typescript.tsserver.nodePath": "/home/vmp/.config/nvm/versions/node/v21.7.1/bin/node"
-}
