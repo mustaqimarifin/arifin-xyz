@@ -41,7 +41,7 @@ export async function saveGuestbookEntry(formData: FormData) {
   [
     {
       sql: "INSERT INTO guestbook (id, email, body, created_by, created_at, avatar) VALUES (?,?,?,?,?,?)",
-      args: [id,email, body, created_by, Date.now(),avatar],
+      args: [id,email, body, created_by, Date.now() ,avatar],
     },
   ],
   "write"

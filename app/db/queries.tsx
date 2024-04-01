@@ -11,8 +11,8 @@ export async function getGuestbookEntries() {
     return [];
   }
   noStore();
-    const posts = await turso.execute('SELECT * FROM guestbook ORDER BY created_at DESC LIMIT 100')  
-console.log(posts.rows)
-  return posts.rows
+    const {rows} = await turso.execute('SELECT * FROM guestbook ORDER BY created_at DESC LIMIT 100')  
+//console.log(posts.rows)
+  return rows
 
 }
