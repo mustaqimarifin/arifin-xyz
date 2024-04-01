@@ -30,7 +30,7 @@ const Pix = (props: Props) => {
 					//width={width}
 					//height={height}
 					//placeholder={"blur" ?? "empty"}
-					className={cx(className, "rounded-lg bg-zinc-50")}
+					className={cx(className, "rounded-lg dark:bg-zinc-900 bg-zinc-50")}
 				/>
 				<figcaption className="text-right">
 					{caption && <span className="text-sm  text-gray-600 dark:text-gray-400">{caption}</span>}

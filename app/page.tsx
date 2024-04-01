@@ -8,21 +8,22 @@ import live from "public/images/home/live.webp";
 import mnq from "public/images/home/mnq.webp";
 import ship from "public/images/home/ship.webp";
 import avatar from 'app/avatar.webp';
-import { PreloadResources } from 'app/preload';
+//import { PreloadResources } from 'app/preload';
 
 import { Views } from './components/views';
+import HeroImage from './components/vid';
 
-function Badge(props) {
+function Badge (props) {
   return (
     <a
-      {...props}
+      { ...props }
       target="_blank"
       className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
     />
   );
 }
 
-function ArrowIcon() {
+function ArrowIcon () {
   return (
     <svg
       width="12"
@@ -39,21 +40,21 @@ function ArrowIcon() {
   );
 }
 
-function ChannelLink({ img, link, name }) {
+function ChannelLink ({ img, link, name }) {
   return (
     <div className="group flex w-full">
       <a
-        href={link}
+        href={ link }
         target="_blank"
         className="flex w-full items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800"
       >
         <div className="flex items-center space-x-3">
           <div className="relative h-16">
             <Image
-              alt={name}
-              src={img}
-              height={64}
-              width={64}
+              alt={ name }
+              src={ img }
+              height={ 64 }
+              width={ 64 }
               sizes="33vw"
               className="h-16 w-16 rounded-full border border-neutral-200 dark:border-neutral-700"
               priority
@@ -66,10 +67,10 @@ function ChannelLink({ img, link, name }) {
           </div>
           <div className="flex flex-col">
             <p className="font-medium text-neutral-900 dark:text-neutral-100">
-              {name}
+              { name }
             </p>
-            <Suspense fallback={<p className="h-6" />}>
-              <Subs name={name} />
+            <Suspense fallback={ <p className="h-6" /> }>
+              <Subs name={ name } />
             </Suspense>
           </div>
         </div>
@@ -81,35 +82,35 @@ function ChannelLink({ img, link, name }) {
   );
 }
 
-async function Subs({ name }: { name: string }) {
+async function Subs ({ name }: { name: string }) {
   let subscribers;
   if (name === '@akhyla') {
     subscribers = 565
   } else {
-   null
+    null
   }
 
   return (
     <p className="text-neutral-600 dark:text-neutral-400">
-      {subscribers} subscribers
+      { subscribers } subscribers
     </p>
   );
 }
 
-function BlogLink({ slug, name }) {
+function BlogLink ({ slug, name }) {
   return (
     <div className="group">
       <a
-        href={`/blog/${slug}`}
+        href={ `/blog/${slug}` }
         className="flex w-full items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800"
       >
         <div className="flex flex-col">
           <p className="font-medium text-neutral-900 dark:text-neutral-100">
-            {name}
+            { name }
           </p>
-           <Suspense fallback={<p className="h-6" />}>
-            <Views slug={slug} />
-          </Suspense> 
+          <Suspense fallback={ <p className="h-6" /> }>
+            <Views slug={ slug } />
+          </Suspense>
         </div>
         <div className="transform text-neutral-700 transition-transform duration-300 group-hover:-rotate-12 dark:text-neutral-300">
           <ArrowIcon />
@@ -119,17 +120,15 @@ function BlogLink({ slug, name }) {
   );
 }
 
-export default function Page() {
+export default function Page () {
   return (
     <section>
-      <PreloadResources />
-      <h1 className="mb-8 text-2xl font-medium tracking-tighter">
-        hey, I'm leerob 👋
-      </h1>
+      {/*       <PreloadResources />
+ */}   <HeroImage />
       <p className="prose prose-neutral dark:prose-invert">
-        {`I'm a frontend developer, optimist, and community builder. I currently `}
+        { `I'm a frontend developer, optimist, and community builder. I currently ` }
         <Link href="/work">work</Link>
-        {` as the VP of Product at `}
+        { ` as the VP of Product at ` }
         <span className="not-prose">
           <Badge href="https://vercel.com/home">
             <svg
@@ -144,7 +143,7 @@ export default function Page() {
             Vercel
           </Badge>
         </span>
-        {`, where I help teach the `}
+        { `, where I help teach the ` }
         <Badge href="https://nextjs.org">
           <img
             alt="Next.js logomark"
@@ -155,7 +154,7 @@ export default function Page() {
           />
           Next.js
         </Badge>
-        {` community, an open-source web framework built with `}
+        { ` community, an open-source web framework built with ` }
         <Badge href="https://react.dev">
           <svg
             width="14"
@@ -174,7 +173,7 @@ export default function Page() {
         <div className="relative mb-4 h-40">
           <Image
             alt="Me speaking on stage at React Summit about the future of Next.js"
-            src={mnq}
+            src={ mnq }
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -184,7 +183,7 @@ export default function Page() {
         <div className="relative mb-4 h-80 sm:mb-0">
           <Image
             alt="Me, Lydia, and Delba filming the Next.js Conf keynote"
-            src={live}
+            src={ live }
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             unoptimized
@@ -195,7 +194,7 @@ export default function Page() {
         <div className="relative h-40 sm:mb-4 sm:h-80">
           <Image
             alt="Me standing on stage at Reactathon delivering the keynote"
-            src={heroine}
+            src={ heroine }
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -205,7 +204,7 @@ export default function Page() {
         <div className="relative mb-4 h-40 sm:mb-0">
           <Image
             alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web"
-            src={smashing}
+            src={ smashing }
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -215,7 +214,7 @@ export default function Page() {
         <div className="relative mb-4 h-40">
           <Image
             alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community"
-            src={ship}
+            src={ ship }
             fill
             sizes="(max-width: 768px) 213px, 33vw"
             priority
@@ -225,7 +224,7 @@ export default function Page() {
         <div className="relative h-80">
           <Image
             alt="My badge on top of a pile of badges from a Vercel meetup we held"
-            src={jkt}
+            src={ jkt }
             fill
             sizes="(min-width: 768px) 213px, 33vw"
             priority
@@ -243,11 +242,11 @@ export default function Page() {
       </article>
       <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
         <ChannelLink
-          img={avatar}
+          img={ avatar }
           name="@akhyla"
           link="https://www.youtube.com/@akhyla9848"
         />
-       
+
       </div>
       <article>
         <p>
@@ -310,8 +309,8 @@ export default function Page() {
       </div>
       <article>
         <p>
-          I've worked with and advised companies on{' '}
-          <Link href="/blog/developer-marketing">developer marketing</Link>,{' '}
+          I've worked with and advised companies on{ ' ' }
+          <Link href="/blog/developer-marketing">developer marketing</Link>,{ ' ' }
           <Link href="/blog/devrel-at-vercel">developer relations</Link>,
           building open-source communities, product-led growth, and more.
         </p>
