@@ -3,7 +3,10 @@
   "scripts": {
     "dev": "next dev",
     "build": " next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "pnpm dlx prettier --write . --ignore-path .gitignore",
+    "lint": "next lint",
+    "lint:fix": "pnpm format && pnpm lint --fix"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
@@ -26,5 +29,9 @@
     "sharp": "^0.33.3",
     "tailwindcss": "^3.4.3",
     "typescript": "5.4.3"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.1.4"
   }
 }

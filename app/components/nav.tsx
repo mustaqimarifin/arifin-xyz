@@ -1,58 +1,57 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const navItems = {
-/*   '/': {
+  /*   '/': {
     name: 'home',
   }, */
-  '/work': {
-    name: 'work',
+  "/work": {
+    name: "work",
   },
-  '/blog': {
-    name: 'notes',
+  "/notes": {
+    name: "notes",
   },
-  '/guestbook': {
-    name: 'guestbook',
+  "/guestbook": {
+    name: "guestbook",
   },
 };
 
-export function Navbar () {
+export function Navbar() {
   return (
     <>
-
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-     
-
+      <aside className="-ml-[8px] mb-16 tracking-tight">
         <div className="lg:sticky lg:top-20">
-        <a href="/" className=" gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
-          <svg className="flex flex-1 ml-2 size-6 fill-current">
-             <use href="/sprite.svg#kit"></use>
-          </svg>
-          
-        </a>
-     
+          <a
+            href="/"
+            className=" gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"
+          >
+            <svg className="flex flex-1 ml-2 size-6 fill-current">
+              <use href="/sprite.svg#kit"></use>
+            </svg>
+          </a>
+
           <nav
             className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
             id="nav"
           >
-{/*            <svg className="flex items-center align-middle justify-between size-6  fill-current">
+            {/*            <svg className="flex items-center align-middle justify-between size-6  fill-current">
       <use href="/sprite.svg#kit"></use>
     </svg> */}
             <div className="flex flex-row space-x-0 pr-10">
-                           
-              { Object.entries(navItems).map(([path, { name }]) => {
+              {Object.entries(navItems).map(([path, { name }]) => {
                 return (
                   <Link
-                    key={ path }
-                    href={ path }
+                    key={path}
+                    href={path}
                     className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"
                   >
-                    { name }
+                    {name}
                   </Link>
                 );
-              }) }
+              })}
             </div>
           </nav>
         </div>
-      </aside></>
+      </aside>
+    </>
   );
 }

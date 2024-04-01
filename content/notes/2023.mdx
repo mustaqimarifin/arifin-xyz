@@ -1,7 +1,7 @@
 ---
 title: 2023 Blog Refresh
-date: '2023-11-19'
-summary: 'Including some of my latest hot takes (okay they are pretty mild).'
+date: "2023-11-19"
+summary: "Including some of my latest hot takes (okay they are pretty mild)."
 ---
 
 I updated my blog this weekend and wanted to share some thoughts along the way:
@@ -50,15 +50,15 @@ I removed the following libraries:
 I was still able to maintain almost all of my content requirements with not much code. For example, here's how I'm able to retrieve all of my blog posts:
 
 ```js
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
 function readMDXFile(filePath) {
-  let rawContent = fs.readFileSync(filePath, 'utf-8');
+  let rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
 }
 
@@ -76,7 +76,7 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'content'));
+  return getMDXData(path.join(process.cwd(), "content"));
 }
 ```
 
@@ -87,7 +87,7 @@ That's not too bad. So what am I missing? Well, Contentlayer gives you Fast Refr
 What about the AST modifications for auto-linking headings, adding IDs, and supporting syntax highlighting? I don't know why I didn't think of this before, but you can just… use React components.
 
 ```jsx
-import { highlight } from 'sugar-high'; // 1KB new dependency
+import { highlight } from "sugar-high"; // 1KB new dependency
 
 // This replaces rehype-pretty-code and shiki
 function Code({ children, ...props }) {
@@ -101,10 +101,10 @@ function slugify(str) {
     .toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-'); // Replace multiple - with single -
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/&/g, "-and-") // Replace & with 'and'
+    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
 // This replaces rehype-autolink-headings
@@ -115,13 +115,13 @@ function createHeading(level) {
       `h${level}`,
       { id: slug },
       [
-        React.createElement('a', {
+        React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
+          className: "anchor",
         }),
       ],
-      children
+      children,
     );
   };
 }
@@ -179,7 +179,7 @@ Another example is on [my work page](https://arifin.xyz/work). I love that I can
 
 ```jsx
 async function Stars() {
-  let res = await fetch('https://api.github.com/repos/vercel/next.js');
+  let res = await fetch("https://api.github.com/repos/vercel/next.js");
   let json = await res.json();
   let count = Math.round(json.stargazers_count / 1000);
   return `${count}k stars`;

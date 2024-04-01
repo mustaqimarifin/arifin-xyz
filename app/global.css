@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 ::selection {
-  background-color:  theme("colors.pink.300");
+  background-color: theme("colors.pink.300");
   color: theme("colors.stone.600");
 }
 
@@ -13,7 +13,7 @@
   --sh-sign: theme("colors.stone.200");
   --sh-string: theme("colors.emerald.300");
   --sh-keyword: theme("colors.cyan.300");
-  --sh-comment:  theme("colors.stone.400");
+  --sh-comment: theme("colors.stone.400");
   --sh-jsxliterals: theme("colors.emerald.300");
   --sh-property: theme("colors.pink.300");
   --sh-entity: theme("colors.red.400");
@@ -27,13 +27,12 @@ html {
 }
 
 body {
-@apply subpixel-antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto
+  @apply subpixel-antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
 }
 
 main {
-@apply flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0
+  @apply flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0;
 }
-
 
 pre::-webkit-scrollbar {
   display: none;
@@ -45,8 +44,8 @@ pre {
 }
 
 /* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -58,17 +57,14 @@ table {
   white-space: nowrap;
 }
 
-
-
 h1,
 h2,
 h3,
 h4 {
-  @apply text-balance font-semibold tracking-tighter !important;
+  @apply text-balance font-semibold !important;
 }
 article {
-@apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty
-
+  @apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty;
 }
 
 @layer components {
@@ -84,80 +80,75 @@ article {
     @apply bg-pink-300;
   }
 
- .prose .anchor {
-  @apply absolute invisible no-underline;
+  .prose .anchor {
+    @apply absolute invisible no-underline;
 
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
-}
+    margin-left: -1em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: 700px;
+    cursor: pointer;
+  }
 
-.anchor:hover {
-  @apply visible;
-}
+  .anchor:hover {
+    @apply visible;
+  }
 
-.prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
-}
+  .prose a {
+    @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  }
 
-.prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
-  content: '#';
-}
+  .prose .anchor:after {
+    @apply text-neutral-300 dark:text-neutral-700;
+    content: "#";
+  }
 
-.prose *:hover > .anchor {
-  @apply visible;
-}
+  .prose *:hover > .anchor {
+    @apply visible;
+  }
 
-.prose 
-img,
-picture {
-  max-width: 100%;
-  display: block;
-  @apply m-0
-}
- 
+  .prose img,
+  picture {
+    max-width: 100%;
+    display: block;
+    @apply m-0;
+  }
 
-.prose pre {
-  @apply  dark:bg-stone-700 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
-}
-.prose code {
-  @apply px-1 py-0.5 rounded-lg  dark:bg-stone-700;
-}
+  .prose pre {
+    @apply dark:bg-stone-700 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
+  }
+  .prose code {
+    @apply px-1 py-0.5 rounded-lg  dark:bg-stone-700;
+  }
 
-.prose pre code {
-  @apply p-0;
-  border: initial;
-  line-height: 1.5;
-}
+  .prose pre code {
+    @apply p-0;
+    border: initial;
+    line-height: 1.5;
+  }
 
-.prose code span {
-  @apply font-medium;
-}
+  .prose code span {
+    @apply font-medium;
+  }
 
+  .prose strong {
+    @apply font-medium;
+  }
 
+  .prose > :first-child {
+    /* Override removing top margin, causing layout shift */
+    margin-top: 1.25em !important;
+    margin-bottom: 1.25em !important;
+  }
 
-.prose strong {
-  @apply font-medium;
-}
+  .prose .tweet a {
+    text-decoration: inherit;
+    font-weight: 500;
+  }
 
-.prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
-}
-
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: 500;
-}
-
-
-.prose .callout > p {
-  margin: 0 !important;
-}
+  .prose .callout > p {
+    margin: 0 !important;
+  }
 
   .prose kbd {
     @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;

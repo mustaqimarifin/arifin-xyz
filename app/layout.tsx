@@ -1,23 +1,23 @@
-import './global.css';
-import type { Metadata } from 'next';
-import { Navbar } from './components/nav';
+import "./global.css";
+import type { Metadata } from "next";
+import { Navbar } from "./components/nav";
 import localFont from "next/font/local";
-import { cx } from './utils';
+import { cx } from "./utils";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://arifin.xyz'),
+  metadataBase: new URL("https://arifin.xyz"),
   title: {
-    default: 'Mustaqim Arifin',
-    template: '%s | Mustaqim Arifin',
+    default: "Mustaqim Arifin",
+    template: "%s | Mustaqim Arifin",
   },
-  description: 'Developer, writer, and creator.',
+  description: "Developer, writer, and creator.",
   openGraph: {
-    title: 'Mustaqim Arifin',
-    description: 'Developer, writer, and creator.',
-    url: 'https://arifin.xyz',
-    siteName: 'Mustaqim Arifin',
-    locale: 'en_US',
-    type: 'website',
+    title: "Mustaqim Arifin",
+    description: "Developer, writer, and creator.",
+    url: "https://arifin.xyz",
+    siteName: "Mustaqim Arifin",
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -25,30 +25,26 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   twitter: {
-    title: 'Mustaqim Arifin',
-    card: 'summary_large_image',
+    title: "Mustaqim Arifin",
+    card: "summary_large_image",
   },
-
 };
 
 const PSans = localFont({
-	src: "../public/fonts/PublicSans.woff2",
-	variable: "--sans",
+  src: "../public/fonts/PublicSans.woff2",
+  variable: "--sans",
 });
 
 const GeistMono = localFont({
-	src: "../public/fonts/GeistMono.woff2",
-	variable: "--mono",
+  src: "../public/fonts/GeistMono.woff2",
+  variable: "--mono",
 });
-
-
-
 
 export default function RootLayout({
   children,
@@ -59,12 +55,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        'scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010]',
+        "scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010]",
         PSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
       )}
     >
-      <head/>
+      <head />
       <body>
         <main>
           <Navbar />

@@ -1,9 +1,9 @@
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "./Pics";
 import { getMDXComponent } from "next-contentlayer/hooks";
-import { TweetComponent } from './tweet';
-import { highlight } from './sugar.mjs';
-import React from 'react';
+import { TweetComponent } from "./tweet";
+import { highlight } from "./sugar.mjs";
+import React from "react";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -30,7 +30,7 @@ function Table({ data }) {
 function CustomLink(props) {
   let href = props.href;
 
-  if (href.startsWith('/')) {
+  if (href.startsWith("/")) {
     return (
       <Link href={href} {...props}>
         {props.children}
@@ -38,7 +38,7 @@ function CustomLink(props) {
     );
   }
 
-  if (href.startsWith('#')) {
+  if (href.startsWith("#")) {
     return <a {...props} />;
   }
 
@@ -122,10 +122,10 @@ function slugify(str) {
     .toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-'); // Replace multiple - with single -
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/&/g, "-and-") // Replace & with 'and'
+    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
 function createHeading(level) {
@@ -135,13 +135,13 @@ function createHeading(level) {
       `h${level}`,
       { id: slug },
       [
-        React.createElement('a', {
+        React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
+          className: "anchor",
         }),
       ],
-      children
+      children,
     );
   };
 }
@@ -153,7 +153,7 @@ let components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  img:Image,
+  img: Image,
   Image,
   a: CustomLink,
   Callout,
@@ -164,8 +164,12 @@ let components = {
   Table,
 };
 
-
 export async function CustomMDX(props: any) {
-	const Component = getMDXComponent(props.code);
-	return <Component {...props} components={{ ...components, ...(props.components || {}) }} />;
+  const Component = getMDXComponent(props.code);
+  return (
+    <Component
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
 }
