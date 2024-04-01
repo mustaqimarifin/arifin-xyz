@@ -53,7 +53,7 @@ export async function generateMetadata({
 }
 
 
-const PostLayout = ({ params: { slug } }) => {
+const PostLayout = async ({ params: { slug } }) => {
 	const post = allPosts.find((p) => p.slug === slug);
 
   if (!post) {

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "./Pics";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import { TweetComponent } from './tweet';
 import { highlight } from './sugar.mjs';
@@ -153,7 +153,8 @@ let components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  Image: RoundedImage,
+  img:Image,
+  Image,
   a: CustomLink,
   Callout,
   ProsCard,
@@ -164,8 +165,7 @@ let components = {
 };
 
 
-export function CustomMDX(props) {
-
+export async function CustomMDX(props: any) {
 	const Component = getMDXComponent(props.code);
 	return <Component {...props} components={{ ...components, ...(props.components || {}) }} />;
 }
