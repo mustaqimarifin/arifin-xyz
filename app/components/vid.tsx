@@ -1,6 +1,6 @@
 const HeroImage = () => {
   return (
-    <div className="justify-between size-24 border-gray-200 flex overflow-hidden aspect-square">
+    <div className="flex size-16 rounded-full border-5 overflow-hidden aspect-square">
       <video
         autoPlay
         loop
@@ -8,7 +8,7 @@ const HeroImage = () => {
         playsInline
         //width={200}
         //height={200}
-        className="flex-1 rounded-full object-cover box-border border-indigo-700 "
+        className="flex-1 object-cover box-border border-indigo-700 "
       >
         <source src="/Xyz2.webm" type="video/webm" />
       </video>

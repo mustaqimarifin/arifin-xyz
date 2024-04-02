@@ -125,8 +125,16 @@ export default function Page() {
     <section>
       {/*       <PreloadResources />
        */}{" "}
-      <HeroImage />
-      <p className="prose prose-neutral dark:prose-invert">
+      <div className="relative h-80">
+        <Image
+          alt="My badge on top of a pile of badges from a Vercel meetup we held"
+          src={smashing}
+          fill
+          priority
+          className="rounded-lg object-cover"
+        />
+      </div>
+      {/*  <p className="prose prose-neutral dark:prose-invert">
         {`I'm a frontend developer, optimist, and community builder. I currently `}
         <Link href="/work">work</Link>
         {` as the VP of Product at `}
@@ -338,7 +346,7 @@ export default function Page() {
             <p className="ml-2 h-7">get email updates</p>
           </a>
         </li>
-      </ul>
+      </ul> */}
     </section>
   );
 }

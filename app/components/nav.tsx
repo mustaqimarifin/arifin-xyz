@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const navItems = {
-  /*   '/': {
-    name: 'home',
-  }, */
+  "/": {
+    name: "𝖆𝖗𝖎𝖋𝖎𝖓",
+  },
   "/work": {
     name: "work",
   },
@@ -20,7 +20,7 @@ export function Navbar() {
     <>
       <aside className="-ml-[8px] mb-16 tracking-tight">
         <div className="lg:sticky lg:top-20">
-          <a
+          {/*           <a
             href="/"
             className=" gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"
           >
@@ -28,7 +28,7 @@ export function Navbar() {
               <use href="/sprite.svg#kit"></use>
             </svg>
           </a>
-
+ */}
           <nav
             className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
             id="nav"
