@@ -47,7 +47,7 @@ async function GuestbookEntries() {
   return entries.map((entry) => (
     <div
       key={entry.id?.toString()}
-      className="flex flex-col items-center justify-between space-x-4 space-y-1 mb-4"
+      className=" flex flex-col items-center justify-between space-x-4 space-y-1 mb-4"
     >
       <div className="flex items-center  w-full text-sm break-words">
         <div className="inline-flex mr-4">

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     default: "Mustaqim Arifin",
     template: "%s | Mustaqim Arifin",
   },
-  description: "Developer, writer, and creator.",
+  description: "Music Producer | Regional Marketing",
   openGraph: {
     title: "Mustaqim Arifin",
-    description: "Developer, writer, and creator.",
+    description: "Music Producer | Regional Marketing",
     url: "https://arifin.xyz",
     siteName: "Mustaqim Arifin",
     locale: "en_US",

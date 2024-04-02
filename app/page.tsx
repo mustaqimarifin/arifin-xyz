@@ -123,61 +123,7 @@ function BlogLink({ slug, name }) {
 export default function Page() {
   return (
     <section>
-      {/*       <PreloadResources />
-       */}{" "}
-      <div className="relative h-80">
-        <Image
-          alt="My badge on top of a pile of badges from a Vercel meetup we held"
-          src={smashing}
-          fill
-          priority
-          className="rounded-lg object-cover"
-        />
-      </div>
-      {/*  <p className="prose prose-neutral dark:prose-invert">
-        {`I'm a frontend developer, optimist, and community builder. I currently `}
-        <Link href="/work">work</Link>
-        {` as the VP of Product at `}
-        <span className="not-prose">
-          <Badge href="https://vercel.com/home">
-            <svg
-              width="13"
-              height="11"
-              role="img"
-              aria-label="Vercel logo"
-              className="mr-1 inline-flex"
-            >
-              <use href="/sprite.svg#vercel" />
-            </svg>
-            Vercel
-          </Badge>
-        </span>
-        {`, where I help teach the `}
-        <Badge href="https://nextjs.org">
-          <img
-            alt="Next.js logomark"
-            src="/next-logo.svg"
-            className="!mr-1"
-            width="14"
-            height="14"
-          />
-          Next.js
-        </Badge>
-        {` community, an open-source web framework built with `}
-        <Badge href="https://react.dev">
-          <svg
-            width="14"
-            height="14"
-            role="img"
-            aria-label="React logo"
-            className="!mr-1"
-          >
-            <use href="/sprite.svg#react" />
-          </svg>
-          React
-        </Badge>
-        .
-      </p>
+      
       <div className="my-8 columns-2 gap-4 sm:columns-3">
         <div className="relative mb-4 h-40">
           <Image
@@ -195,7 +141,6 @@ export default function Page() {
             src={live}
             fill
             sizes="(max-width: 768px) 213px, 33vw"
-            unoptimized
             priority
             className="rounded-lg object-cover object-[-16px] sm:object-center"
           />
@@ -241,14 +186,14 @@ export default function Page() {
           />
         </div>
       </div>
-      <article>
+      <div className="prose prose-neutral dark:prose-invert">
         <p>
           I create educational content for developers, teaching them about web
           development, JavaScript and TypeScript, React and Next.js, and more.
           This comes in all forms: blog posts, videos, tweets, conference talks,
           and workshops. You can watch some of my favorites below.
         </p>
-      </article>
+      </div>
       <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
         <ChannelLink
           img={avatar}
@@ -256,14 +201,14 @@ export default function Page() {
           link="https://www.youtube.com/@akhyla9848"
         />
       </div>
-      <article>
+      <div className="prose prose-neutral dark:prose-invert">
         <p>
           Over the past decade, I've written content on my blog and newsletter.
           I try to keep things simple. You'll find writing about technologies
           I'm interested in at the time, or how I'm learning and growing in my
           career, sharing knowledge along the way.
         </p>
-      </article>
+      </div>
       <div className="my-8 flex w-full flex-col space-y-4">
         <BlogLink
           name="What Makes A Great Developer Experience?"
@@ -315,21 +260,21 @@ export default function Page() {
           </a>
         </div>
       </div>
-      <article>
+      <div className="prose prose-neutral dark:prose-invert">
         <p>
           I've worked with and advised companies on{" "}
           <Link href="/blog/developer-marketing">developer marketing</Link>,{" "}
           <Link href="/blog/devrel-at-vercel">developer relations</Link>,
           building open-source communities, product-led growth, and more.
         </p>
-      </article>
+      </div>
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
         <li>
           <a
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://twitter.com/vmprmyth"
+            href="https://twitter.com/leeerob"
           >
             <ArrowIcon />
             <p className="ml-2 h-7">follow me</p>
@@ -346,7 +291,7 @@ export default function Page() {
             <p className="ml-2 h-7">get email updates</p>
           </a>
         </li>
-      </ul> */}
+      </ul>
     </section>
   );
 }
