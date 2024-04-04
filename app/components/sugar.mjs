@@ -12,6 +12,7 @@ const $7 = (b) => {
   const V = b[0];
   return (y(V) && V === V.toUpperCase()) || b === "null";
 };
+// eslint-disable-next-line no-control-regex
 const o = (b) => /[^\u0000-\u007f]/.test(b);
 const a = (b) => /^[a-zA-Z]$/.test(b);
 const i = (b) => a(b) || o(b);
@@ -56,7 +57,6 @@ const H7 = (b) => {
     if (V) {
       K = w || c(V);
       const P = [K, V];
-      // @ts-ignore
       if (K !== d && K !== I) M = P;
       Y.push(P);
     }

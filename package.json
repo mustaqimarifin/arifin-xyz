@@ -4,18 +4,19 @@
     "dev": "next dev",
     "build": " next build",
     "start": "next start",
-    "format": "pnpm dlx prettier --write . --ignore-path .gitignore",
-    "lint": "next lint",
-    "lint:fix": "pnpm format && pnpm lint --fix"
+    "format": "bunx prettier --write . --ignore-path .gitignore",
+    "lint": "next lint --ignore-path .gitignore",
+    "lint:fix": "bun run format && bun run lint --fix"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
     "@tailwindcss/typography": "^0.5.12",
-    "@types/node": "20.12.2",
-    "@types/react": "18.2.73",
-    "@types/react-dom": "18.2.23",
+    "@types/node": "20.12.4",
+    "@types/react": "18.2.74",
+    "@types/react-dom": "18.2.24",
     "autoprefixer": "^10.4.19",
     "contentlayer": "^0.3.4",
+    "fast-glob": "^3.3.2",
     "ioredis": "^5.3.2",
     "nanoid": "^5.0.6",
     "next": "^14.1.4",
@@ -25,13 +26,19 @@
     "postgres": "^3.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.8.1",
     "react-tweet": "3.2.0",
+    "rehype-mdx-import-media": "^1.1.1",
     "sharp": "^0.33.3",
     "tailwindcss": "^3.4.3",
-    "typescript": "5.4.3"
+    "typescript": "5.4.4"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "eslint": "8.57.0",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-react": "^7.34.1"
   }
 }

@@ -1,15 +1,23 @@
+/* eslint-disable react/display-name */
 import Link from "next/link";
-import Image from "./Pics";
+import dynamic from "next/dynamic";
 import { getMDXComponent } from "next-contentlayer/hooks";
-import { TweetComponent } from "./tweet";
 import { highlight } from "./sugar.mjs";
 import React from "react";
 
+const Image = dynamic(() => import("./Pics"), {
+  ssr: false,
+});
+
+const StaticTweet = dynamic(() => import("./tweet"), {
+  ssr: false,
+});
+
 function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
+  const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ));
-  let rows = data.rows.map((row, index) => (
+  const rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
         <td key={cellIndex}>{cell}</td>
@@ -28,7 +36,7 @@ function Table({ data }) {
 }
 
 function CustomLink(props) {
-  let href = props.href;
+  const href = props.href;
 
   if (href.startsWith("/")) {
     return (
@@ -44,19 +52,14 @@ function CustomLink(props) {
 
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
-
-function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
-}
-
-function Callout(props) {
+const Callout = ({ emoji, children }) => {
   return (
     <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
-      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
-      <div className="w-full callout">{props.children}</div>
+      <div className="flex items-center w-4 mr-4">{emoji}</div>
+      <div className="w-full callout">{children}</div>
     </div>
   );
-}
+};
 
 function ProsCard({ title, pros }) {
   return (
@@ -113,7 +116,7 @@ function ConsCard({ title, cons }) {
 }
 
 function Code({ children, ...props }) {
-  let codeHTML = highlight(children);
+  const codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
@@ -124,13 +127,13 @@ function slugify(str) {
     .trim() // Remove whitespace from both ends of a string
     .replace(/\s+/g, "-") // Replace spaces with -
     .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+    .replace(/[^\w-]+/g, "") // Remove all non-word characters except for -
+    .replace(/--+/g, "-"); // Replace multiple - with single -
 }
 
 function createHeading(level) {
   return ({ children }) => {
-    let slug = slugify(children);
+    const slug = slugify(children);
     return React.createElement(
       `h${level}`,
       { id: slug },
@@ -146,7 +149,7 @@ function createHeading(level) {
   };
 }
 
-let components = {
+const components = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -159,7 +162,7 @@ let components = {
   Callout,
   ProsCard,
   ConsCard,
-  StaticTweet: TweetComponent,
+  StaticTweet,
   code: Code,
   Table,
 };

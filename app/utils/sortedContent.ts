@@ -7,7 +7,7 @@ export const postParam = allNotes.map((p) =>
   pick(p, ["slug", "date", "title"]),
 );
 
-export const posts = allNotes
+export const notes = allNotes
   .filter((t) => t.draft === false)
   .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 

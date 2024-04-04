@@ -5,6 +5,8 @@ import {
   type ComputedFields,
 } from "contentlayer/source-files";
 import { readingTime } from "./app/utils";
+//@ts-expect-error ass
+import rehypeMdxImportMedia from "rehype-mdx-import-media";
 
 const computedFields: ComputedFields = {
   slug: {
@@ -145,7 +147,6 @@ export default makeSource({
   documentTypes: [Note, Project],
   mdx: {
     remarkPlugins: [],
-
-    rehypePlugins: [],
+    rehypePlugins: [rehypeMdxImportMedia],
   },
 });

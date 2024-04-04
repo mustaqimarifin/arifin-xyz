@@ -1,0 +1,6 @@
+<Image
+  alt={`Neon architecture diagram for connection pooling`}
+  src={`/backend/neon.webp`}
+  width={1600}
+  height={840}
+/>

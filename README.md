@@ -44,7 +44,7 @@ CREATE TABLE guestbook (
 );
 
 CREATE TABLE views (
-  slug VARCHAR(255) PRIMARY KEY,
+  slug TEXT PRIMARY KEY UNIQUE,
   count INT NOT NULL
 );
 ```

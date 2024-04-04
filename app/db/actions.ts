@@ -12,8 +12,16 @@ export async function increment(slug: string) {
   await rdx.incr(["pageviews", slug].join(":"));
 }
 
+export async function inc(slug: string) {
+  noStore();
+  await turso.execute({
+    sql: "INSERT INTO views (slug, count) VALUES (?, 1) ON CONFLICT (slug) DO UPDATE SET count = views.count + 1",
+    args: [slug],
+  });
+}
+
 async function getSession(): Promise<Session> {
-  let session = await auth();
+  const session = await auth();
   if (!session || !session.user) {
     throw new Error("Unauthorized");
   }
@@ -22,18 +30,18 @@ async function getSession(): Promise<Session> {
 }
 
 export async function saveGuestbookEntry(formData: FormData) {
-  let session = await getSession();
-  let email = session.user?.email as string;
-  let created_by = session.user?.name as string;
-  let avatar = session.user?.image as string;
+  const session = await getSession();
+  const email = session.user?.email as string;
+  const created_by = session.user?.name as string;
+  const avatar = session.user?.image as string;
 
-  let id = xId();
+  const id = xId();
   if (!session.user) {
     throw new Error("Unauthorized");
   }
 
-  let entry = formData.get("entry")?.toString() || "";
-  let body = entry.slice(0, 500);
+  const entry = formData.get("entry")?.toString() || "";
+  const body = entry.slice(0, 500);
 
   await turso.batch(
     [
@@ -47,7 +55,7 @@ export async function saveGuestbookEntry(formData: FormData) {
 
   revalidatePath("/guestbook");
 
-  let data = await fetch("https://api.resend.com/emails", {
+  const data = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.RESEND_SECRET}`,
@@ -61,20 +69,20 @@ export async function saveGuestbookEntry(formData: FormData) {
     }),
   });
 
-  let response = await data.json();
+  const response = await data.json();
   console.log("Email sent", response);
 }
 
 export async function deleteGuestbookEntries(selectedEntries: string[]) {
-  let session = await getSession();
-  let email = session.user?.email as string;
+  const session = await getSession();
+  const email = session.user?.email as string;
 
   if (email !== "me@arifin.xyz") {
     throw new Error("Unauthorized");
   }
 
-  let selectedEntriesAsNumbers = selectedEntries.map(Number);
-  let arrayLiteral = `{${selectedEntriesAsNumbers.join(",")}}`;
+  const selectedEntriesAsNumbers = selectedEntries.map(Number);
+  const arrayLiteral = `{${selectedEntriesAsNumbers.join(",")}}`;
 
   /*   await sql`
     DELETE FROM guestbook

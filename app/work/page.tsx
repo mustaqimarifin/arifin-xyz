@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 };
 
 async function Stars() {
-  let res = await fetch("https://api.github.com/repos/vercel/next.js");
-  let json = await res.json();
-  let count = Math.round(json.stargazers_count / 1000);
+  const res = await fetch("https://api.github.com/repos/vercel/next.js");
+  const json = await res.json();
+  const count = Math.round(json.stargazers_count / 1000);
   return `${count}k stars`;
 }
 
@@ -21,7 +21,7 @@ export default function WorkPage() {
         <p>
           On a mission to build products developers{" "}
           <Link href="/blog/developer-experience-examples">love</Link>, and
-          along the way, teach the next generation of developers. Here's a
+          along the way, teach the next generation of developers. Heres a
           summary of my work so far.
         </p>
         <hr className="my-6 border-neutral-100 dark:border-neutral-800" />

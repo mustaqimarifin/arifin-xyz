@@ -5,7 +5,8 @@ export const readingTime = (html: string): string => {
   return `${readingTimeMinutes} min read`;
 };
 
-export const cx = (...classes: any[]) => classes.filter(Boolean).join(" ");
+export const cx = (...classes: (string | undefined)[]) =>
+  classes.filter(Boolean).join(" ");
 
 type ConvertUndefined<T> = OrUndefined<{
   [K in keyof T as undefined extends T[K] ? K : never]-?: T[K];
@@ -23,5 +24,6 @@ export const pick = <Obj, Keys extends keyof Obj>(
   return keys.reduce((acc, key) => {
     acc[key] = obj[key];
     return acc;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }, {} as any);
 };
