@@ -2,9 +2,10 @@
 
 import { unstable_noStore as noStore } from "next/cache";
 import { turso } from "./postgres";
+import { tursoURL } from "../utils/env";
 
 export async function getGuestbookEntries() {
-  if (!process.env.TURSO_URL) {
+  if (!tursoURL) {
     return [];
   }
   noStore();
@@ -13,17 +14,4 @@ export async function getGuestbookEntries() {
   );
   //console.log(posts.rows)
   return rows;
-}
-
-export async function getViewsCount() {
-  if (!process.env.TURSO_URL) {
-    return [];
-  }
-  noStore();
-  return await turso.execute("SELECT * FROM views").then(({ rows }) => {
-    {
-      rows[0].slug, rows[0].count;
-    }
-    [];
-  });
 }

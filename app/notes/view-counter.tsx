@@ -1,9 +1,9 @@
-export function ViewCounter({ views }) {
+export default function ViewCounter({ views }) {
   const number = views || 0;
   return (
     <div className="flex items-center justify-center space-x-1 text-xs">
       <span className="flex items-center justify-center">{number}</span>
-      <span className="flex-1">
+      <span className="flex-1 ">
         {
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -23,26 +23,5 @@ export function ViewCounter({ views }) {
         }
       </span>{" "}
     </div>
-  );
-}
-
-export function TCounter({
-  slug,
-  allViews,
-}: {
-  slug: string;
-  allViews?: {
-    slug: string;
-    count: number;
-  }[];
-  trackView?: boolean;
-}) {
-  const viewsForSlug = allViews && allViews.find((view) => view.slug === slug);
-  const number = new Number(viewsForSlug?.count || 0);
-
-  return (
-    <p className="text-neutral-600 dark:text-neutral-400">
-      {`${number.toLocaleString()} views`}
-    </p>
   );
 }

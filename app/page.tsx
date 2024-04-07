@@ -1,24 +1,19 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import smashing from "public/images/home/band.webp";
+import heroine from "public/images/home/heroine.webp";
+import jkt from "public/images/home/jkt.webp";
+import live from "public/images/home/live.webp";
+import mnq from "public/images/home/mnq.webp";
+import ship from "public/images/home/ship.webp";
+import avatar from "app/avatar.webp";
 //import { PreloadResources } from 'app/preload';
 
 import { Views } from "./components/views";
-import {
-  mnq,
-  live,
-  heroine,
-  smashing,
-  ship,
-  jkt,
-  avatar,
-} from "./components/masonry";
+import HeroImage from "./components/vid";
 
-console.log(avatar);
-//import HeroImage from "./components/vid";
-
-/* function Badge(props) {
+function Badge(props) {
   return (
     <a
       {...props}
@@ -27,7 +22,7 @@ console.log(avatar);
     />
   );
 }
- */
+
 function ArrowIcon() {
   return (
     <svg
@@ -52,7 +47,6 @@ function ChannelLink({ img, link, name }) {
         href={link}
         target="_blank"
         className="flex w-full items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800"
-        rel="noreferrer"
       >
         <div className="flex items-center space-x-3">
           <div className="relative h-16">

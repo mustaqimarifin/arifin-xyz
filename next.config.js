@@ -1,19 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withContentlayer } = require("next-contentlayer");
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  experimental: {
-    useLightningcss: true,
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "*.twimg.com", pathname: "/**" },
       { protocol: "https", hostname: "cdn.brittanica.com", pathname: "/**" },
+      { protocol: "https", hostname: "cdn.sanity.io", pathname: "/**" },
       { protocol: "https", hostname: "i.scdn.co", pathname: "/**" },
       {
         protocol: "https",
@@ -33,8 +26,7 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
-  //output: "export",
-  //distDir: "dist",
 };
 
+// @ts-ignore
 module.exports = withContentlayer(nextConfig);

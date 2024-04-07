@@ -41,6 +41,7 @@ dd {
 }
 
 html {
+  @apply scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010];
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
@@ -48,7 +49,7 @@ html {
 }
 
 body {
-  @apply subpixel-antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
+  @apply max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
 }
 
 main {
@@ -173,5 +174,84 @@ article {
 
   .prose kbd {
     @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
+  }
+  /* Light theme (default) */
+  .tweet .react-tweet-theme {
+    /* margin is handled by our wrappers */
+    --tweet-container-margin: 0;
+    --tweet-font-family: inherit;
+    --tweet-font-color: inherit;
+
+    /* Light colors */
+    --tweet-bg-color: #fff;
+    --tweet-bg-color-hover: var(--tweet-bg-color);
+    --tweet-color-blue-secondary: theme("colors.gray.600");
+    --tweet-color-blue-secondary-hover: theme("colors.gray.100");
+    --tweet-font-color-secondary: theme("colors.gray.500");
+
+    /* Common properties for both themes */
+    --tweet-quoted-bg-color-hover: rgba(0, 0, 0, 0.03);
+    --tweet-border: 1px solid rgb(207, 217, 222);
+    --tweet-skeleton-gradient: linear-gradient(
+      270deg,
+      #fafafa,
+      #eaeaea,
+      #eaeaea,
+      #fafafa
+    );
+    --tweet-color-red-primary: rgb(249, 24, 128);
+    --tweet-color-red-primary-hover: rgba(249, 24, 128, 0.1);
+    --tweet-color-green-primary: rgb(0, 186, 124);
+    --tweet-color-green-primary-hover: rgba(0, 186, 124, 0.1);
+    --tweet-twitter-icon-color: var(--tweet-font-color);
+    --tweet-verified-old-color: rgb(130, 154, 171);
+    --tweet-verified-blue-color: var(--tweet-color-blue-primary);
+
+    --tweet-actions-font-weight: 500;
+    --tweet-replies-font-weight: 500;
+  }
+
+  /* Dark theme */
+  @media (prefers-color-scheme: dark) {
+    .tweet .react-tweet-theme {
+      /* Dark theme colors */
+      --tweet-bg-color: #222;
+      --tweet-bg-color-hover: var(--tweet-bg-color);
+      --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
+      --tweet-border: 1px solid #333;
+      --tweet-color-blue-secondary: theme("colors.white");
+      --tweet-color-blue-secondary-hover: #333;
+      --tweet-font-color-secondary: theme("colors.gray.400");
+    }
+  }
+
+  /* Common styles for both themes */
+  .tweet .react-tweet-theme p {
+    font-size: inherit;
+    line-height: 1.3rem;
+  }
+
+  .tweet .react-tweet-theme p a {
+    @apply border-b border-gray-300 transition-[border-color] hover:border-gray-600;
+  }
+
+  /* Dark theme link styles */
+  @media (prefers-color-scheme: dark) {
+    .tweet .react-tweet-theme p a {
+      @apply border-gray-500 text-white hover:border-white;
+    }
+  }
+
+  /* Remove link underline on hover for both themes */
+  .tweet .react-tweet-theme p a:hover {
+    text-decoration: none;
+  }
+
+  .tweet a div {
+    @apply font-medium tracking-tight;
+  }
+
+  .tweet div[class*="mediaWrapper"] {
+    max-height: 250px;
   }
 }

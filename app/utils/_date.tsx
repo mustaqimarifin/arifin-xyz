@@ -12,14 +12,14 @@ export function getYear(input: number | string): number {
 }
 export function getMnY(input: Date): string {
   const date = new Date(input);
-  const month = date.toLocaleString("default", { month: "long" });
-  const year = date.getFullYear();
+  let month = date.toLocaleString("default", { month: "long" });
+  let year = date.getFullYear();
   const my = `${month} ${year}`;
   return my;
 }
 export function getTime(input: number | string) {
   const date = new Date(input);
-  const n = date.toLocaleString([], {
+  let n = date.toLocaleString([], {
     hour: "2-digit",
     minute: "2-digit",
   });
@@ -34,15 +34,15 @@ export const compareDesc = (dateA: Date, dateB: Date) => {
 };
 
 export function formatDateXtra(date: string) {
-  const currentDate = new Date();
+  let currentDate = new Date();
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
   }
-  const targetDate = new Date(date);
+  let targetDate = new Date(date);
 
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  const daysAgo = currentDate.getDate() - targetDate.getDate();
+  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
+  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
+  let daysAgo = currentDate.getDate() - targetDate.getDate();
 
   let formattedDate = "";
 
@@ -56,7 +56,7 @@ export function formatDateXtra(date: string) {
     formattedDate = "Today";
   }
 
-  const fullDate = targetDate.toLocaleString("en-us", {
+  let fullDate = targetDate.toLocaleString("en-us", {
     month: "long",
     day: "numeric",
     year: "numeric",

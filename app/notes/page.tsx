@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { notes } from "../utils/sortedContent";
 import { Views } from "../components/views";
 import { formatDate } from "../utils/_date";
+import { notes } from "../utils/sortedContent";
 
 export const metadata = {
   title: "Notes",
@@ -25,6 +25,7 @@ export default function BlogPage() {
             </h2>
             <div className="flex-1 mr-4 text-neutral-600 dark:text-neutral-400  font-bold font-mono tabular-nums text-xs uppercase">
               {formatDate(post.date)}
+
               <Suspense fallback={<p className="h-6" />}>
                 <Views slug={post.slug} />
               </Suspense>

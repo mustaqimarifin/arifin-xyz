@@ -1,6 +1,11 @@
 export const intRedis = "redis://localhost:6379";
 
 export const extRedis = process.env.UPSTASH!;
+export const tursoURL = process.env.TURSO_URL as string;
+export const tursoTKN = process.env.TURSO_TOKEN as string;
+
+export const gitID = process.env.GITHUB_ID as string;
+export const gitSecret = process.env.GITHUB_SECRET as string;
 export const previews = true;
 
 export const environment = process.env.NODE_ENV || "development";

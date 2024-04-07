@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
@@ -30,8 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated",
-    "dist/types/**/*.ts"
+    ".contentlayer/generated"
   ],
-  "exclude": ["node_modules", "app/components/sugar.mjs"]
+  "exclude": ["node_modules"]
 }

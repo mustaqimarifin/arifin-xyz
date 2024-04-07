@@ -52,14 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        "scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010]",
-        PSans.variable,
-        GeistMono.variable,
-      )}
-    >
+    <html lang="en" className={cx(PSans.variable, GeistMono.variable)}>
       <head />
       <body>
         <main>

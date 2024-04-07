@@ -8,12 +8,12 @@ export const metadata = {
 };
 
 export default async function GuestbookPage() {
-  const session = await auth();
+  let session = await auth();
   if (session?.user?.email !== "me@arifin.xyz") {
     redirect("/");
   }
 
-  const entries = await getGuestbookEntries();
+  let entries = await getGuestbookEntries();
 
   return (
     <section>

@@ -26,8 +26,7 @@ const Pix = (props: Props) => {
       <Fade>
         <figure>
           <Image
-            //src={require(`../../public/images${src}`)}
-            src={require(`../../app/assets/images${src}`)}
+            src={require(`../../public/images${src}`)}
             alt={alt!}
             //width={680}
             //height={503}

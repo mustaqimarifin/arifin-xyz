@@ -1,6 +1,6 @@
 import { getTweet } from "react-tweet/api";
 import { EmbeddedTweet, TweetNotFound, type TweetProps } from "react-tweet";
-import "./tweet.css";
+//import "./tweet.css";
 
 import Image from "next/image";
 import type { TwitterComponents } from "react-tweet";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { Suspense, cache } from "react";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { postParam } from "app/utils/sortedContent";
@@ -18,8 +18,8 @@ export async function generateMetadata({
     return;
   }
 
-  const { title, date: publishedTime, summary: description, image } = post;
-  const ogImage = image
+  let { title, date: publishedTime, summary: description, image } = post;
+  let ogImage = image
     ? `https://arifin.xyz${image}`
     : `https://arifin.xyz/og?title=${title}`;
 

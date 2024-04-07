@@ -37,7 +37,6 @@ export function Navbar() {
       <use href="/sprite.svg#kit"></use>
     </svg> */}
             <div className="flex flex-row space-x-0 pr-10">
-              {/*                  <div className="bg-blend-screen text-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-2xl inline-flex py-1 px-2 justify-start ">𝖆𝖗𝖎𝖋𝖎𝖓</div> */}
               {Object.entries(navItems).map(([path, { name }]) => {
                 return (
                   <Link
