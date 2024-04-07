@@ -1,7 +1,7 @@
 export default function ViewCounter({ views }) {
   const number = views || 0;
   return (
-    <div className="flex items-center justify-center space-x-1 text-xs">
+    <div className="flex items-center justify-center space-x-1 ">
       <span className="flex items-center justify-center">{number}</span>
       <span className="flex-1 ">
         {

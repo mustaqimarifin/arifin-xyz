@@ -19,11 +19,11 @@ export default function BlogPage() {
           className="flex flex-col space-y-1 mb-4"
           href={`/notes/${post.slug}`}
         >
-          <div className="w-full flex flex-col">
-            <h2 className="text-neutral-900 dark:text-neutral-100 ">
+          <div className="w-full flex flex-col ">
+            <h2 className="text-neutral-900 dark:text-neutral-100">
               {post.title}
             </h2>
-            <div className="flex-1 mr-4 text-neutral-600 dark:text-neutral-400  font-bold font-mono tabular-nums text-xs uppercase">
+            <div className="flex-1 mr-4 text-neutral-600 dark:text-neutral-400 font-mono font-bold  tabular-nums text-xs uppercase">
               {formatDate(post.date)}
 
               <Suspense fallback={<p className="h-6" />}>
