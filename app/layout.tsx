@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import { Navbar } from "./components/nav";
 import localFont from "next/font/local";
 import { cx } from "./utils";
-import { Public_Sans } from 'next/font/google'
-
+import { Public_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arifin.xyz"),
@@ -45,9 +44,9 @@ export const metadata: Metadata = {
 };
 
 const PSans = Public_Sans({
-  variable: '--sans',
-  subsets:['latin']
-})
+  variable: "--sans",
+  subsets: ["latin"],
+});
 
 /* const PSans = localFont({
   variable: "--sans",
@@ -73,7 +72,7 @@ const PSans = Public_Sans({
 const GeistMono = localFont({
   variable: "--mono",
   src: "../public/fonts/GeistMonoVF.woff2",
-  style: "normal"
+  style: "normal",
 });
 
 export default function RootLayout({

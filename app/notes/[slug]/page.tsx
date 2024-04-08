@@ -86,7 +86,7 @@ const PostLayout = async ({ params: { slug } }) => {
             {formatDateXtra(post.date)}
           </p>
         </Suspense>
-        <Suspense fallback={<LoadingSpinner/>}>
+        <Suspense fallback={<LoadingSpinner />}>
           <TADDViews slug={post.slug} />
         </Suspense>
       </div>

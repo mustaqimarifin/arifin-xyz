@@ -5,9 +5,9 @@ import { highlight } from "./sugar.mjs";
 import dynamic from "next/dynamic";
 import { createElement } from "react";
 
- const Image = dynamic(() => import("./Pics"), {
+const Image = dynamic(() => import("./Pics"), {
   ssr: false,
-}); 
+});
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (

@@ -38,11 +38,13 @@ export function TViewCounter({
   trackView?: boolean;
 }) {
   const viewsForSlug = allViews && allViews.find((view) => view.slug === slug);
-  const number = viewsForSlug?.count || 0
+  const number = viewsForSlug?.count || 0;
 
   return (
-     <div className="flex items-center justify-center space-x-1 ">
-      <span className="flex items-center justify-center">{number.toString()}</span>
+    <div className="flex items-center justify-center space-x-1 ">
+      <span className="flex items-center justify-center">
+        {number.toString()}
+      </span>
       <span className="flex-1 ">
         {
           <svg

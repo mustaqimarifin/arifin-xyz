@@ -9,7 +9,6 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-
 export default function BlogPage() {
   return (
     <section>

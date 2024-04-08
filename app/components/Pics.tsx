@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { cx } from "../utils";
 import { Fade } from "./fade";
@@ -19,10 +19,10 @@ type Props = {
 console.log(imgSrc[]) */
 
 const Pix = (props: Props) => {
-  const { src, alt, className, caption} = props;
+  const { src, alt, className, caption } = props;
   return (
     <div className="filter drop-shadow-sm">
-      <Fade> 
+      <Fade>
         <figure>
           <Image
             src={require(`../../public/images${src}`)}
@@ -36,7 +36,11 @@ const Pix = (props: Props) => {
             className={cx(className, "rounded-lg dark:bg-zinc-900 bg-zinc-50")}
           />
           <figcaption className="text-right">
-            {caption && <span className="text-sm  text-gray-600 dark:text-gray-400">{caption}</span>}
+            {caption && (
+              <span className="text-sm  text-gray-600 dark:text-gray-400">
+                {caption}
+              </span>
+            )}
           </figcaption>
         </figure>
       </Fade>

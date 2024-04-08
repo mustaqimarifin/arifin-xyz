@@ -15,12 +15,12 @@ export async function Views({ slug }: { slug: string }) {
 }
  */
 export async function TViews({ slug }: { slug: string }) {
-  const views = await getViews()
+  const views = await getViews();
   return <TViewCounter allViews={views} slug={slug} />;
 }
 
 export async function TADDViews({ slug }: { slug: string }) {
-  inc(slug)
-  const views = await getViews()
+  inc(slug);
+  const views = await getViews();
   return <TViewCounter allViews={views} slug={slug} />;
 }

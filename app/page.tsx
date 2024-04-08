@@ -209,7 +209,7 @@ export default function Page() {
           career, sharing knowledge along the way.
         </p>
       </div>
-     {/*  <div className="my-8 flex w-full flex-col space-y-4">
+      {/*  <div className="my-8 flex w-full flex-col space-y-4">
         <BlogLink
           name="What Makes A Great Developer Experience?"
           slug="developer-experience-examples"
