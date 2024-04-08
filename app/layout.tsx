@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://opengraph.b-cdn.net/production/documents/1d49cc23-d73e-4ebb-a871-5e6d1776a3f3.jpg?token=MGJgnNi4vTLZATylW2SADdt114AYtjJb44lxW_vBF58&height=630&width=1200&expires=33248532284",
+        url: "https://www.arifin.xyz/default.jpg",
       },
     ],
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Mustaqim Arifin",
     card: "summary_large_image",
-    images: "https://opengraph.b-cdn.net/production/documents/1d49cc23-d73e-4ebb-a871-5e6d1776a3f3.jpg?token=MGJgnNi4vTLZATylW2SADdt114AYtjJb44lxW_vBF58&height=630&width=1200&expires=33248532284",
+    images: "https://www.arifin.xyz/default.jpg",
   },
 };
 
@@ -72,18 +72,8 @@ const PSans = Public_Sans({
 
 const GeistMono = localFont({
   variable: "--mono",
-  src: [
-    {
-      path: "../public/fonts/GeistMono-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/GeistMono-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+  src: "../public/fonts/GeistMonoVF.woff2",
+  style: "normal"
 });
 
 export default function RootLayout({
