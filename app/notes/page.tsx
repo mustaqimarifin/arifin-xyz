@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { Views } from "../components/views";
+import { TViews, Views } from "../components/views";
 import { formatDate } from "../utils/_date";
 import { notes } from "../utils/sortedContent";
 
@@ -28,7 +28,7 @@ export default function BlogPage() {
               {formatDate(post.date)}
 
               <Suspense fallback={<p className="h-6" />}>
-                <Views slug={post.slug} />
+                <TViews slug={post.slug} />
               </Suspense>
             </div>
           </div>

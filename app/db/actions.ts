@@ -10,7 +10,25 @@ import { xId } from "./nanoid";
 export async function increment(slug: string) {
   noStore();
   await rdx.incr(["pageviews", slug].join(":"));
+  }
+export async function ink(slug: string) {
+noStore();
+  await turso.execute(
+  { 
+  sql: "INSERT INTO views (slug, count) VALUES (?, 1) ON CONFLICT (slug) DO UPDATE SET count = views.count + 1",
+  args:[slug]}
+  )}
+  
+  type Views = {
+  slug: string
+  count: number
+  }
+export async function getViews() {
+
+  const views = await turso.execute("SELECT * FROM views")
+  return views.rows as unknown as Views[]
 }
+
 
 async function getSession(): Promise<Session> {
   let session = await auth();

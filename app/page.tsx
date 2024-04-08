@@ -6,7 +6,7 @@ import heroine from "public/images/home/heroine.webp";
 import jkt from "public/images/home/jkt.webp";
 import live from "public/images/home/live.webp";
 import mnq from "public/images/home/mnq.webp";
-import ship from "public/images/home/ship.webp";
+import ship from "public/images/home/killa.webp";
 import avatar from "app/avatar.webp";
 //import { PreloadResources } from 'app/preload';
 
