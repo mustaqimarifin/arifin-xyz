@@ -1,7 +1,7 @@
 import { postParam } from "./utils/sortedContent";
 
 export default async function sitemap() {
-  let blogs = postParam.map((post) => ({
+  let notes = postParam.map((post) => ({
     url: `https://arifin.xyz/notes/${post.slug}`,
     lastModified: post.date,
   }));
@@ -11,5 +11,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...blogs];
+  return [...routes, ...notes];
 }

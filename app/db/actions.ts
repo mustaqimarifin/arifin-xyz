@@ -2,7 +2,7 @@
 
 import { auth } from "app/auth";
 import { type Session } from "next-auth";
-import { turso } from "./postgres";
+import { turso } from "./turso";
 import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 import { rdx } from "./redis";
 import { xId } from "./nanoid";
@@ -11,7 +11,6 @@ export async function increment(slug: string) {
   noStore();
   await rdx.incr(["pageviews", slug].join(":"));
 }
-
 
 async function getSession(): Promise<Session> {
   let session = await auth();

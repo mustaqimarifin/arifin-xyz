@@ -41,7 +41,7 @@ dd {
 }
 
 html {
-  @apply  scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010];
+  @apply scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010];
 
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  @apply  max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
+  @apply max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

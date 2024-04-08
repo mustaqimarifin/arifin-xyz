@@ -2,7 +2,10 @@ import { allProjects, allNotes } from "contentlayer/generated";
 import { pick } from ".";
 import { compareDesc } from "./_date";
 
-export const projectParam = allProjects.map((p) => pick(p, ["slug"]));
+export const projectParam = allProjects.map((p) =>
+  pick(p, ["slug", "year", "title"]),
+);
+
 export const postParam = allNotes.map((p) =>
   pick(p, ["slug", "date", "title"]),
 );

@@ -1,9 +1,9 @@
 import { auth } from "app/auth";
-import { getGuestbookEntries } from "app/db/queries";
 import { SignIn, SignOut } from "./buttons";
 import { Suspense } from "react";
 import Form from "./form";
 import { Avatar } from "../components/Avatar";
+import { turso } from "../db/turso";
 
 export const metadata = {
   title: "Guestbook",
@@ -38,13 +38,14 @@ async function GuestbookForm() {
 }
 
 async function GuestbookEntries() {
-  let entries = await getGuestbookEntries();
-
-  if (entries.length === 0) {
+  const {rows} = await turso.execute(
+    "SELECT * FROM guestbook ORDER BY created_at DESC LIMIT 100",
+  );
+  if (rows.length === 0) {
     return null;
   }
 
-  return entries.map((entry) => (
+  return rows.map((entry) => (
     <div
       key={entry.id?.toString()}
       className=" flex flex-col items-center justify-between space-x-4 space-y-1 mb-4"

@@ -147,7 +147,6 @@ export default makeSource({
   documentTypes: [Note, Project],
   mdx: {
     remarkPlugins: [],
-
     rehypePlugins: [rehypeMdxImportMedia],
   },
 });

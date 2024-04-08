@@ -11,7 +11,7 @@ import avatar from "app/avatar.webp";
 //import { PreloadResources } from 'app/preload';
 
 import { Views } from "./components/views";
-import HeroImage from "./components/vid";
+//import HeroImage from "./components/vid";
 
 function Badge(props) {
   return (
@@ -101,7 +101,7 @@ function BlogLink({ slug, name }) {
   return (
     <div className="group">
       <a
-        href={`/blog/${slug}`}
+        href={`/notes/${slug}`}
         className="flex w-full items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800"
       >
         <div className="flex flex-col">
@@ -238,7 +238,7 @@ export default function Page() {
           </a>
         </div>
         <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-4 dark:border-neutral-700 dark:bg-neutral-800">
-          <a href="https://www.makeswift.com/blog/makeswift-is-joining-bigcommerce">
+          <a href="https://www.makeswift.com/notes/makeswift-is-joining-bigcommerce">
             <svg width="96" height="19" role="img" aria-label="Makeswift logo">
               <use href="/sprite.svg#makeswift" />
             </svg>
@@ -262,8 +262,8 @@ export default function Page() {
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           I've worked with and advised companies on{" "}
-          <Link href="/blog/developer-marketing">developer marketing</Link>,{" "}
-          <Link href="/blog/devrel-at-vercel">developer relations</Link>,
+          <Link href="/notes/developer-marketing">developer marketing</Link>,{" "}
+          <Link href="/notes/devrel-at-vercel">developer relations</Link>,
           building open-source communities, product-led growth, and more.
         </p>
       </div>

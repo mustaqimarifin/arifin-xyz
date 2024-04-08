@@ -20,7 +20,7 @@ export default function WorkPage() {
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           On a mission to build products developers{" "}
-          <Link href="/blog/developer-experience-examples">love</Link>, and
+          <Link href="/notes/developer-experience-examples">love</Link>, and
           along the way, teach the next generation of developers. Here's a
           summary of my work so far.
         </p>
@@ -42,7 +42,7 @@ export default function WorkPage() {
               translated customer pain
             </a>{" "}
             back into the product roadmap. We spoke at{" "}
-            <Link href="/blog/nextjs-conf-2022-recap">conferences</Link>, wrote
+            <Link href="/notes/nextjs-conf-2022-recap">conferences</Link>, wrote
             blog posts, and created videos. We built open-source examples and
             contributed back to the product.
           </li>
@@ -57,7 +57,7 @@ export default function WorkPage() {
             I partnered with our open-source community, collaborating with
             frameworks like{" "}
             <a href="https://vercel.com/docs/frameworks/nuxt">Nuxt</a> and{" "}
-            <a href="https://astro.build/blog/vercel-official-hosting-partner/">
+            <a href="https://astro.build/notes/vercel-official-hosting-partner/">
               Astro
             </a>{" "}
             and sponsoring individuals and projects.
@@ -81,7 +81,7 @@ export default function WorkPage() {
         <p>
           Hy-Vee, an almost 100-year-old grocery chain in the United States,
           wanted to build a new version of their digital storefront. I joined a
-          team of <Link href="/blog/product-engineers">product engineers</Link>{" "}
+          team of <Link href="/notes/product-engineers">product engineers</Link>{" "}
           working across web and mobile to rebuild their legacy .NET application
           (~500k MAU) with React and React Native.
         </p>
