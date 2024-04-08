@@ -38,7 +38,7 @@ async function GuestbookForm() {
 }
 
 async function GuestbookEntries() {
-  const {rows} = await turso.execute(
+  const { rows } = await turso.execute(
     "SELECT * FROM guestbook ORDER BY created_at DESC LIMIT 100",
   );
   if (rows.length === 0) {

@@ -13,7 +13,7 @@ export default async function GuestbookPage() {
     redirect("/");
   }
 
-  const {rows} = await turso.execute(
+  const { rows } = await turso.execute(
     "SELECT * FROM guestbook ORDER BY created_at DESC LIMIT 100",
   );
   return (

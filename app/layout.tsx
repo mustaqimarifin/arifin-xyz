@@ -4,7 +4,7 @@ import { Navbar } from "./components/nav";
 import localFont from "next/font/local";
 import { cx } from "./utils";
 
-const OGImg =
+export const OGImg =
   "https://opengraph.b-cdn.net/production/documents/1d49cc23-d73e-4ebb-a871-5e6d1776a3f3.jpg?token=MGJgnNi4vTLZATylW2SADdt114AYtjJb44lxW_vBF58&height=630&width=1200&expires=33248532284";
 
 export const metadata: Metadata = {
