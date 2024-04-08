@@ -19,18 +19,19 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: 'url(https://arifin.xyz/og.png)',
+          backgroundImage: 'url(https://arifin.xyz/og70.png)',
         }}>
         <div
           style={{
             marginLeft: 190,
             marginRight: 190,
             display: 'flex',
-            fontSize: 90,
+            fontSize: 80,
             fontFamily: 'Public Sans',
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
             color: 'black',
+            textShadow: '2px 2px 5px white',
             lineHeight: '120px',
             whiteSpace: 'pre-wrap',
           }}>
