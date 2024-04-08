@@ -285,7 +285,7 @@ export default function Page() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://leerob.substack.com"
+            href="https://mustaqimarifin.substack.com"
           >
             <ArrowIcon />
             <p className="ml-2 h-7">get email updates</p>
