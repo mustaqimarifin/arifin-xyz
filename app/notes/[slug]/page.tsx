@@ -5,7 +5,8 @@ import { CustomMDX } from "app/components/mdx";
 import { postParam } from "app/utils/sortedContent";
 import { formatDateXtra } from "@/app/utils/_date";
 import { allNotes } from "contentlayer/generated";
-import { AddViews, TADDViews } from "@/app/components/views";
+import { TADDViews } from "@/app/components/views";
+import LoadingSpinner from "@/app/components/Spinner";
 
 export const generateStaticParams = async () =>
   postParam.map((p) => ({ slug: p.slug }));
@@ -85,7 +86,7 @@ const PostLayout = async ({ params: { slug } }) => {
             {formatDateXtra(post.date)}
           </p>
         </Suspense>
-        <Suspense fallback={<p className="h-5" />}>
+        <Suspense fallback={<LoadingSpinner/>}>
           <TADDViews slug={post.slug} />
         </Suspense>
       </div>

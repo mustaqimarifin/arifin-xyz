@@ -8,9 +8,10 @@ import live from "public/images/home/live.webp";
 import mnq from "public/images/home/mnq.webp";
 import ship from "public/images/home/killa.webp";
 import avatar from "app/avatar.webp";
+import { TViews } from "./components/views";
 //import { PreloadResources } from 'app/preload';
 
-import { Views } from "./components/views";
+//import { Views } from "./components/views";
 //import HeroImage from "./components/vid";
 
 function Badge(props) {
@@ -109,7 +110,7 @@ function BlogLink({ slug, name }) {
             {name}
           </p>
           <Suspense fallback={<p className="h-6" />}>
-            <Views slug={slug} />
+            <TViews slug={slug} />
           </Suspense>
         </div>
         <div className="transform text-neutral-700 transition-transform duration-300 group-hover:-rotate-12 dark:text-neutral-300">
@@ -208,14 +209,14 @@ export default function Page() {
           career, sharing knowledge along the way.
         </p>
       </div>
-      <div className="my-8 flex w-full flex-col space-y-4">
+     {/*  <div className="my-8 flex w-full flex-col space-y-4">
         <BlogLink
           name="What Makes A Great Developer Experience?"
           slug="developer-experience-examples"
         />
         <BlogLink name="What is Developer Relations?" slug="devrel-at-vercel" />
         <BlogLink name="The Story of Heroku" slug="heroku" />
-      </div>
+      </div> */}
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           I invest small angel checks into early stage startups building tools

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Navbar } from "./components/nav";
 import localFont from "next/font/local";
 import { cx } from "./utils";
+import { Public_Sans } from 'next/font/google'
 
 
 export const metadata: Metadata = {
@@ -43,7 +44,12 @@ export const metadata: Metadata = {
   },
 };
 
-const PSans = localFont({
+const PSans = Public_Sans({
+  variable: '--sans',
+  subsets:['latin']
+})
+
+/* const PSans = localFont({
   variable: "--sans",
   src: [
     {
@@ -62,7 +68,7 @@ const PSans = localFont({
       style: "normal",
     },
   ],
-});
+}); */
 
 const GeistMono = localFont({
   variable: "--mono",

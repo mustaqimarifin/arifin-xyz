@@ -2,13 +2,12 @@ import Link from "next/link";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import TweetComponent from "./tweet";
 import { highlight } from "./sugar.mjs";
-
 import dynamic from "next/dynamic";
 import { createElement } from "react";
 
-const Image = dynamic(() => import("./Pics"), {
+ const Image = dynamic(() => import("./Pics"), {
   ssr: false,
-});
+}); 
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (

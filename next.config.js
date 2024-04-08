@@ -1,5 +1,7 @@
-const { withContentlayer } = require("next-contentlayer");
-
+import { withContentlayer } from "next-contentlayer"
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -28,5 +30,4 @@ const nextConfig = {
   },
 };
 
-// @ts-ignore
-module.exports = withContentlayer(nextConfig);
+export default withContentlayer(nextConfig);

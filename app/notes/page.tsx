@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { TViews, Views } from "../components/views";
+import { TViews } from "../components/views";
 import { formatDate } from "../utils/_date";
 import { notes } from "../utils/sortedContent";
 
