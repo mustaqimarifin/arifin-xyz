@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.arifin.xyz/og.jpg",
+        url: "https://www.arifin.xyz/default.jpg",
       },
     ],
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Mustaqim Arifin",
     card: "summary_large_image",
-    images: "https://www.arifin.xyz/og.jpg",
+    images: "https://www.arifin.xyz/default.jpg",
   },
 };
 
