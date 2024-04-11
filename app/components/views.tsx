@@ -1,9 +1,9 @@
-import { TViewCounter } from "../notes/view-counter";
-import { getViews, ink } from "../db/actions";
+import { TViewCounter, ViewCounter } from "../(site)/notes/view-counter";
+import {  getViewsCount, ink } from "../../db/actions";
 //import { rdx } from "../db/redis";
 import { cache } from "react";
 
-let inc = cache(ink);
+//let inc = cache(ink);
 /* export async function AddViews({ slug }: { slug: string }) {
   const views = (await rdx.get(["pageviews", slug].join(":"))) ?? 0;
   inc(slug);
@@ -15,12 +15,12 @@ export async function Views({ slug }: { slug: string }) {
 }
  */
 export async function TViews({ slug }: { slug: string }) {
-  const views = await getViews();
+  const views = await getViewsCount();
   return <TViewCounter allViews={views} slug={slug} />;
 }
 
 export async function TADDViews({ slug }: { slug: string }) {
-  inc(slug);
-  const views = await getViews();
-  return <TViewCounter allViews={views} slug={slug} />;
+  const views = await ink(slug);
+  //const views = await getViewsCount();
+  return <ViewCounter views={views} />;
 }

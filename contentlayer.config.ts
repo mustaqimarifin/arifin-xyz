@@ -7,6 +7,9 @@ import {
 import { readingTime } from "./app/utils";
 //@ts-expect-error ass
 import rehypeMdxImportMedia from "rehype-mdx-import-media";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const computedFields: ComputedFields = {
   slug: {
@@ -146,7 +149,11 @@ export default makeSource({
   contentDirPath: "./content",
   documentTypes: [Note, Project],
   mdx: {
-    remarkPlugins: [],
-    rehypePlugins: [rehypeMdxImportMedia],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "wrap" }],
+      rehypeMdxImportMedia,
+    ],
   },
 });

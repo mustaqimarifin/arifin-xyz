@@ -1,8 +1,8 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
-import { useState, useEffect } from "react";
-import { deleteGuestbookEntries } from "app/db/actions";
+import { useState, useEffect, type ReactNode } from "react";
+import { deleteGuestbookEntries } from "@/db/actions";
 
 export default function Form({ entries }) {
   const [selectedInputs, setSelectedInputs] = useState<string[]>([]);
@@ -107,14 +107,16 @@ export default function Form({ entries }) {
     >
       <DeleteButton isActive={selectedInputs.length !== 0} />
       {entries.map((entry, index) => (
-        <GuestbookEntry key={entry.id} entry={entry}>
+        <GuestbookEntry key={entry.guestbook.id} entry={entry}>
           <input
-            name={entry.id}
+            name={entry.guestbook.id}
             type="checkbox"
             className="mr-2 w-4 h-4"
-            onChange={(e) => handleCheck(e.target.checked, entry.id, index)}
-            onKeyDown={(e) => handleKeyDown(e, entry.id, index)}
-            checked={selectedInputs.includes(entry.id)}
+            onChange={(e) =>
+              handleCheck(e.target.checked, entry.guestbook.id, index)
+            }
+            onKeyDown={(e) => handleKeyDown(e, entry.guestbook.id, index)}
+            checked={selectedInputs.includes(entry.guestbook.id)}
           />
         </GuestbookEntry>
       ))}
@@ -128,9 +130,9 @@ function GuestbookEntry({ entry, children }) {
       <div className="w-full text-sm break-words items-center flex">
         {children}
         <span className="text-neutral-600 dark:text-neutral-400 mr-1 border-neutral-100">
-          {entry.created_by}:
+          {entry.user.name}:
         </span>
-        {entry.body}
+        {entry.guestbook.body}
       </div>
     </div>
   );

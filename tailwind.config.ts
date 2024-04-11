@@ -3,11 +3,13 @@ import typography from "@tailwindcss/typography";
 
 export default {
   content: ["./app/**/*.{ts,tsx}", "./content/**/*.mdx", "./public/**/*.svg"],
+  darkMode: "selector",
   theme: {
     extend: {
       fontFamily: {
         sans: ["var(--sans)"],
         mono: ["var(--mono)"],
+        major: ["var(--major)"],
       },
       fontSize: {
         xs: "0.7142857143rem", // 10px

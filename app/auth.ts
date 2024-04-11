@@ -1,6 +1,13 @@
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
+import Twitter from "next-auth/providers/twitter";
+
+//import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import type { DefaultSession } from "@auth/core/types";
 import { gitID, gitSecret } from "./utils/env";
+import { db } from "@/db";
+import { SQLiteDrizzleAdapter } from "@/db/adapter";
 
 export const {
   handlers: { GET, POST },
@@ -8,13 +15,33 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
-  providers: [
-    GitHub({
-      clientId: gitID,
-      clientSecret: gitSecret,
-    }),
-  ],
-  pages: {
-    signIn: "/sign-in",
+  adapter: SQLiteDrizzleAdapter(db),
+  providers: [GitHub, Google, Twitter],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.sub = user.id;
+      }
+      return token;
+    },
+    async session({ session, user }) {
+      session.userId = user.id;
+      return session;
+    },
   },
+  /*   pages: {
+    signIn: "/sign-in",
+  }, */
 });
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      /**
+       * Returned by `useViewerQuery`, `getSession` and received as a prop on the `SessionProvider` React Context
+       */
+      id: string;
+    } & DefaultSession["user"];
+    userId: string;
+  }
+}

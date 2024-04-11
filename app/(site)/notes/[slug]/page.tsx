@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { postParam } from "app/utils/sortedContent";
 import { formatDateXtra } from "@/app/utils/_date";
-import { allNotes } from "contentlayer/generated";
 import { TADDViews } from "@/app/components/views";
 import LoadingSpinner from "@/app/components/Spinner";
+import { allNotes } from "contentlayer/generated";
 
 export const generateStaticParams = async () =>
   postParam.map((p) => ({ slug: p.slug }));

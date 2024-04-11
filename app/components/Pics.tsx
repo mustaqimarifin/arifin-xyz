@@ -5,7 +5,7 @@ import { Fade } from "./fade";
 
 type Props = {
   src: string;
-  alt?: string;
+  alt: string;
   caption?: string;
   width?: string | number;
   height?: string | number;

@@ -1,9 +1,12 @@
 import "./global.css";
 import type { Metadata } from "next";
-import { Navbar } from "./components/nav";
+//import { Navbar } from "./components/nav";
 import localFont from "next/font/local";
 import { cx } from "./utils";
-import { Public_Sans } from "next/font/google";
+import { Fugaz_One, Major_Mono_Display, Public_Sans } from "next/font/google";
+import { Kont } from "./components/HomeNav";
+import { ThemeProvider } from "next-themes";
+import Provider from "./components/Provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arifin.xyz"),
@@ -48,6 +51,12 @@ const PSans = Public_Sans({
   subsets: ["latin"],
 });
 
+const Major = Fugaz_One({
+  variable: "--major",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 /* const PSans = localFont({
   variable: "--sans",
   src: [
@@ -72,6 +81,7 @@ const PSans = Public_Sans({
 const GeistMono = localFont({
   variable: "--mono",
   src: "../public/fonts/GeistMonoVF.woff2",
+  weight:"variable",
   style: "normal",
 });
 
@@ -81,12 +91,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(PSans.variable, GeistMono.variable)}>
+    <html
+      lang="en"
+      className={cx(PSans.variable, GeistMono.variable, Major.variable)}
+    >
       <head />
       <body>
         <main>
-          <Navbar />
-          {children}
+          <Provider>{children}</Provider>
         </main>
       </body>
     </html>

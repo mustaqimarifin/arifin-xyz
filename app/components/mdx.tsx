@@ -9,7 +9,7 @@ const Image = dynamic(() => import("./Pics"), {
   ssr: false,
 });
 
-function Table({ data }) {
+/* function Table({ data }) {
   let headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ));
@@ -30,7 +30,7 @@ function Table({ data }) {
     </table>
   );
 }
-
+ */
 function CustomLink(props) {
   let href = props.href;
 
@@ -132,7 +132,7 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
+/* function createHeading(level) {
   return ({ children }) => {
     let slug = slugify(children);
     return createElement(
@@ -148,15 +148,15 @@ function createHeading(level) {
       children,
     );
   };
-}
+} */
 
 let components = {
-  h1: createHeading(1),
+  /*   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
   h4: createHeading(4),
   h5: createHeading(5),
-  h6: createHeading(6),
+  h6: createHeading(6), */
   img: Image,
   Image,
   a: CustomLink,
@@ -165,7 +165,7 @@ let components = {
   ConsCard,
   StaticTweet: TweetComponent,
   code: Code,
-  Table,
+  //able,
 };
 
 export async function CustomMDX(props: any) {

@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+.trailsText {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  color: black;
+  font-size: 6em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+
+.trailsText > div {
+  padding-right: 0.05em;
+  overflow: hidden;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.deck {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.deck > div {
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 45vh;
+  max-width: 150px;
+  height: 85vh;
+  max-height: 285px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow:
+    0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
 ::selection {
   background-color: theme("colors.pink.300");
   color: theme("colors.stone.600");
@@ -49,6 +101,14 @@ html {
   min-width: 360px;
 }
 
+.bg-wrap {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: visible;
+  z-index: -1;
+}
+
 body {
   @apply max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
   -webkit-font-smoothing: antialiased;
@@ -56,7 +116,7 @@ body {
 }
 
 main {
-  @apply flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0;
+  @apply flex-auto min-w-0 mt-6 flex flex-col ;
 }
 
 pre::-webkit-scrollbar {
@@ -75,6 +135,7 @@ input[type="email"] {
   -moz-appearance: none;
   appearance: none;
 }
+
 table {
   display: block;
   max-width: fit-content;
@@ -88,6 +149,7 @@ h3,
 h4 {
   @apply text-balance font-semibold;
 }
+
 article {
   @apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty;
 }
@@ -183,7 +245,7 @@ article {
     /* margin is handled by our wrappers */
     --tweet-container-margin: 0;
     --tweet-font-family: inherit;
-    --tweet-font-color: inherit;
+    --tweet-font-color: theme("colors.white");
 
     /* Light colors */
     --tweet-bg-color: #fff;
