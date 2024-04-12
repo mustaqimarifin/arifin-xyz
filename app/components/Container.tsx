@@ -1,7 +1,5 @@
 "use client";
 import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import NextLink from "next/link";
 import { cx } from "../utils";
 
@@ -27,20 +25,9 @@ function NavItem({ href, text }) {
 }
 
 export default function Container(props) {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, theme, setTheme } = useTheme();
 
-  // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  if (!mounted) {
-    return null;
-  }
-  const currentTheme = theme === "system" ? resolvedTheme : theme;
-
-  const { children, ...customMeta } = props;
+  const { children } = props;
 
   return (
     <>

@@ -3,6 +3,7 @@ export const isDev = environment === "development";
 export const isProd = environment === "production";
 export const intRedis = "redis://localhost:6379";
 export const tursoLCL = "http://127.0.0.1:8080";
+export const adminEmail = "mustaqim.arifin@gmail.com"
 export const extRedis = process.env.UPSTASH!;
 export const tursoURL = process.env.TURSO_URL as string;
 export const tursoTKN = process.env.TURSO_TOKEN as string;

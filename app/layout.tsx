@@ -1,12 +1,8 @@
 import "./global.css";
 import type { Metadata } from "next";
-//import { Navbar } from "./components/nav";
 import localFont from "next/font/local";
 import { cx } from "./utils";
-import { Fugaz_One, Major_Mono_Display, Public_Sans } from "next/font/google";
-import { Kont } from "./components/HomeNav";
-import { ThemeProvider } from "next-themes";
-import Provider from "./components/Provider";
+import { Fugaz_One,  Public_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arifin.xyz"),
@@ -98,7 +94,7 @@ export default function RootLayout({
       <head />
       <body>
         <main>
-          <Provider>{children}</Provider>
+         {children}
         </main>
       </body>
     </html>

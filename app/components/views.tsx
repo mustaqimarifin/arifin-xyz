@@ -1,7 +1,6 @@
 import { TViewCounter, ViewCounter } from "../(site)/notes/view-counter";
 import {  getViewsCount, ink } from "../../db/actions";
-//import { rdx } from "../db/redis";
-import { cache } from "react";
+
 
 //let inc = cache(ink);
 /* export async function AddViews({ slug }: { slug: string }) {
