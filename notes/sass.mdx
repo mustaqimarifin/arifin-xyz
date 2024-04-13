@@ -4,7 +4,14 @@ date: "2017-11-12"
 summary: "Using animation to simulate loading text content."
 ---
 
-![Loading Placeholder](/sass/example.webp)
+<Image
+  alt={`Loading Placeholder`}
+  src={`/sass/example.webp`}
+  width={695}
+  height={419}
+  priority
+/>
+
 
 As you walk through the office at work reading the news on your phone, you enter an elevator. You had just attempted to load a new page only to be greeted with a painful loading spinner. No one likes this experience.
 
@@ -18,11 +25,21 @@ Skeleton screens build anticipation for the content that is going to appear wher
 
 By now, you've probably seen some examples of skeleton screens in your daily browsing without even noticing. For example - Facebook shows users gray circles and lines to represent the contents of a post in their timeline.
 
-![Loading Placeholder](/sass/facebook.webp)
+<Image
+  alt={`Facebook Placeholder`}
+  src={`/sass/facebook.webp`}
+  width={1045}
+  height={680}
+/>
 
 It's not just Facebook either. [LinkedIn](https://www.linkedin.com) has also re-designed their layout to use placeholders.
 
-![Loading Placeholder](/sass/linkedin.webp)
+<Image
+  alt={`LinkedIn Placeholder`}
+  src={`/sass/linkedin.webp`}
+  width={1618}
+  height={1126}
+/>
 
 You can trick your users into thinking your website loads faster using skeleton screens. Let's look at how you can actually create this effect using some simple HTML and Scss.
 
@@ -32,6 +49,15 @@ First, let's create the base structure. In this example, the placeholder is supp
 
 ```html
 <div class="text-input__loading">
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
+  <div class="text-input__loading--line"></div>
   <div class="text-input__loading--line"></div>
 </div>
 ```
@@ -93,9 +119,14 @@ We can use the newly created mixin to change the width of all 10 children `div` 
 
 ### Final Result 🎉
 
-![Loading Placeholder](/sass/final-result.webp)
+<Image
+  alt={`Loading Placeholder Final Result`}
+  src={`/sass/final-result.webp`}
+  width={650}
+  height={223}
+/>
 
-You can view the code and a live example on [CodePen](https://codepen.io/mustaqimarifin/pen/XzRzpb?editors=1100). There's also a React library called [react-placeholder](https://github.com/buildo/react-placeholder) that achieves the same effect.
+You can view the code and a live example on [CodePen](https://codepen.io/leerob/pen/XzRzpb?editors=1100). There's also a React library called [react-placeholder](https://github.com/buildo/react-placeholder) that achieves the same effect.
 
 Further Reading:
 

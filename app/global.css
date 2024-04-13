@@ -2,164 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-.trailsText {
-  position: relative;
-  width: 100%;
-  height: 80px;
-  line-height: 80px;
-  color: black;
-  font-size: 6em;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  will-change: transform, opacity;
-  overflow: hidden;
+/* @font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans.woff2") format("woff2-variations");
+  src: url("/fonts/PublicSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+  unicode-range: U+000-5FF;
 }
 
-.trailsText > div {
-  padding-right: 0.05em;
-  overflow: hidden;
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMonoVF.woff2") format("woff2-variations");
+  src: url("/fonts/GeistMonoVF.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+  unicode-range: U+000-5FF;
 }
+ */
 
-.cards {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: center;
-}
+@layer base {
+  ::selection {
+    background-color: theme('colors.pink.300');
+    color: theme('colors.stone.600');
+  }
 
-.deck {
-  position: absolute;
-  width: 300px;
-  height: 200px;
-  will-change: transform;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  touch-action: none;
-}
+  :root {
+    --sh-class: theme('colors.pink.300');
+    --sh-identifier: theme('colors.violet.300');
+    --sh-sign: theme('colors.stone.200');
+    --sh-string: theme('colors.emerald.300');
+    --sh-keyword: theme('colors.cyan.300');
+    --sh-comment: theme('colors.stone.400');
+    --sh-jsxliterals: theme('colors.emerald.300');
+    --sh-property: theme('colors.pink.300');
+    --sh-entity: theme('colors.red.400');
+  }
 
-.deck > div {
-  background-color: white;
-  background-size: auto 85%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 45vh;
-  max-width: 150px;
-  height: 85vh;
-  max-height: 285px;
-  will-change: transform;
-  border-radius: 10px;
-  box-shadow:
-    0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
-    0 10px 10px -10px rgba(50, 50, 73, 0.3);
-}
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-::selection {
-  background-color: theme("colors.pink.300");
-  color: theme("colors.stone.600");
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance font-semibold;
+  }
 
-:root {
-  --sh-class: theme("colors.pink.300");
-  --sh-identifier: theme("colors.violet.300");
-  --sh-sign: theme("colors.stone.200");
-  --sh-string: theme("colors.emerald.300");
-  --sh-keyword: theme("colors.cyan.300");
-  --sh-comment: theme("colors.stone.400");
-  --sh-jsxliterals: theme("colors.emerald.300");
-  --sh-property: theme("colors.pink.300");
-  --sh-entity: theme("colors.red.400");
-}
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: 0;
+  }
 
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  html {
+    @apply scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010];
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    min-width: 360px;
+  }
 
-/* Remove default margin in favour of better control in authored CSS */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin-block-end: 0;
-}
+  body {
+    @apply max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-html {
-  @apply scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010];
+  main {
+    @apply flex-auto min-w-0 mt-6 flex flex-col;
+  }
 
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  min-width: 360px;
-}
+  pre::-webkit-scrollbar {
+    display: none;
+  }
 
-.bg-wrap {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  overflow: visible;
-  z-index: -1;
-}
+  pre {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 
-body {
-  @apply max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Remove Safari input shadow on mobile */
+  input[type='text'],
+  input[type='email'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 
-main {
-  @apply flex-auto min-w-0 mt-6 flex flex-col ;
-}
+  table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Remove Safari input shadow on mobile */
-input[type="text"],
-input[type="email"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  @apply text-balance font-semibold;
-}
-
-article {
-  @apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty;
+  article {
+    @apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty;
+  }
 }
 
 @layer components {
-  .prose :where(code):not(:where([class~="not-prose"] *))::before {
+  .prose :where(code):not(:where([class~='not-prose'] *))::before {
     content: none;
   }
 
-  .prose :where(code):not(:where([class~="not-prose"] *))::after {
+  .prose :where(code):not(:where([class~='not-prose'] *))::after {
     content: none;
   }
 
@@ -169,7 +129,6 @@ article {
 
   .prose .anchor {
     @apply absolute invisible no-underline;
-
     margin-left: -1em;
     padding-right: 0.5em;
     width: 80%;
@@ -187,7 +146,7 @@ article {
 
   .prose .anchor:after {
     @apply text-neutral-300 dark:text-neutral-700;
-    content: "#";
+    content: '#';
   }
 
   .prose *:hover > .anchor {
@@ -245,25 +204,19 @@ article {
     /* margin is handled by our wrappers */
     --tweet-container-margin: 0;
     --tweet-font-family: inherit;
-    --tweet-font-color: theme("colors.white");
+    --tweet-font-color: theme('colors.white');
 
     /* Light colors */
     --tweet-bg-color: #fff;
     --tweet-bg-color-hover: var(--tweet-bg-color);
-    --tweet-color-blue-secondary: theme("colors.gray.600");
-    --tweet-color-blue-secondary-hover: theme("colors.gray.100");
-    --tweet-font-color-secondary: theme("colors.gray.500");
+    --tweet-color-blue-secondary: theme('colors.gray.600');
+    --tweet-color-blue-secondary-hover: theme('colors.gray.100');
+    --tweet-font-color-secondary: theme('colors.gray.500');
 
     /* Common properties for both themes */
     --tweet-quoted-bg-color-hover: rgba(0, 0, 0, 0.03);
     --tweet-border: 1px solid rgb(207, 217, 222);
-    --tweet-skeleton-gradient: linear-gradient(
-      270deg,
-      #fafafa,
-      #eaeaea,
-      #eaeaea,
-      #fafafa
-    );
+    --tweet-skeleton-gradient: linear-gradient(270deg, #fafafa, #eaeaea, #eaeaea, #fafafa);
     --tweet-color-red-primary: rgb(249, 24, 128);
     --tweet-color-red-primary-hover: rgba(249, 24, 128, 0.1);
     --tweet-color-green-primary: rgb(0, 186, 124);
@@ -284,9 +237,9 @@ article {
       --tweet-bg-color-hover: var(--tweet-bg-color);
       --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
       --tweet-border: 1px solid #333;
-      --tweet-color-blue-secondary: theme("colors.white");
+      --tweet-color-blue-secondary: theme('colors.white');
       --tweet-color-blue-secondary-hover: #333;
-      --tweet-font-color-secondary: theme("colors.gray.400");
+      --tweet-font-color-secondary: theme('colors.gray.400');
     }
   }
 
@@ -316,7 +269,17 @@ article {
     @apply font-medium tracking-tight;
   }
 
-  .tweet div[class*="mediaWrapper"] {
+  .tweet div[class*='mediaWrapper'] {
     max-height: 250px;
+  }
+}
+
+@layer utilities {
+  .bg-wrap {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow: visible;
+    z-index: -1;
   }
 }

@@ -1,0 +1,212 @@
+[
+	{
+		"title": "2023 Blog Refresh",
+		"summary": "Including some of my latest hot takes (okay they are pretty mild).",
+		"date": "2023-11-19",
+		"draft": false,
+		"_id": "notes/2023.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/2023.mdx",
+			"sourceFileName": "2023.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/2023"
+		},
+		"type": "Note",
+		"slug": "2023",
+		"wordCount": 1418,
+		"readTime": "8 min read",
+		"slugAsParams": "2023"
+	},
+	{
+		"title": "2023 State of Databases for Serverless & Edge",
+		"summary": "An overview of databases that pair well with modern application and compute providers.",
+		"date": "2023-01-25",
+		"image": "/backend/og.webp",
+		"draft": false,
+		"_id": "notes/backend.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/backend.mdx",
+			"sourceFileName": "backend.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/backend"
+		},
+		"type": "Note",
+		"slug": "backend",
+		"wordCount": 1692,
+		"readTime": "9 min read",
+		"slugAsParams": "backend"
+	},
+	{
+		"title": "Programming Portfolios",
+		"summary": "Tips for creating a portfolio that stands out.",
+		"date": "2017-02-24",
+		"draft": false,
+		"_id": "notes/beginners-guide-to-the-programming-portfolio.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/beginners-guide-to-the-programming-portfolio.mdx",
+			"sourceFileName": "beginners-guide-to-the-programming-portfolio.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/beginners-guide-to-the-programming-portfolio"
+		},
+		"type": "Note",
+		"slug": "beginners-guide-to-the-programming-portfolio",
+		"wordCount": 386,
+		"readTime": "3 min read",
+		"slugAsParams": "beginners-guide-to-the-programming-portfolio"
+	},
+	{
+		"title": "How I Became a Software Engineer (From Designer to Developer)",
+		"summary": "Learn about my overnight success story, ten years in the making.",
+		"date": "2021-07-19",
+		"draft": false,
+		"_id": "notes/career.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/career.mdx",
+			"sourceFileName": "career.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/career"
+		},
+		"type": "Note",
+		"slug": "career",
+		"wordCount": 1412,
+		"readTime": "8 min read",
+		"slugAsParams": "career"
+	},
+	{
+		"title": "Community-Messaging Fit",
+		"summary": "Community-messaging fit is when you've found the right description of the product that connects with the majority of your community.",
+		"date": "2023-03-07",
+		"draft": false,
+		"_id": "notes/community-messaging-fit.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/community-messaging-fit.mdx",
+			"sourceFileName": "community-messaging-fit.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/community-messaging-fit"
+		},
+		"type": "Note",
+		"slug": "community-messaging-fit",
+		"wordCount": 334,
+		"readTime": "3 min read",
+		"slugAsParams": "community-messaging-fit"
+	},
+	{
+		"title": "How Should I Style My React Application?",
+		"summary": "Learn how CSS has evolved and explore pros and cons of different styling solutions for React.",
+		"date": "2020-09-14",
+		"draft": false,
+		"_id": "notes/css-with-react.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/css-with-react.mdx",
+			"sourceFileName": "css-with-react.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/css-with-react"
+		},
+		"type": "Note",
+		"slug": "css-with-react",
+		"wordCount": 1305,
+		"readTime": "6 min read",
+		"slugAsParams": "css-with-react"
+	},
+	{
+		"title": "How I'm Writing CSS in 2024",
+		"summary": "Notes on the state of the CSS ecosystem and tooling.",
+		"date": "2024-01-07",
+		"draft": false,
+		"_id": "notes/css.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/css.mdx",
+			"sourceFileName": "css.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/css"
+		},
+		"type": "Note",
+		"slug": "css",
+		"wordCount": 1244,
+		"readTime": "7 min read",
+		"slugAsParams": "css"
+	},
+	{
+		"title": "Getting started",
+		"summary": "Hit the ground running.",
+		"date": "2024-03-22",
+		"draft": false,
+		"_id": "notes/dd.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/dd.mdx",
+			"sourceFileName": "dd.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/dd"
+		},
+		"type": "Note",
+		"slug": "dd",
+		"wordCount": 257,
+		"readTime": "2 min read",
+		"slugAsParams": "dd"
+	},
+	{
+		"title": "On Developer Marketing",
+		"summary": "Developer marketing is not traditional marketing.",
+		"date": "2024-03-21",
+		"draft": false,
+		"_id": "notes/developer-marketing.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/developer-marketing.mdx",
+			"sourceFileName": "developer-marketing.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/developer-marketing"
+		},
+		"type": "Note",
+		"slug": "developer-marketing",
+		"wordCount": 1313,
+		"readTime": "8 min read",
+		"slugAsParams": "developer-marketing"
+	},
+	{
+		"title": "What is Developer Relations?",
+		"summary": "My opinion on what DevRel is and how it should be done.",
+		"date": "2022-05-09",
+		"draft": false,
+		"_id": "notes/devrel-at-vercel.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/devrel-at-vercel.mdx",
+			"sourceFileName": "devrel-at-vercel.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/devrel-at-vercel"
+		},
+		"type": "Note",
+		"slug": "devrel-at-vercel",
+		"wordCount": 210,
+		"readTime": "2 min read",
+		"slugAsParams": "devrel-at-vercel"
+	},
+	{
+		"title": "Creating a Loading Placeholder with Sass",
+		"summary": "Using animation to simulate loading text content.",
+		"date": "2017-11-12",
+		"draft": false,
+		"_id": "notes/sass.mdx",
+		"_raw": {
+			"sourceFilePath": "notes/sass.mdx",
+			"sourceFileName": "sass.mdx",
+			"sourceFileDir": "notes",
+			"contentType": "mdx",
+			"flattenedPath": "notes/sass"
+		},
+		"type": "Note",
+		"slug": "sass",
+		"wordCount": 542,
+		"readTime": "4 min read",
+		"slugAsParams": "sass"
+	}
+]

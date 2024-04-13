@@ -1,0 +1,51 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.6.4/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"enabled": true,
+		"lineWidth": 120,
+		"ignore": [".next/**", "node_modules/**", ".contentlayer/**"]
+	},
+	"files": {
+		"ignore": [".next/**", "node_modules/**", ".contentlayer/**"]
+	},
+	"linter": {
+		"ignore": [".next/**", "node_modules/**", ".contentlayer/**", "app/components/sugar.mjs"],
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noBannedTypes": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"a11y": {
+				"useButtonType": "off",
+				"noSvgWithoutTitle": "off",
+				"useKeyWithClickEvents": "off"
+			},
+			"correctness": {
+				"noChildrenProp": "off",
+				"useExhaustiveDependencies": "warn"
+			},
+			"suspicious": {
+				"noExplicitAny": "off",
+				"noImplicitAnyLet": "off",
+				"noArrayIndexKey": "off"
+			},
+			"style": {
+				"useConst": "off",
+				"noUnusedTemplateLiteral": "off",
+				"noNonNullAssertion": "off"
+			}
+		}
+	}
+}
