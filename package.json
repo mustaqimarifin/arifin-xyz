@@ -20,7 +20,6 @@
 		"contentlayer": "^0.3.4",
 		"drizzle-kit": "^0.20.14",
 		"drizzle-orm": "^0.30.8",
-		"image-dimensions": "^2.3.0",
 		"nanoid": "^5.0.7",
 		"next": "^14.2.1",
 		"next-auth": "5.0.0-beta.16",

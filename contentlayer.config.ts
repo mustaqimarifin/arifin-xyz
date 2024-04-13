@@ -1,5 +1,4 @@
 import { type ComputedFields, defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 //@ts-ignore
 import impMedia, { type RehypeMdxImportMediaOptions } from "rehype-mdx-import-media";
 import rehypePresetMinify from "rehype-preset-minify";
@@ -154,7 +153,6 @@ export default makeSource({
 		remarkPlugins: [remarkUnwrapImages, remarkGfm],
 		rehypePlugins: [
 			rehypeSlug,
-			/* 	[rehypeAutolinkHeadings, { behavior: "wrap" }], */
 			//@ts-ignore
 			[impMedia, mdxImgOptions],
 			//@ts-ignore

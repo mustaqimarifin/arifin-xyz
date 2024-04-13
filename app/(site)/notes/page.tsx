@@ -8,12 +8,14 @@ export const metadata = {
 	title: "Notes",
 	description: "Read my thoughts on software development, design, and more.",
 };
+//export const generateStaticParams = async () => notes.map((p) => ({ slug: p.slug }));
 
-export default async function BlogPage() {
+const NoteLayout = () => {
+	//const noates = notes.find((p) => p.slug === slug);
 	return (
 		<section>
 			<div className="font-black text-3xl mb-8 ">Notes</div>
-			{notes.map((post) => (
+			{notes?.map((post) => (
 				<Link key={post.slug} className="flex flex-col space-y-1 mb-4" href={`/notes/${post.slug}`}>
 					<div className="w-full flex flex-col ">
 						<h2 className="text-neutral-900 dark:text-neutral-100">{post.title}</h2>
@@ -28,4 +30,6 @@ export default async function BlogPage() {
 			))}
 		</section>
 	);
-}
+};
+
+export default NoteLayout;

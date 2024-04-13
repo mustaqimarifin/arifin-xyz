@@ -1,5 +1,4 @@
 import { getMDXComponent } from "next-contentlayer/hooks";
-import dynamic from "next/dynamic";
 import NextImage from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";

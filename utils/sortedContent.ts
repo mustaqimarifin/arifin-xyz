@@ -5,11 +5,13 @@ import { compareDesc } from "./_date";
 
 export const projectParam = allProjects.map((p) => pick(p, ["slug", "year", "title"]));
 
-export const noteParam = allNotes.map((p) => pick(p, ["slug", "date", "title"]));
+export const noteParam = allNotes.map((p) => pick(p, ["slug", "date", "title", "draft"]));
 
-export const notes = allNotes
+export const notes = noteParam
 	.filter((t) => t.draft === false)
 	.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+
+//console.log(notes);
 
 export const projects = allProjects
 	.filter((p) => !p.playground && p.draft === false)
