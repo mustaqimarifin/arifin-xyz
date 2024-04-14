@@ -1,4 +1,4 @@
-const { withContentlayer } = require("next-contentlayer");
+const { withContentlayer } = require("next-contentlayer2");
 //import { withContentlayer } from "next-contentlayer";
 
 /**
@@ -9,7 +9,6 @@ const nextConfig = {
 		formats: ["image/avif", "image/webp"],
 		remotePatterns: [
 			{ protocol: "https", hostname: "*.twimg.com", pathname: "/**" },
-			{ protocol: "https", hostname: "cdni.pornpics.com", pathname: "/**" },
 			{ protocol: "https", hostname: "cdn.sanity.io", pathname: "/**" },
 			{ protocol: "https", hostname: "i.scdn.co", pathname: "/**" },
 			{
@@ -30,6 +29,18 @@ const nextConfig = {
 		],
 		dangerouslyAllowSVG: true,
 	},
+	/*  webpack: (config, options) => {
+    config.module.rules.push(      {
+      test: /\.(jpe?g|png|svg|gif|ico|ttf|woff2|mp4|webp|webm)$/,
+      type: 'asset',
+      generator: {
+        filename: 'static/chunks/[path][name].[hash][ext]',
+				//filename: '_next/static/[path][name].[hash].[ext]'
+      },
+    });
+
+      return config;
+  } */
 };
 
 module.exports = withContentlayer(nextConfig);

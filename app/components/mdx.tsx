@@ -1,11 +1,11 @@
-import { getMDXComponent } from "next-contentlayer/hooks";
+import { getMDXComponent } from "next-contentlayer2/hooks";
 import NextImage from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import FileTree, { type SpriteProps } from "./FileTree";
 import RImage from "./Pics";
 import { highlight } from "./sugar.mjs";
-import TweetComponent from "./tweet";
+import StaticTweet from "./tweet";
 
 /* const Image = dynamic(() => import("./Pics"), {
 	ssr: false,
@@ -155,35 +155,6 @@ const heading = (As: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") => {
 	return Heading;
 };
 
-function slugify(str) {
-	return str
-		.toString()
-		.toLowerCase()
-		.trim() // Remove whitespace from both ends of a string
-		.replace(/\s+/g, "-") // Replace spaces with -
-		.replace(/&/g, "-and-") // Replace & with 'and'
-		.replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-		.replace(/\-\-+/g, "-"); // Replace multiple - with single -
-}
-
-/* function createHeading(level) {
-  return ({ children }) => {
-    let slug = slugify(children);
-    return createElement(
-      `h${level}`,
-      { id: slug },
-      [
-        createElement("a", {
-          href: `#${slug}`,
-          key: `link-${slug}`,
-          className: "anchor",
-        }),
-      ],
-      children,
-    );
-  };
-} */
-
 const components = {
 	h1: heading("h1"),
 	h2: heading("h2"),
@@ -198,10 +169,9 @@ const components = {
 	Callout,
 	ProsCard,
 	ConsCard,
-	StaticTweet: TweetComponent,
+	StaticTweet,
 	code: Code,
 	FileTree,
-	//able,
 };
 
 export async function CustomMDX(props: any) {

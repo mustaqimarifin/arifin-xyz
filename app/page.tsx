@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import av3 from "public/av3.svg";
 import { Suspense } from "react";
-
 import { PageLinks } from "./components/HomeNav";
 import { TViews } from "./components/views";
 
@@ -104,12 +103,12 @@ export default function Page() {
 	return (
 		<section className="">
 			<PageLinks />
-			<div className="bg-wrap relative dark:invert">
-				<div className="absolute inset-x-0 bottom-0 min-h-screen  ">
+			<div className="dark:invert">
+				<div className="bg-wrap">
 					{" "}
-					<svg width={600} height={600} role="img" aria-label="Linear logo">
+					{/* <svg width={500} height={700} className="max-w-md" role="img" aria-label="Linear logo">
 						<use href="/ui.svg#kitteh" />
-					</svg>{" "}
+					</svg>{" "} */}
 				</div>
 
 				{/* <Image

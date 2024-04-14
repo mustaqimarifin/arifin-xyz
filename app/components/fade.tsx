@@ -12,9 +12,7 @@ export const Fade = ({ children }: { children: ReactNode }) => {
 		<div
 			suppressHydrationWarning
 			ref={ref}
-			className={`transition-all duration-500 ${
-				inView ? "fade-in blur-0 opacity-100  " : "fade-out blur-md  opacity-0"
-			}`}
+			className={`transition-all duration-500 ${inView ? "fade-in blur-0 opacity-100" : "fade-out blur-md  opacity-0"}`}
 		>
 			{children}
 		</div>

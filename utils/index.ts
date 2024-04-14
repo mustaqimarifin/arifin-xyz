@@ -32,3 +32,19 @@ export function stripUndefined<T>(obj: T): Pick<T, NonNullableProps<T>> {
 	for (const key in obj) if (obj[key] !== undefined) result[key] = obj[key];
 	return result;
 }
+
+export function slugify(str) {
+	return str
+		.toString()
+		.toLowerCase()
+		.trim() // Remove whitespace from both ends of a string
+		.replace(/\s+/g, "-") // Replace spaces with -
+		.replace(/&/g, "-and-") // Replace & with 'and'
+		.replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+		.replace(/\-\-+/g, "-"); // Replace multiple - with single -
+}
+
+const s = "hello you there";
+
+const x = slugify(s);
+console.log(x);

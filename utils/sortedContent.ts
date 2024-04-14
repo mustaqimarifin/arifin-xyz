@@ -5,7 +5,7 @@ import { compareDesc } from "./_date";
 
 export const projectParam = allProjects.map((p) => pick(p, ["slug", "year", "title"]));
 
-export const noteParam = allNotes.map((p) => pick(p, ["slug", "date", "title", "draft"]));
+export const noteParam = allNotes.map((p) => pick(p, ["slug", "date", "title", "draft", "tags"]));
 
 export const notes = noteParam
 	.filter((t) => t.draft === false)

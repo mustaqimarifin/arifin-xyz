@@ -42,35 +42,35 @@ export const metadata: Metadata = {
 };
 
 /* const PSans = localFont({
-  variable: "--sans",
-  src: [
-    {
-      path: "../public/fonts/PublicSans-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/PublicSans-SemiBold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/PublicSans-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+	variable: "--sans",
+	src: [
+		{
+			path: "../public/fonts/PublicSans-Regular.woff2",
+			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "../public/fonts/PublicSans-SemiBold.woff2",
+			weight: "600",
+			style: "normal",
+		},
+		{
+			path: "../public/fonts/PublicSans-Bold.woff2",
+			weight: "700",
+			style: "normal",
+		},
+	],
 }); */
 
 /* const GeistMono = localFont({
-  variable: "--mono",
-  src: "../public/fonts/GeistMonoVF.woff2",
-  weight:"variable",
-  style: "normal",
+	variable: "--mono",
+	src: "../public/fonts/GeistMonoVF.woff2",
+	weight:"variable",
+	style: "normal",
 });
 const PSans = localFont({
-  variable: "--public-sans",
-  src: "../public/fonts/GeistMonoVF.woff2",
+	variable: "--public-sans",
+	src: "../public/fonts/GeistMonoVF.woff2",
 display:"swap"
 });
  */
@@ -86,6 +86,7 @@ const GMono = localFont({
 	variable: "--geist-mono",
 	src: "../public/fonts/GeistMonoVF.woff2",
 	weight: "400 700",
+	preload: false,
 	display: "swap",
 });
 export default function RootLayout({

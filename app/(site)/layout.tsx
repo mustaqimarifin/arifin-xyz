@@ -1,9 +1,14 @@
-import Container from "../components/Container";
+import Nav2 from "../components/Container";
 
 export default function SiteLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	return <Container>{children}</Container>;
+	return (
+		<>
+			<Nav2 />
+			{children}
+		</>
+	);
 }

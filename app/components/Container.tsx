@@ -22,8 +22,8 @@ function NavItem({ href, text }) {
 	);
 }
 
-export default function Container(props) {
-	const { children } = props;
+export default function Nav2() {
+	//const { children } = props;
 
 	return (
 		<>
@@ -44,7 +44,7 @@ export default function Container(props) {
 					<NavItem href="/guestbook" text="GUESTBOOK" />
 				</div>
 			</nav>
-			<div>{children}</div>
+			{/* 	<div>{children}</div> */}
 		</>
 	);
 }

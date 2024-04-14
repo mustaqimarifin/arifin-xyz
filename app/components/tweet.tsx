@@ -1,6 +1,5 @@
 import { EmbeddedTweet, TweetNotFound, type TweetProps } from "react-tweet";
 import { getTweet } from "react-tweet/api";
-//import "./tweet.css";
 
 import Image from "next/image";
 import type { TwitterComponents } from "react-tweet";
@@ -31,7 +30,7 @@ const TweetContent = async ({ id, onError }: TweetProps) => {
 	return <EmbeddedTweet tweet={tweet} components={components} />;
 };
 
-export const ReactTweet = (props: TweetProps) => <TweetContent {...props} />;
+const ReactTweet = (props: TweetProps) => <TweetContent {...props} />;
 
 export default function TweetComponent({ id }: { id: string }) {
 	return (
