@@ -1,5 +1,5 @@
 const { withContentlayer } = require("next-contentlayer2");
-//import { withContentlayer } from "next-contentlayer";
+//import { withContentlayer } from "next-contentlayer2";
 
 /**
  * @type {import('next').NextConfig}
@@ -45,4 +45,4 @@ const nextConfig = {
 
 module.exports = withContentlayer(nextConfig);
 
-//export default withContentlayer(nextConfig);https://cdni.pornpics.com/1280/7/252/42499672/42499672_078_4595.jpg
+//export default withContentlayer(nextConfig);

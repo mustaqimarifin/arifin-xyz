@@ -106,6 +106,7 @@ const NonLeafNode = ({ node, depth }: NodeProps) => (
 
 const FileTree = ({ nodes, className }: Props) => (
 	<div
+		id="filetree"
 		className={cx(
 			"not-prose font-mono text-sm flex flex-col gap-2 overflow-x-scroll rounded-md border-2 border-stone-300 p-5 shadow-md dark:border-stone-700",
 			className,

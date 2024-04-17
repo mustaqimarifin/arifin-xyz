@@ -1,16 +1,25 @@
 import { getMDXComponent } from "next-contentlayer2/hooks";
+import slow from "next/dynamic";
 import NextImage from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import FileTree, { type SpriteProps } from "./FileTree";
+import type { SpriteProps } from "./FileTree";
 import RImage from "./Pics";
-import { highlight } from "./sugar.mjs";
+//import { highlight } from "./sugar.mjs";
 import StaticTweet from "./tweet";
 
-/* const Image = dynamic(() => import("./Pics"), {
+/* const Image = slow(() => import("./Pics"), {
 	ssr: false,
 });
  */
+
+const FileTree = slow(() => import("./FileTree"), {
+	ssr: false,
+});
+
+/* const StaticTweet = slow(() => import("./tweet"), {
+	ssr: false,
+}); */
 /* function Table({ data }) {
   let headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
@@ -121,11 +130,11 @@ function ConsCard({ title, cons }) {
 	);
 }
 
-function Code({ children, ...props }) {
+/* function Code({ children, ...props }) {
 	const codeHTML = highlight(children);
 	return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
-
+ */
 type HeadingProps = {
 	id?: string;
 	children?: ReactNode;
@@ -170,11 +179,11 @@ const components = {
 	ProsCard,
 	ConsCard,
 	StaticTweet,
-	code: Code,
+	//code: Code,
 	FileTree,
 };
 
-export async function CustomMDX(props: any) {
+export async function MDX(props: any) {
 	const Component = getMDXComponent(props.code);
 	return <Component {...props} components={{ ...components, ...(props.components || {}) }} />;
 }

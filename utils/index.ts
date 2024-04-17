@@ -1,3 +1,5 @@
+import type { Options } from "rehype-pretty-code";
+
 export const readingTime = (html: string): string => {
 	const textOnly = html.replace(/<[^>]+>/g, "");
 	const wordCount = textOnly.split(/\s+/).length;
@@ -52,3 +54,21 @@ export async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit
 	const res = await fetch(input, init);
 	return res.json();
 }
+
+export const codeOptions: Options = {
+	keepBackground: false,
+	filterMetaString: (string) => string.replace(/filename="[^"]*"/, ""),
+	//theme: JSON.parse(fs.readFileSync('./lib/moonlight-ii.json', 'utf-8')),
+	theme: "one-dark-pro",
+	onVisitLine(node) {
+		if (node.children.length === 0) {
+			node.children = [{ type: "text", value: " " }];
+		}
+	},
+	onVisitHighlightedLine(node) {
+		node.properties.className?.push("highlighted");
+	},
+	onVisitHighlightedChars(node) {
+		node.properties.className = ["word"];
+	},
+};

@@ -16,4 +16,20 @@ const HeroImage = () => {
 	);
 };
 
-export default HeroImage;
+export const VideoPlayer = (props) => {
+	return (
+		<div className="flex size-16 overflow-hidden aspect-video">
+			<video
+				autoPlay
+				loop
+				muted
+				playsInline
+				//width={200}
+				//height={200}
+				className="flex-1 object-cover "
+			>
+				<source src={props.src} type="video/mp4" />
+			</video>
+		</div>
+	);
+};

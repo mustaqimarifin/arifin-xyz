@@ -3,8 +3,8 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { cx } from "../../utils";
 
-const activeStyle = `font-black text-gray-800 dark:text-gray-200`;
-const inactiveStyle = `font-semibold text-gray-600 dark:text-gray-400`;
+const activeStyle = cx(`font-black text-gray-800 dark:text-gray-200`);
+const inactiveStyle = cx(`font-semibold text-gray-600 dark:text-gray-400`);
 
 function NavItem({ href, text }) {
 	const path = usePathname();

@@ -1,7 +1,7 @@
 import { TADDViews } from "@/app/components/views";
 import { formatDateXtra } from "@/utils/_date";
 import { projectParam } from "@/utils/sortedContent";
-import { CustomMDX } from "app/components/mdx";
+import { MDX } from "app/components/mdx";
 import { allNotes, allProjects } from "contentlayer/generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -81,7 +81,7 @@ const PostLayout = async ({ params: { slug } }) => {
 				</Suspense>
 			</div>
 			<article>
-				<CustomMDX code={post.body.code} />
+				<MDX code={post.body.code} />
 			</article>
 		</section>
 	);

@@ -14,6 +14,9 @@ CLS ([Cumulative Layout Shift](https://blog.hubspot.com/marketing/cumulative-lay
 
 ## next/image
 
+The result of `[1, 2, 3].join('-'){:js}` is `'1-2-3'{:js}`.
+
+
 In [Next.js](https://nextjs.org/) we can use the [next/image](https://nextjs.org/docs/api-reference/next/image) component to avoid this bad user experience.
 `next/image` automatically optimizes our images in three ways to reduce the slow loading times:
 
@@ -112,6 +115,8 @@ const Markdown = ({ code }: Props) => {
 
 export default Markdown;
 ```
+
+<StaticTweet id="1780064571165642989"/>
 
 And that's it, we are now using `next/image` to render our markdown images.
 This approach works, but it is not ideal, because the images can't be located next to the content.
@@ -333,7 +338,14 @@ export default makeSource({
 </Callout>
 
 
-
+```rust title="fib.rs"
+fn fib(n: u64) -> u64 {
+  if n <= 1 {
+    return n;
+  }
+  fib(n - 1) + fib(n - 2)
+}
+```
 
 ### Conclusion
 

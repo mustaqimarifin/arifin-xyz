@@ -4,14 +4,14 @@ import { useState } from "react";
 //import type { Note } from "contentlayer/generated";
 import NoteList from "./NoteList";
 
-export default function NoteLayout({ notes }) {
+export default function NoteLayout({ posts, notes, years }) {
 	const [searchValue, setSearchValue] = useState("");
-	const filterednotes = notes.filter((post) => post.title.toLowerCase().includes(searchValue.toLowerCase()));
+	const filterednotes = posts?.filter((post) => post.title.toLowerCase().includes(searchValue.toLowerCase()));
 
 	return (
 		<section className="h-dvh">
 			<div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
-				<h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">Notes</h1>
+				<h1 className=" mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">Notes</h1>
 				<p className="mb-4 text-neutral-900 dark:text-neutral-100">
 					{`I've been writing online since 2014, mostly about web development and tech careers.
             In total, I've written ${notes.length} articles on this site.
@@ -64,13 +64,22 @@ export default function NoteLayout({ notes }) {
         )} */}
 				<div className="mt-8 mb-2" />
 				{!filterednotes.length && <p className="mb-4 text-gray-600 dark:text-gray-400">No posts found.</p>}
-				<ul>
-					{filterednotes.map((post) => (
-						<li key={post.slug}>
-							<NoteList key={post.title} {...post} />
-						</li>
-					))}
-				</ul>
+				{years.map((year) => (
+					<section key={year} className="space-y-4">
+						<div className="font-semibold font-mono text-sm text-black dark:text-gray-300 hover:dark:text-pink-300">
+							{year}
+						</div>
+						<div>
+							<ul className="flex flex-col gap-4">
+								{notes[year].map((post) => (
+									<li key={post.slug}>
+										<NoteList {...post} />
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+				))}
 			</div>
 		</section>
 	);

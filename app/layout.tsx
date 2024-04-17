@@ -85,7 +85,7 @@ const PSans = localFont({
 const GMono = localFont({
 	variable: "--geist-mono",
 	src: "../public/fonts/GeistMonoVF.woff2",
-	weight: "400 700",
+	weight: "400 900",
 	preload: false,
 	display: "swap",
 });

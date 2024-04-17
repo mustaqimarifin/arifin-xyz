@@ -1,4 +1,4 @@
-import typography from "@tailwindcss/typography";
+import t from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 export default {
@@ -27,5 +27,5 @@ export default {
 	future: {
 		hoverOnlyWhenSupported: true,
 	},
-	plugins: [typography],
+	plugins: [t],
 } satisfies Config;

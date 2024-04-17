@@ -3,10 +3,22 @@ import { getTweet } from "react-tweet/api";
 
 import Image from "next/image";
 import type { TwitterComponents } from "react-tweet";
+import { VideoPlayer } from "./vid";
 
-export const components: TwitterComponents = {
+type VideoProps = {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+};
+type TComponents = {
+	VideoPlayer?: ((props: VideoProps) => JSX.Element) | undefined;
+} & TwitterComponents;
+
+export const components: TComponents = {
 	AvatarImg: (props) => <Image {...props} />,
 	MediaImg: (props) => <Image {...props} fill />,
+	VideoPlayer: (props) => <VideoPlayer {...props} />,
 };
 
 const TweetContent = async ({ id, onError }: TweetProps) => {

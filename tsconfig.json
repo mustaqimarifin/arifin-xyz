@@ -37,7 +37,8 @@
 		"eslint.config.js",
 		"next.config.js",
 		"postcss.config.js",
-		"utils/withoutBody.mjs"
+		"utils/withoutBody.mjs",
+		"contentlayer.config.js"
 	],
 	"exclude": ["node_modules"]
 }

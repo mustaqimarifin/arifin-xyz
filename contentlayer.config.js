@@ -1,21 +1,26 @@
 import { writeFileSync } from "node:fs";
-import { type ComputedFields, defineDocumentType, defineNestedType, makeSource } from "contentlayer2/source-files";
-//@ts-ignore
-import impMedia, { type RehypeMdxImportMediaOptions } from "rehype-mdx-import-media";
+import { defineDocumentType, defineNestedType, makeSource } from "contentlayer2/source-files";
+import impMedia from "rehype-mdx-import-media";
 import rehypePresetMinify from "rehype-preset-minify";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import { readingTime, slugify } from "./utils";
+import { codeOptions, readingTime, slugify } from "./utils/index.js";
 import remarkUnwrapImages from "./utils/unwrapImages.js";
 
 const root = process.cwd();
 const isProduction = process.env.NODE_ENV === "production";
 
-const computedFields: ComputedFields = {
-	/* 	slug: {
-		type: "string",
-		resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx/, ""),
-	}, */
+/** @type {import('contentlayer2/source-files').ComputedFields} */
+const computedFields = {
+	tweetIds: {
+		type: "list",
+		resolve: (doc) => {
+			const tweetMatches = doc.body.raw.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
+			const tweetIDs = tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
+			return tweetIDs ?? [];
+		},
+	},
 	wordCount: {
 		type: "number",
 		resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
@@ -42,7 +47,7 @@ const Credits = defineNestedType(() => ({
 }));
 
 function createTagCount(allNotes) {
-	const tagCount: Record<string, number> = {};
+	const tagCount = {};
 	for (const file of allNotes) {
 		if (file.tags && (!isProduction || file.draft !== true)) {
 			for (const tag of file.tags) {
@@ -163,7 +168,7 @@ const Project = defineDocumentType(() => ({
 	computedFields,
 }));
 
-const mdxImgOptions: RehypeMdxImportMediaOptions = {
+const mdxImgOptions = {
 	preserveHash: "both",
 	preserveQuery: "both",
 	resolve: false,
@@ -175,13 +180,7 @@ export default makeSource({
 	mdx: {
 		cwd: root,
 		remarkPlugins: [remarkUnwrapImages, remarkGfm],
-		rehypePlugins: [
-			rehypeSlug,
-			//@ts-ignore
-			[impMedia, mdxImgOptions],
-			//@ts-ignore
-			rehypePresetMinify,
-		],
+		rehypePlugins: [[rehypePrettyCode, codeOptions], rehypeSlug, [impMedia, mdxImgOptions], rehypePresetMinify],
 	},
 	onSuccess: async (importData) => {
 		const { allNotes } = await importData();

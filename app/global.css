@@ -91,7 +91,13 @@
 
   pre {
     -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    //padding: 1rem 0; /* Firefox */
+    @apply !px-0 rounded-lg;
+  }
+
+  pre [data-line] {
+    @apply px-6;
   }
 
   /* Remove Safari input shadow on mobile */
@@ -112,9 +118,19 @@
   article {
     @apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty;
   }
+  [data-rehype-pretty-code-title] {
+    @apply bg-zinc-700 text-zinc-200 rounded-t-lg py-2 px-3 font-semibold text-sm;
+  }
+
+  figcaption + pre {
+    @apply !rounded-t-none;
+  }
 }
 
 @layer components {
+  .clock {
+    @apply fixed bottom-0 ml-4 left-0 col-span-full lg:col-start-9 lg:col-span-8 row-start-1 lg:row-auto self-start flex flex-col justify-between pt-6  font-bold font-mono text-[4vw] tabular-nums;
+  }
   .prose :where(code):not(:where([class~='not-prose'] *))::before {
     content: none;
   }
@@ -161,16 +177,11 @@
   }
 
   .prose pre {
-    @apply dark:bg-stone-700 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
-  }
-  .prose code {
-    @apply px-1 py-0.5 rounded-lg  dark:bg-stone-700;
+    @apply dark:bg-neutral-800 rounded-lg overflow-x-auto;
   }
 
-  .prose pre code {
-    @apply p-0;
-    border: initial;
-    line-height: 1.5;
+  .prose code {
+    @apply px-1 py-0.5 rounded-lg  dark:bg-neutral-800;
   }
 
   .prose code span {
@@ -275,18 +286,30 @@
 }
 
 @layer utilities {
-
-}
-  .bg-wrap {
-  @apply w-[500px] h-[600px] md:w-[600px];
-    position: fixed;
-    background-image: url("/av3.svg");
-    //height: 600px;
-    //width: 500px;
-    margin-bottom: 10%;
-    overflow: visible;
-    background-position-x: 50%; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    //background-size: cover; /* Resize the background image to cover the entire container */
-    z-index: -1;
+  #filetree {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
   }
+}
+.bg-wrap {
+  @apply w-[500px] h-[600px] md:w-[600px];
+  position: fixed;
+  background-image: url('/av3.svg');
+  //height: 600px;
+  //width: 500px;
+  margin-bottom: 10%;
+  overflow: visible;
+  background-position-x: 50%; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  //background-size: cover; /* Resize the background image to cover the entire container */
+  z-index: -1;
+}
+
+.animate {
+  @apply opacity-0 translate-y-3;
+  @apply transition-all duration-700 ease-out;
+}
+
+.animate.show {
+  @apply opacity-100 translate-y-0;
+}
