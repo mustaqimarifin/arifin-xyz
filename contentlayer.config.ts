@@ -1,13 +1,12 @@
-import { allNotes } from "contentlayer/generated";
+import { writeFileSync } from "node:fs";
 import { type ComputedFields, defineDocumentType, defineNestedType, makeSource } from "contentlayer2/source-files";
 //@ts-ignore
 import impMedia, { type RehypeMdxImportMediaOptions } from "rehype-mdx-import-media";
 import rehypePresetMinify from "rehype-preset-minify";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import remarkUnwrapImages from "remark-unwrap-images";
+import remarkUnwrapImages from "./utils/unwrapImages.js";
 import { readingTime, slugify } from "./utils";
-import { writeFileSync } from "node:fs";
 
 const root = process.cwd();
 const isProduction = process.env.NODE_ENV === "production";
@@ -174,6 +173,7 @@ export default makeSource({
 	contentDirPath: "./content",
 	documentTypes: [Note, Project],
 	mdx: {
+		cwd: root,
 		remarkPlugins: [remarkUnwrapImages, remarkGfm],
 		rehypePlugins: [
 			rehypeSlug,

@@ -1,5 +1,6 @@
+"use server";
 import { TViewCounter, ViewCounter } from "../(site)/notes/view-counter";
-import { getViewsCount, ink } from "../../db/actions";
+import { getViews, ink } from "../../db/actions";
 
 //let inc = cache(ink);
 /* export async function AddViews({ slug }: { slug: string }) {
@@ -13,7 +14,7 @@ export async function Views({ slug }: { slug: string }) {
 }
  */
 export async function TViews({ slug }: { slug: string }) {
-	const views = await getViewsCount();
+	const views = await getViews();
 	return <TViewCounter allViews={views} slug={slug} />;
 }
 

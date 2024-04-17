@@ -1,5 +1,5 @@
 import type { Config } from "drizzle-kit";
-import { tursoTKN, tursoURL } from "./utils/env";
+import { env } from "./site.config";
 //import { localTURSO } from "./db";
 
 export default {
@@ -7,8 +7,7 @@ export default {
 	out: "./db/migrations",
 	driver: "turso",
 	dbCredentials: {
-		//url: localTURSO ,
-		url: tursoURL,
-		authToken: tursoTKN,
+		url: env.tursoURL,
+		authToken: env.tursoTKN,
 	},
 } satisfies Config;

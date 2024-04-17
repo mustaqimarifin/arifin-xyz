@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { cx } from "../../utils";
-//import { Fade } from "./fade";
+import { Fade } from "./fade";
 
 type Props = {
 	src: string;
@@ -13,11 +13,6 @@ type Props = {
 	className?: string;
 };
 
-//console.log(rimages)
-
-/* const imgSrc = await getProps()
-console.log(imgSrc[]) */
-
 const Pix = (props: Props) => {
 	const { src, alt, className, caption, width, height } = props;
 	//let ext = src.startsWith("http");
@@ -27,28 +22,20 @@ const Pix = (props: Props) => {
 
 	return (
 		<div className="filter drop-shadow-sm">
-			{/* 			<Fade>
-			 */} <figure>
-				<Image
-					src={path}
-					alt={alt}
-					//blurDataURL={blurDataURL}
-					//placeholder="blur"
-					width={Number(width)}
-					height={Number(height)}
-					//width={680}
-					//height={503}
-					//sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-					//sizes="(max-width: 1920px) 213px, 33vw"
-					//width={width}
-					//height={height}
-					className={cx(className, "rounded-lg dark:bg-zinc-900 bg-zinc-50")}
-				/>
-				<figcaption className="text-right">
-					{caption && <span className="text-sm  text-gray-600 dark:text-gray-400">{caption}</span>}
-				</figcaption>
-			</figure>
-			{/* </Fade> */}
+			<Fade>
+				<figure>
+					<Image
+						src={path}
+						alt={alt}
+						width={Number(width)}
+						height={Number(height)}
+						className={cx(className, "rounded-lg dark:bg-zinc-900 bg-zinc-50")}
+					/>
+					<figcaption className="text-right">
+						{caption && <span className="text-sm  text-gray-600 dark:text-gray-400">{caption}</span>}
+					</figcaption>
+				</figure>
+			</Fade>
 		</div>
 	);
 };

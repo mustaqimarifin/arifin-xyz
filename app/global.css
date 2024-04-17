@@ -29,7 +29,7 @@
 
   :root {
     --sh-class: theme('colors.pink.300');
-    --sh-identifier: theme('colors.violet.300');
+    --sh-identifier: theme('colors.zinc.200');
     --sh-sign: theme('colors.stone.200');
     --sh-string: theme('colors.emerald.300');
     --sh-keyword: theme('colors.cyan.300');

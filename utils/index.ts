@@ -5,7 +5,11 @@ export const readingTime = (html: string): string => {
 	return `${readingTimeMinutes} min read`;
 };
 
-export const cx = (...classes: any[]) => classes.filter(Boolean).join(" ");
+export type ClassValue = ClassArray | ClassDictionary | string | number | null | boolean | undefined;
+export type ClassDictionary = Record<string, any>;
+export type ClassArray = ClassValue[];
+
+export const cx = (...classes: ClassValue[]) => classes.filter(Boolean).join(" ");
 
 type ConvertUndefined<T> = OrUndefined<{
 	[K in keyof T as undefined extends T[K] ? K : never]-?: T[K];
@@ -43,8 +47,3 @@ export function slugify(str) {
 		.replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
 		.replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
-
-const s = "hello you there";
-
-const x = slugify(s);
-console.log(x);

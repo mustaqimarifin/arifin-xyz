@@ -1,6 +1,7 @@
 "use client";
 
 import { deleteGuestbookEntries } from "@/db/actions";
+import { cx } from "@/utils";
 import { useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -118,8 +119,6 @@ function GuestbookEntry({ entry, children }) {
 		</div>
 	);
 }
-
-const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 function DeleteButton({ isActive }) {
 	const { pending } = useFormStatus();

@@ -1,10 +1,24 @@
 "use server";
+import { env } from "@/site.config";
 import { auth } from "app/auth";
 import { desc, eq, sql } from "drizzle-orm";
 import type { Session } from "next-auth";
-import { unstable_noStore as noStore, revalidatePath } from "next/cache";
+import { unstable_cache as cache, unstable_noStore as noStore, revalidatePath } from "next/cache";
 import { db } from ".";
 import { guestbook, users, views } from "./schema";
+
+export const getViews = cache(
+	async (): Promise<{ slug: string; count: number }[]> => {
+		const res = await db.select().from(views);
+
+		return res as Views[];
+	},
+	["views"],
+	{
+		revalidate: 86400,
+	},
+);
+
 export async function getViewsCount(): Promise<{ slug: string; count: number }[]> {
 	if (!db) {
 		return [];
@@ -93,7 +107,7 @@ export async function deleteGuestbookEntries(selectedEntries: string[]) {
 	const session = await getSession();
 	const email = session.user?.email as string;
 
-	if (email !== "mustaqim.arifin@gmail.com") {
+	if (email !== env.adminEmail) {
 		throw new Error("Unauthorized");
 	}
 

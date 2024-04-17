@@ -11,13 +11,29 @@
 	"formatter": {
 		"enabled": true,
 		"lineWidth": 120,
-		"ignore": [".next/**", "node_modules/**", ".contentlayer/**"]
+		"ignore": [
+			".next/**",
+			"node_modules/**",
+			".contentlayer/**",
+			"utils/unwrapImages.js"
+		]
 	},
 	"files": {
-		"ignore": [".next/**", "node_modules/**", ".contentlayer/**"]
+		"ignore": [
+			".next/**",
+			"node_modules/**",
+			".contentlayer/**",
+			"utils/unwrapImages.js"
+		]
 	},
 	"linter": {
-		"ignore": [".next/**", "node_modules/**", ".contentlayer/**", "app/components/sugar.mjs"],
+		"ignore": [
+			".next/**",
+			"node_modules/**",
+			".contentlayer/**",
+			"app/components/sugar.mjs",
+			"utils/unwrapImages.js"
+		],
 		"enabled": true,
 		"rules": {
 			"recommended": true,

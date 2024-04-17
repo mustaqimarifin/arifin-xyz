@@ -5,9 +5,7 @@ import Twitter from "next-auth/providers/twitter";
 
 import { db } from "@/db";
 import { SQLiteDrizzleAdapter } from "@/db/adapter";
-//import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import type { DefaultSession } from "@auth/core/types";
-import { gitID, gitSecret } from "../utils/env";
 
 export const {
 	handlers: { GET, POST },
