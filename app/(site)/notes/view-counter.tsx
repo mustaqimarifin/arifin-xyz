@@ -31,7 +31,7 @@ export function TViewCounter({
 	allViews,
 }: {
 	slug: string;
-	allViews: {
+	allViews?: {
 		slug: string;
 		count: number;
 	}[];

@@ -5,8 +5,8 @@ import impMedia, { type RehypeMdxImportMediaOptions } from "rehype-mdx-import-me
 import rehypePresetMinify from "rehype-preset-minify";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import remarkUnwrapImages from "./utils/unwrapImages.js";
 import { readingTime, slugify } from "./utils";
+import remarkUnwrapImages from "./utils/unwrapImages.js";
 
 const root = process.cwd();
 const isProduction = process.env.NODE_ENV === "production";

@@ -1,14 +1,28 @@
+import { fetcher } from "@/utils";
+import { formatDate } from "@/utils/_date";
 import Link from "next/link";
+import { Suspense } from "react";
+import useSWR from "swr";
+import { TViewCounter } from "../(site)/notes/view-counter";
 
-export default function NoteList({ children, title, summary, slug }) {
+type Views = {
+	slug: string;
+	count: number;
+};
+
+export default function NoteList({ title, date, slug }) {
+	const { data: views } = useSWR<Views[]>(`/api/views`, fetcher);
+
 	return (
-		<Link className="w-full" href={`/blog/${slug}`}>
-			<div className="w-full mb-8">
-				<div className="flex flex-col justify-between md:flex-row">
-					<h4 className="w-full mb-2 text-lg font-medium text-gray-900 md:text-xl dark:text-gray-100">{title}</h4>
-					<p className="w-32 mb-4 text-left text-gray-500 md:text-right md:mb-0">{children}</p>
+		<Link className="flex flex-col space-y-1 mb-6  " href={`/notes/${slug}`}>
+			<div className=" flex flex-col  ">
+				<h2 className="text-neutral-900 dark:text-neutral-100">{title}</h2>
+				<div className="flex-1 mr-4 text-neutral-600 dark:text-neutral-400 font-mono font-bold tabular-nums text-xs uppercase">
+					{formatDate(date)}
+					<Suspense>
+						<TViewCounter allViews={views} slug={slug} />
+					</Suspense>
 				</div>
-				<p className="text-gray-600 dark:text-gray-400">{summary}</p>
 			</div>
 		</Link>
 	);

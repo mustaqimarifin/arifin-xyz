@@ -47,3 +47,8 @@ export function slugify(str) {
 		.replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
 		.replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
+
+export async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
+	const res = await fetch(input, init);
+	return res.json();
+}

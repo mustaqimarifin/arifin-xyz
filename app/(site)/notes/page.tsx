@@ -1,3 +1,4 @@
+import NoteLayout from "@/app/components/NoteLayout";
 import { LoadingSpinner } from "@/app/components/Spinner";
 import Tag from "@/app/components/Tag";
 import { formatDate } from "@/utils/_date";
@@ -11,12 +12,10 @@ export const metadata = {
 	description: "Read my thoughts on software development, design, and more.",
 };
 
-//export const generateStaticParams = async () => notes.map((p) => ({ slug: p.slug }));
-
-const NoteLayout = () => {
-	//const noates = notes.find((p) => p.slug === slug);
+const RSCNoteLayout = () => {
 	return (
-		<section className="h-dvh">
+		<NoteLayout notes={notes} />
+		/* 	<section className="h-dvh">
 			<div className="font-black text-3xl mb-8">Notes</div>
 			<ul>
 				{notes.map((post) => (
@@ -30,18 +29,13 @@ const NoteLayout = () => {
 										<TViews slug={post.slug} />
 									</Suspense>
 								</div>
-								{/* <div className=" space-y-2 flex flex-wrap">
-									{post.tags?.map((tag) => (
-										<Tag key={tag} text={tag} />
-									))}
-								</div> */}
 							</div>
 						</Link>
 					</li>
 				))}
 			</ul>
-		</section>
+		</section> */
 	);
 };
 
-export default NoteLayout;
+export default RSCNoteLayout;
