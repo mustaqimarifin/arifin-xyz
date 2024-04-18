@@ -5,6 +5,12 @@
 /.pnp
 .pnp.js
 
+s.js
+
+notes/*.mdx
+
+/db/migrations
+
 # testing
 /coverage
 

@@ -2,25 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans.woff2") format("woff2-variations");
-  src: url("/fonts/PublicSans.woff2") format("woff2");
-  font-weight: 300 700;
-  font-display: swap;
-  unicode-range: U+000-5FF;
-}
-
-@font-face {
-  font-family: "Geist Mono";
-  src: url("/fonts/GeistMonoVF.woff2") format("woff2-variations");
-  src: url("/fonts/GeistMonoVF.woff2") format("woff2");
-  font-weight: 300 700;
-  font-display: swap;
-  unicode-range: U+000-5FF;
-}
- */
-
 @layer base {
   ::selection {
     background-color: theme('colors.pink.300');
@@ -92,12 +73,12 @@
   pre {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none;
-    //padding: 1rem 0; /* Firefox */
+    padding: 1rem 0; /* Firefox */
     @apply !px-0 rounded-lg;
   }
 
   pre [data-line] {
-    @apply px-6;
+    @apply px-2;
   }
 
   /* Remove Safari input shadow on mobile */
@@ -118,6 +99,7 @@
   article {
     @apply prose prose-quoteless prose-neutral dark:prose-invert text-pretty;
   }
+
   [data-rehype-pretty-code-title] {
     @apply bg-zinc-700 text-zinc-200 rounded-t-lg py-2 px-3 font-semibold text-sm;
   }
@@ -129,7 +111,7 @@
 
 @layer components {
   .clock {
-    @apply fixed bottom-0 ml-4 left-0 col-span-full lg:col-start-9 lg:col-span-8 row-start-1 lg:row-auto self-start flex flex-col justify-between pt-6  font-bold font-mono text-[4vw] tabular-nums;
+    @apply md:fixed bottom-0 left-0 col-span-full lg:col-start-9 lg:col-span-8 row-start-1 lg:row-auto self-start flex flex-col justify-between pt-4  font-bold font-mono text-[6vw] md:text-[4vw] md:ml-6 tabular-nums;
   }
   .prose :where(code):not(:where([class~='not-prose'] *))::before {
     content: none;
@@ -177,15 +159,11 @@
   }
 
   .prose pre {
-    @apply dark:bg-neutral-800 rounded-lg overflow-x-auto;
+    @apply rounded-lg overflow-x-auto;
   }
 
   .prose code {
-    @apply px-1 py-0.5 rounded-lg  dark:bg-neutral-800;
-  }
-
-  .prose code span {
-    @apply font-medium;
+    @apply font-mono self-center m-1 items-center align-baseline text-pink-400 dark:text-pink-300 rounded-lg;
   }
 
   .prose strong {
@@ -292,12 +270,12 @@
   }
 }
 .bg-wrap {
-  @apply w-[500px] h-[600px] md:w-[600px];
+  @apply w-[500px] h-[600px] md:w-[650px] dark:invert;
   position: fixed;
   background-image: url('/av3.svg');
-  //height: 600px;
-  //width: 500px;
-  margin-bottom: 10%;
+  min-height: 100vh;
+
+  //margin-bottom: 10%;
   overflow: visible;
   background-position-x: 50%; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */

@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>%5BARIFIN-XYZ%5D</title>
+      <link>https://arifin.xyz/notes</link>
+      <description>Music%20Producer%20%7C%20Regional%20Manager</description>
+      <language>en-us</language>
+      <managingEditor>mus@arifin.xyz (Mustaqim Arifin)</managingEditor>
+      <webMaster>mus@arifin.xyz (Mustaqim Arifin)</webMaster>
+      <lastBuildDate>Wed, 17 Apr 2024 23:00:40 GMT</lastBuildDate>
+      <atom:link href="https://arifin.xyz/tags/trends/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://arifin.xyz/notes/backend</guid>
+    <title>2023%20State%20of%20Databases%20for%20Serverless%20%26%20Edge</title>
+    <link>https://arifin.xyz/notes/backend</link>
+    <description>An%20overview%20of%20databases%20that%20pair%20well%20with%20modern%20application%20and%20compute%20providers.</description>
+    <pubDate>Wed, 17 Apr 2024 23:00:40 GMT</pubDate>
+    <author>mus@arifin.xyz (Mustaqim Arifin)</author>
+    <category>database</category><category>trends</category>
+  </item>
+
+    </channel>
+  </rss>

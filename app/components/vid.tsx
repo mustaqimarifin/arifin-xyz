@@ -18,15 +18,15 @@ const HeroImage = () => {
 
 export const VideoPlayer = (props) => {
 	return (
-		<div className="flex size-16 overflow-hidden aspect-video">
+		<div className="flex">
 			<video
-				autoPlay
+				//autoPlay
 				loop
 				muted
 				playsInline
 				//width={200}
 				//height={200}
-				className="flex-1 object-cover "
+				className="flex-1"
 			>
 				<source src={props.src} type="video/mp4" />
 			</video>

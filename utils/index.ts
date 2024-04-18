@@ -56,7 +56,7 @@ export async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit
 }
 
 export const codeOptions: Options = {
-	keepBackground: false,
+	//keepBackground: false,
 	filterMetaString: (string) => string.replace(/filename="[^"]*"/, ""),
 	//theme: JSON.parse(fs.readFileSync('./lib/moonlight-ii.json', 'utf-8')),
 	theme: "one-dark-pro",

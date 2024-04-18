@@ -1,11 +1,11 @@
 import { getMDXComponent } from "next-contentlayer2/hooks";
-import slow from "next/dynamic";
+//import slow from "next/dynamic";
 import NextImage from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { SpriteProps } from "./FileTree";
+import FileTree from "./FileTree";
 import RImage from "./Pics";
-//import { highlight } from "./sugar.mjs";
 import StaticTweet from "./tweet";
 
 /* const Image = slow(() => import("./Pics"), {
@@ -13,9 +13,9 @@ import StaticTweet from "./tweet";
 });
  */
 
-const FileTree = slow(() => import("./FileTree"), {
+/* const FileTree = slow(() => import("./FileTree"), {
 	ssr: false,
-});
+}); */
 
 /* const StaticTweet = slow(() => import("./tweet"), {
 	ssr: false,
@@ -130,11 +130,6 @@ function ConsCard({ title, cons }) {
 	);
 }
 
-/* function Code({ children, ...props }) {
-	const codeHTML = highlight(children);
-	return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
-}
- */
 type HeadingProps = {
 	id?: string;
 	children?: ReactNode;
@@ -171,7 +166,6 @@ const components = {
 	h4: heading("h4"),
 	h5: heading("h5"),
 	h6: heading("h6"),
-	//p: Paragraph,
 	img: RImage,
 	Image,
 	a: CustomLink,
@@ -179,7 +173,6 @@ const components = {
 	ProsCard,
 	ConsCard,
 	StaticTweet,
-	//code: Code,
 	FileTree,
 };
 

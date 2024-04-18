@@ -1,4 +1,4 @@
-import { type Note, allNotes, allProjects } from "contentlayer/generated";
+import { allNotes, allProjects } from "contentlayer/generated";
 import { pick } from ".";
 import { compareDesc, getYear } from "./_date";
 

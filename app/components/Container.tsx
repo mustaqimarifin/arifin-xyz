@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { cx } from "../../utils";
 
 const activeStyle = cx(`font-black text-gray-800 dark:text-gray-200`);
-const inactiveStyle = cx(`font-semibold text-gray-600 dark:text-gray-400`);
+const inactiveStyle = cx(`font-bold text-gray-600 dark:text-gray-400`);
 
 function NavItem({ href, text }) {
 	const path = usePathname();
@@ -14,7 +14,7 @@ function NavItem({ href, text }) {
 			href={href}
 			className={cx(
 				isActive ? activeStyle : inactiveStyle,
-				"inline-block tracking-tight  px-3  rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 transition-all",
+				"inline-block tracking-tight px-3  rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 transition-all",
 			)}
 		>
 			<span className="text-sm">{text}</span>
@@ -42,6 +42,7 @@ export default function Nav2() {
 					{/*           <NavItem href="/audio" text="AUDIO" />
           <NavItem href="/events" text="EVENTS" /> */}
 					<NavItem href="/guestbook" text="GUESTBOOK" />
+					<NavItem href="/feed.xml" text="RSS" />
 				</div>
 			</nav>
 			{/* 	<div>{children}</div> */}

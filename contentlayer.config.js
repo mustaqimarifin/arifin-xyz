@@ -17,8 +17,7 @@ const computedFields = {
 		type: "list",
 		resolve: (doc) => {
 			const tweetMatches = doc.body.raw.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
-			const tweetIDs = tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
-			return tweetIDs ?? [];
+			return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
 		},
 	},
 	wordCount: {

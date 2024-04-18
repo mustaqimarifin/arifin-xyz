@@ -2,7 +2,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": " next build",
+		"rss": " node ./scripts/postbuild.mjs",
+		"build": "next build",
 		"start": "next start",
 		"lint": "biome lint ./",
 		"check": "biome check --apply-unsafe ./",
@@ -43,9 +44,6 @@
 		"@types/react": "18.2.79",
 		"@types/react-dom": "18.2.25",
 		"autoprefixer": "^10.4.19",
-		"typescript": "5.4.5",
-		"unified": "^11.0.4",
-		"unist-util-visit": "^5.0.0",
-		"vfile": "^6.0.1"
+		"typescript": "5.4.5"
 	}
 }

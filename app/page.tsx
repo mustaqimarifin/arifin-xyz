@@ -6,16 +6,14 @@ const KLC = dynamic(() => import("./components/Clock"), { ssr: false });
 
 export default function Page() {
 	return (
-		<section className="h-dvh">
+		<section className="">
 			<PageLinks />
-			<div className="dark:invert">
-				<div className="bg-wrap">
-					{" "}
-					{/* <svg width={500} height={700} className="max-w-md" role="img" aria-label="Linear logo">
+
+			<div className="bg-wrap">
+				{" "}
+				{/* <svg width={500} height={700} className="max-w-md" role="img" aria-label="Linear logo">
 						<use href="/ui.svg#kitteh" />
 					</svg>{" "} */}
-				</div>
-
 				{/* <Image
         alt="Mountains"
         src={ av3 }

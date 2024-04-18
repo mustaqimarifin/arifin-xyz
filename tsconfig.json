@@ -38,7 +38,8 @@
 		"next.config.js",
 		"postcss.config.js",
 		"utils/withoutBody.mjs",
-		"contentlayer.config.js"
+		"contentlayer.config.js",
+		"site.config.mjs"
 	],
 	"exclude": ["node_modules"]
 }

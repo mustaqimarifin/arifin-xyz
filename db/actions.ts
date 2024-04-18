@@ -1,5 +1,5 @@
 "use server";
-import { env } from "@/site.config";
+import { env } from "@/site.config.mjs";
 import { auth } from "app/auth";
 import { desc, eq, sql } from "drizzle-orm";
 import type { Session } from "next-auth";
@@ -85,15 +85,15 @@ export async function saveGuestbookEntry(formData: FormData) {
 
 	revalidatePath("/guestbook");
 
-	const data = await fetch("https://api.resend.com/emails", {
+	const data = await fetch(env.resendAdd, {
 		method: "POST",
 		headers: {
-			Authorization: `Bearer ${process.env.RESEND_SECRET}`,
+			Authorization: `Bearer ${env.resendSecret}`,
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			from: "guestbook@arifin.xyz",
-			to: "me@arifin.xyz",
+			from: "mus@arifin.xyz",
+			to: "mus@arifin.xyz",
 			subject: "New Guestbook Entry",
 			html: `<p>Email: ${email}</p><p>Message: ${body}</p>`,
 		}),
