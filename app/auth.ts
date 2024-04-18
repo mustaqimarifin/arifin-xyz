@@ -1,11 +1,10 @@
+import { db } from "@/db";
+import { SQLiteDrizzleAdapter } from "@/db/adapter";
+import { xId } from "@/db/nanoid";
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Twitter from "next-auth/providers/twitter";
-
-import { db } from "@/db";
-import { SQLiteDrizzleAdapter } from "@/db/adapter";
-import type { DefaultSession } from "@auth/core/types";
 
 export const {
 	handlers: { GET, POST },
@@ -13,8 +12,16 @@ export const {
 	signIn,
 	signOut,
 } = NextAuth({
+	//@ts-expect-error
 	adapter: SQLiteDrizzleAdapter(db),
 	providers: [GitHub, Google, Twitter],
+	session: {
+		maxAge: 30 * 24 * 60 * 60, // 30 days
+		updateAge: 24 * 60 * 60, // Status update every 24hrs
+		generateSessionToken: () => {
+			return `wHoDisB1Tch${xId()}`;
+		},
+	},
 	callbacks: {
 		async jwt({ token, user }) {
 			if (user) {
@@ -24,6 +31,7 @@ export const {
 		},
 		async session({ session, user }) {
 			session.userId = user.id;
+			session.user.role = user.role;
 			return session;
 		},
 	},
@@ -31,15 +39,3 @@ export const {
     signIn: "/sign-in",
   }, */
 });
-
-declare module "next-auth" {
-	interface Session {
-		user: {
-			/**
-			 * Returned by `useViewerQuery`, `getSession` and received as a prop on the `SessionProvider` React Context
-			 */
-			id: string;
-		} & DefaultSession["user"];
-		userId: string;
-	}
-}

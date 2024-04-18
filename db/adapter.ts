@@ -9,7 +9,7 @@ import {
 } from "drizzle-orm/sqlite-core";
 
 import { stripUndefined } from "@/utils";
-import type { Adapter, AdapterAccount } from "@auth/core/adapters";
+import type { Adapter, AdapterAccount, AdapterUser } from "@auth/core/adapters";
 import { xId } from "./nanoid";
 
 export function createTables(sqliteTable: SQLiteTableFn) {
@@ -19,6 +19,7 @@ export function createTables(sqliteTable: SQLiteTableFn) {
 		email: text("email").notNull(),
 		emailVerified: integer("emailVerified", { mode: "timestamp_ms" }),
 		image: text("image"),
+		role: text("role", { enum: ["USER", "ADMIN"] }).default("USER"),
 	});
 
 	const accounts = sqliteTable(
@@ -77,7 +78,7 @@ export function SQLiteDrizzleAdapter(
 	const { users, accounts, sessions, verificationTokens } = createTables(tableFn);
 
 	return {
-		async createUser(data) {
+		createUser: async (data) => {
 			return await client
 				.insert(users)
 				.values({ ...data, id: xId() })
@@ -104,7 +105,7 @@ export function SQLiteDrizzleAdapter(
 				.get();
 			return result ?? null;
 		},
-		async updateUser(data) {
+		async updateUser(data: Partial<AdapterUser>): Promise<AdapterUser> {
 			if (!data.id) {
 				throw new Error("No user id.");
 			}
@@ -124,12 +125,12 @@ export function SQLiteDrizzleAdapter(
 		async linkAccount(rawAccount) {
 			return stripUndefined(await client.insert(accounts).values(rawAccount).returning().get());
 		},
-		async getUserByAccount(account) {
+		async getUserByAccount({ providerAccountId, provider }): Promise<AdapterUser | null> {
 			const results = await client
 				.select()
 				.from(accounts)
 				.leftJoin(users, eq(users.id, accounts.userId))
-				.where(and(eq(accounts.provider, account.provider), eq(accounts.providerAccountId, account.providerAccountId)))
+				.where(and(eq(accounts.provider, provider), eq(accounts.providerAccountId, providerAccountId)))
 				.get();
 
 			if (!results) {

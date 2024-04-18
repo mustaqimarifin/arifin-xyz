@@ -7,6 +7,7 @@ export const users = sqliteTable("user", {
 	email: text("email").notNull(),
 	emailVerified: integer("emailVerified", { mode: "timestamp_ms" }),
 	image: text("image"),
+	role: text("role", { enum: ["USER", "ADMIN"] }).default("USER"),
 });
 
 export const accounts = sqliteTable(

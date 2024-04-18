@@ -10,7 +10,8 @@ type Views = {
 	count: number;
 };
 
-export default function NoteList({ title, date, slug }) {
+export default function NoteList(props) {
+	const { slug, title, date } = props;
 	const { data: views } = useSWR<Views[]>(`/api/views`, fetcher);
 
 	return (

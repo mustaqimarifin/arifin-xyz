@@ -1,9 +1,9 @@
 
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>%5BARIFIN-XYZ%5D</title>
+      <title>[ARIFIN-XYZ]</title>
       <link>https://arifin.xyz/notes</link>
-      <description>Music%20Producer%20%7C%20Regional%20Manager</description>
+      <description>Music Producer | Regional Marketing</description>
       <language>en-us</language>
       <managingEditor>mus@arifin.xyz (Mustaqim Arifin)</managingEditor>
       <webMaster>mus@arifin.xyz (Mustaqim Arifin)</webMaster>
@@ -12,9 +12,9 @@
       
   <item>
     <guid>https://arifin.xyz/notes/sass</guid>
-    <title>Creating%20a%20Loading%20Placeholder%20with%20Sass</title>
+    <title>Creating a Loading Placeholder with Sass</title>
     <link>https://arifin.xyz/notes/sass</link>
-    <description>Using%20animation%20to%20simulate%20loading%20text%20content.</description>
+    <description>Using animation to simulate loading text content.</description>
     <pubDate>Sun, 12 Nov 2017 00:00:40 GMT</pubDate>
     <author>mus@arifin.xyz (Mustaqim Arifin)</author>
     <category>ui</category><category>css</category>

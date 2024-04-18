@@ -39,7 +39,8 @@
 		"postcss.config.js",
 		"utils/withoutBody.mjs",
 		"contentlayer.config.js",
-		"site.config.mjs"
+		"site.config.mjs",
+		"utils/htmlEscaper.mjs"
 	],
 	"exclude": ["node_modules"]
 }

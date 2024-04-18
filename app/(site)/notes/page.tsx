@@ -1,5 +1,6 @@
 import NoteLayout from "@/app/components/NoteLayout";
 import { notes, posts, years } from "@/utils/sortedContent";
+import { allNotes } from "contentlayer/generated";
 
 export const metadata = {
 	title: "Notes",
@@ -7,7 +8,7 @@ export const metadata = {
 };
 
 const RSCNoteLayout = async () => {
-	return <NoteLayout posts={posts} notes={notes} years={years} />;
+	return <NoteLayout posts={allNotes} />;
 };
 
 export default RSCNoteLayout;

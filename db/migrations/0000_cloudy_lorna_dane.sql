@@ -48,3 +48,23 @@ CREATE TABLE `view` (
 	`slug` text PRIMARY KEY NOT NULL,
 	`count` integer NOT NULL
 );
+
+
+
+
+	`image` text
+);
+--> statement-breakpoint
+CREATE TABLE `verificationToken` (
+	`identifier` text NOT NULL,
+	`token` text NOT NULL,
+	`expires` integer NOT NULL,
+	PRIMARY KEY(`identifier`, `token`)
+);
+--> statement-breakpoint
+CREATE TABLE `view` (
+	`slug` text PRIMARY KEY NOT NULL,
+	`count` integer NOT NULL
+);
+
+

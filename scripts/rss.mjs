@@ -3,13 +3,14 @@ import path from "node:path";
 import { allNotes } from "../.contentlayer/generated/index.mjs";
 import tagData from "../app/tag-data.json" assert { type: "json" };
 import { env } from "../site.config.mjs";
+import { esgape } from "../utils/htmlEscaper.mjs";
 
 const generateRssItem = (env, post) => `
   <item>
     <guid>${env.siteUrl}/notes/${post.slug}</guid>
-    <title>${encodeURIComponent(post.title)}</title>
+    <title>${esgape(post.title)}</title>
     <link>${env.siteUrl}/notes/${post.slug}</link>
-    ${post.summary && `<description>${encodeURIComponent(post.summary)}</description>`}
+    ${post.summary && `<description>${esgape(post.summary)}</description>`}
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
     <author>${env.email} (${env.author})</author>
     ${post.tags?.map((t) => `<category>${t}</category>`).join("")}
@@ -19,9 +20,9 @@ const generateRssItem = (env, post) => `
 const generateRss = (config, posts, page = "feed.xml") => `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>${encodeURIComponent(env.title)}</title>
+      <title>${esgape(env.title)}</title>
       <link>${env.siteUrl}/notes</link>
-      <description>${encodeURIComponent(env.description)}</description>
+      <description>${esgape(env.description)}</description>
       <language>${env.language}</language>
       <managingEditor>${env.email} (${env.author})</managingEditor>
       <webMaster>${env.email} (${env.author})</webMaster>

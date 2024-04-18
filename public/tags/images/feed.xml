@@ -1,9 +1,9 @@
 
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>%5BARIFIN-XYZ%5D</title>
+      <title>[ARIFIN-XYZ]</title>
       <link>https://arifin.xyz/notes</link>
-      <description>Music%20Producer%20%7C%20Regional%20Manager</description>
+      <description>Music Producer | Regional Marketing</description>
       <language>en-us</language>
       <managingEditor>mus@arifin.xyz (Mustaqim Arifin)</managingEditor>
       <webMaster>mus@arifin.xyz (Mustaqim Arifin)</webMaster>
@@ -12,9 +12,9 @@
       
   <item>
     <guid>https://arifin.xyz/notes/contentlayer-next-image</guid>
-    <title>Contentlayer%20with%20next%2Fimage</title>
+    <title>Contentlayer with next/image</title>
     <link>https://arifin.xyz/notes/contentlayer-next-image</link>
-    <description>How%20to%20use%20static%20markdown%20images%20with%20contentlayer%20and%20next%2Fimage</description>
+    <description>How to use static markdown images with contentlayer and next/image</description>
     <pubDate>Sun, 11 Dec 2022 00:00:40 GMT</pubDate>
     <author>mus@arifin.xyz (Mustaqim Arifin)</author>
     <category>nextjs</category><category>images</category>
