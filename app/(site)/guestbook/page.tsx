@@ -15,7 +15,7 @@ export const metadata = {
 export default async function GuestbookPage() {
 	return (
 		<section>
-			<h1 className="font-medium text-2xl mb-8 tracking-tighter">leave a message</h1>
+			<h1 className=" mb-4 text-3xl font-black tracking-tight text-black md:text-5xl dark:text-white">Leave a Text!</h1>{" "}
 			<div className="w-full flex flex-col space-y-1 mb-4 h-dvh ">
 				<GuestbookForm />
 				<GuestbookEntries />

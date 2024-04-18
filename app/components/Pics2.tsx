@@ -12,11 +12,6 @@ type Props = {
 	className?: string;
 };
 
-//console.log(rimages)
-
-/* const imgSrc = await getProps()
-console.log(imgSrc[]) */
-
 const Pix = (props: Props) => {
 	const { src, alt, className, caption } = props;
 	return (
@@ -26,12 +21,6 @@ const Pix = (props: Props) => {
 					<Image
 						src={require(`../../content${src}`)}
 						alt={alt}
-						//width={680}
-						//height={503}
-						//sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-						//sizes="(max-width: 1920px) 213px, 33vw"
-						//width={width}
-						//height={height}
 						className={cx(className, "rounded-lg dark:bg-zinc-900 bg-zinc-50")}
 					/>
 					<figcaption className="text-right">

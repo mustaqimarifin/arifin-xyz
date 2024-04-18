@@ -42,8 +42,8 @@ export function TViewCounter({
 
 	return (
 		<div className="flex items-center justify-center space-x-1 ">
-			<span className="flex items-center justify-center">{number}</span>
-			<span className="flex-1 ">
+			<span className="flex items-center align-middle mr-1  ">{number}</span>
+			<span className="flex-1  ">
 				{
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ export function TViewCounter({
 						strokeWidth="2"
 						strokeLinecap="round"
 						strokeLinejoin="round"
-						className="w-4 h-4"
+						className=" w-4 h-4 -mt-0"
 					>
 						<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
 						<circle cx="12" cy="12" r="3" />

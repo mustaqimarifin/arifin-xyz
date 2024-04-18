@@ -2,22 +2,11 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-/* const loadLocalImage = async () => {
-  const fontData = await fs.readFile("../../public/fonts/PublicSans-Bold.ttf"); */
 export async function GET(req: Request) {
 	try {
 		const { searchParams } = new URL(req.url);
 		const hasTitle = searchParams.has("title");
 		const postTitle = hasTitle ? searchParams.get("title")?.slice(0, 100) : "arifin.xyz";
-		// ?title=<title>public/fonts/PublicSans-Bold.ttf
-		//const fontData = path.join(process.cwd(), 'public', '/fonts/PublicSans-Bold.ttf')
-		//const imgData = path.join(process.cwd(), 'public', '/og.png')
-
-		//const font = await fs.readFile(fontData)
-		//const img = await fs.readFile(imgData)
-
-		//console.log(img)
-
 		const font = fetch(new URL("../../public/fonts/PublicSans-Bold.ttf", import.meta.url)).then((res) =>
 			res.arrayBuffer(),
 		);

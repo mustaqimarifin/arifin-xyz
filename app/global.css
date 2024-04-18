@@ -8,18 +8,6 @@
     color: theme('colors.stone.600');
   }
 
-  :root {
-    --sh-class: theme('colors.pink.300');
-    --sh-identifier: theme('colors.zinc.200');
-    --sh-sign: theme('colors.stone.200');
-    --sh-string: theme('colors.emerald.300');
-    --sh-keyword: theme('colors.cyan.300');
-    --sh-comment: theme('colors.stone.400');
-    --sh-jsxliterals: theme('colors.emerald.300');
-    --sh-property: theme('colors.pink.300');
-    --sh-entity: theme('colors.red.400');
-  }
-
   /* Box sizing rules */
   *,
   *::before,
@@ -49,17 +37,15 @@
   }
 
   html {
-    @apply scroll-smooth text-black bg-white dark:text-white dark:bg-[#111010];
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
+    @apply scroll-smooth subpixel-antialiased  bg-white  dark:bg-[#111010];
     min-width: 360px;
   }
 
   body {
-    @apply max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply font-sans max-w-2xl text-black dark:text-white mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
   }
 
   main {
@@ -159,7 +145,7 @@
   }
 
   .prose pre {
-    @apply rounded-lg overflow-x-auto;
+    @apply font-mono rounded-lg overflow-x-auto;
   }
 
   .prose code {

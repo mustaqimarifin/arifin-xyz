@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Public_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { cx } from "../utils";
 import "./global.css";
@@ -41,44 +42,11 @@ export const metadata: Metadata = {
 	},
 };
 
-/* const PSans = localFont({
-	variable: "--sans",
-	src: [
-		{
-			path: "../public/fonts/PublicSans-Regular.woff2",
-			weight: "400",
-			style: "normal",
-		},
-		{
-			path: "../public/fonts/PublicSans-SemiBold.woff2",
-			weight: "600",
-			style: "normal",
-		},
-		{
-			path: "../public/fonts/PublicSans-Bold.woff2",
-			weight: "700",
-			style: "normal",
-		},
-	],
-}); */
-
-/* const GeistMono = localFont({
-	variable: "--mono",
-	src: "../public/fonts/GeistMonoVF.woff2",
-	weight:"variable",
-	style: "normal",
-});
-const PSans = localFont({
+const PSans = Public_Sans({
 	variable: "--public-sans",
-	src: "../public/fonts/GeistMonoVF.woff2",
-display:"swap"
-});
- */
-
-const PSans = localFont({
-	variable: "--public-sans",
-	src: "../public/fonts/PublicSans.woff2",
-	weight: "300 800",
+	weight: "variable",
+	style: ["italic", "normal"],
+	subsets: ["latin"],
 	display: "swap",
 });
 
@@ -95,8 +63,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={cx(GMono.variable, PSans.variable)}>
-			<head />
+		<html lang="en" className={cx(PSans.variable, GMono.variable)}>
 			<body>
 				<main>{children}</main>
 			</body>

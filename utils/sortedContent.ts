@@ -23,8 +23,7 @@ export const notes = posts.reduce((acc: Acc, post) => {
 	return acc;
 }, {});
 
-//console.log(notes);
-
+//^ Slower
 //export const years = Object.keys(notes).sort((a, b) => compareDesc(new Date(a), new Date(b)));
 export const years = Object.keys(notes).reverse();
 

@@ -15,10 +15,7 @@ type Props = {
 
 const Pix = (props: Props) => {
 	const { src, alt, className, caption, width, height } = props;
-	//let ext = src.startsWith("http");
 	let path = require(`../../public/images${src}`);
-	//let path2 = require(src);
-	//console.log(path2);
 
 	return (
 		<div className="filter drop-shadow-sm">
