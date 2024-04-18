@@ -3,7 +3,6 @@ import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 export default {
 	content: ["./app/**/*.{ts,tsx}", "./content/**/*.mdx", "./public/**/*.svg"],
-	//darkMode: "selector",
 	theme: {
 		extend: {
 			fontFamily: {

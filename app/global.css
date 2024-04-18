@@ -97,7 +97,7 @@
 
 @layer components {
   .clock {
-    @apply md:fixed bottom-0 left-0 col-span-full lg:col-start-9 lg:col-span-8 row-start-1 lg:row-auto self-start flex flex-col justify-between pt-4  font-bold font-mono text-[6vw] md:text-[4vw] md:ml-6 tabular-nums;
+    @apply md:fixed bottom-0 left-0 col-span-full lg:col-start-9 lg:col-span-8 row-start-1 lg:row-auto self-start flex flex-col justify-between pt-4 font-bold font-mono text-[6vw] md:text-[4vw] md:ml-6 tabular-nums;
   }
   .prose :where(code):not(:where([class~='not-prose'] *))::before {
     content: none;

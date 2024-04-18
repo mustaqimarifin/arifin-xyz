@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>%5BARIFIN-XYZ%5D</title>
+      <link>https://arifin.xyz/notes</link>
+      <description>Music%20Producer%20%7C%20Regional%20Manager</description>
+      <language>en-us</language>
+      <managingEditor>mus@arifin.xyz (Mustaqim Arifin)</managingEditor>
+      <webMaster>mus@arifin.xyz (Mustaqim Arifin)</webMaster>
+      <lastBuildDate>Thu, 18 Apr 2024 06:27:44 GMT</lastBuildDate>
+      <atom:link href="https://arifin.xyz/tags/sql/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://arifin.xyz/notes/views</guid>
+    <title>All%20About%20Page%20Counters</title>
+    <link>https://arifin.xyz/notes/views</link>
+    <description>Want%20more%20accurate%20page%20view%20counts%3F%20Learn%20how%20to%20track%20real-time%20post%20views%20using%20Firebase%20and%20Next.js.</description>
+    <pubDate>Thu, 18 Apr 2024 06:27:44 GMT</pubDate>
+    <author>mus@arifin.xyz (Mustaqim Arifin)</author>
+    <category>sql</category><category>counters</category>
+  </item>
+
+    </channel>
+  </rss>

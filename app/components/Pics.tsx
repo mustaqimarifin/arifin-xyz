@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { cx } from "../../utils";
-import { Fade } from "./fade";
+import Fade from "./fade";
 
 type Props = {
 	src: string;

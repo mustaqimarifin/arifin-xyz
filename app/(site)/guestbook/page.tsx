@@ -1,8 +1,8 @@
+import { PageTitle } from "@/app/components/PageTitle";
 import { db } from "@/db";
 import { guestbook, users } from "@/db/schema";
 import { auth } from "app/auth";
 import { desc, eq } from "drizzle-orm";
-import { Suspense } from "react";
 import { Avatar } from "../../components/Avatar";
 import { SignIn, SignOut } from "./buttons";
 import Form from "./form";
@@ -15,7 +15,7 @@ export const metadata = {
 export default async function GuestbookPage() {
 	return (
 		<section>
-			<h1 className=" mb-4 text-3xl font-black tracking-tight text-black md:text-5xl dark:text-white">Leave a Text!</h1>{" "}
+			<PageTitle>Leave a Text!</PageTitle>
 			<div className="w-full flex flex-col space-y-1 mb-4 h-dvh ">
 				<GuestbookForm />
 				<GuestbookEntries />

@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import NoteList from "./NoteList";
+import { PageTitle } from "./PageTitle";
 
 export default function NoteLayout({ posts, notes, years }) {
 	const [searchValue, setSearchValue] = useState("");
@@ -10,7 +11,7 @@ export default function NoteLayout({ posts, notes, years }) {
 	return (
 		<section className="h-dvh">
 			<div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
-				<h1 className=" mb-4 text-3xl font-black tracking-tight text-black md:text-5xl dark:text-white">Notes</h1>{" "}
+				<PageTitle>Notes</PageTitle>
 				<p className="mb-4 text-neutral-900 dark:text-neutral-100">
 					{`I've been writing online since 2014, mostly about web development and tech careers.
             In total, I've written ${notes.length} articles on this site.
