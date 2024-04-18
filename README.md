@@ -15,8 +15,8 @@ This application requires Node.js v18.17+.
 ```bash
 git clone https://github.com/mustaqimarifin/arifin-xyz.git
 cd arifin.xyz
-pnpm install
-pnpm dev
+bun install
+bun dev
 ```
 
 Create a `.env.local` file similar to [`.env.example`](https://github.com/mustaqimarifin/arifin.xyz/blob/main/.env.example).

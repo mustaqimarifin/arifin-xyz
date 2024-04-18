@@ -3,7 +3,7 @@ export const env = {
 	title: "[ARIFIN-XYZ]",
 	author: "Mustaqim Arifin",
 	headerTitle: "arifin.xyz",
-	description: "Music Producer | Regional Manager",
+	description: "Music Producer | Regional Marketing",
 	language: "en-us",
 	theme: "system", // system, dark or light
 	siteUrl: "https://arifin.xyz",

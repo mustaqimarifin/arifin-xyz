@@ -7,18 +7,14 @@ const Fade = slow(() => import("./components/fade"), { ssr: false });
 
 export default function Page() {
 	return (
-		<section className="h-screen">
+		<section className="">
 			<PageLinks />
-
-			<Fade>
-				<div className="bg-wrap" />
-			</Fade>
 			<Suspense>
+				<Fade>
+					<div className="bg-wrap" />
+				</Fade>
 				<section id="clock" className="clock">
-					<Fade>
-						{" "}
-						<KLC />
-					</Fade>
+					<KLC />
 				</section>
 			</Suspense>
 		</section>

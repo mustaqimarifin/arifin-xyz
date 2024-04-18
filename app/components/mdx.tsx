@@ -1,17 +1,16 @@
 import { getMDXComponent } from "next-contentlayer2/hooks";
-//import slow from "next/dynamic";
+import slow from "next/dynamic";
 import NextImage from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { SpriteProps } from "./FileTree";
 import FileTree from "./FileTree";
-import RImage from "./Pics";
+//import RImage from "./Pics";
 import StaticTweet from "./tweet";
 
-/* const Image = slow(() => import("./Pics"), {
+const RImage = slow(() => import("./Pics"), {
 	ssr: false,
 });
- */
 
 /* const FileTree = slow(() => import("./FileTree"), {
 	ssr: false,

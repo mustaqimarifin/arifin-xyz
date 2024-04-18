@@ -149,7 +149,7 @@
   }
 
   .prose code {
-    @apply font-mono self-center m-1 items-center align-baseline text-pink-400 dark:text-pink-300 rounded-lg;
+    @apply font-mono self-center m-2 items-center align-baseline text-pink-400 dark:text-pink-300 rounded-lg;
   }
 
   .prose strong {
