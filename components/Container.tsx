@@ -17,8 +17,8 @@ function NavItem({ href, text }: { href: LinkProps["href"]; text: string }) {
 			href={href}
 			prefetch={false}
 			className={cx([
-				"inline-block tracking-tight px-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 transition-all",
-				isActive ? "font-black text-gray-800 dark:text-gray-200" : "font-bold text-gray-800/75 dark:text-gray-400",
+				"inline-block font-bold tracking-tight px-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-900 transition-all",
+				isActive ? "font-black text-gray-800 dark:text-gray-200" : " text-gray-800/75 dark:text-gray-400",
 			])}
 		>
 			<span className="text-sm">{text}</span>
