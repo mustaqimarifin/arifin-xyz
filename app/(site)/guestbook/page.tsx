@@ -1,9 +1,9 @@
-import { PageTitle } from "@/app/components/PageTitle";
+import { PageTitle } from "@/components/PageTitle";
 import { db } from "@/db";
 import { guestbook, users } from "@/db/schema";
 import { auth } from "app/auth";
 import { desc, eq } from "drizzle-orm";
-import { Avatar } from "../../components/Avatar";
+import { Avatar } from "../../../components/Avatar";
 import { SignIn, SignOut } from "./buttons";
 import Form from "./form";
 

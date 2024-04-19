@@ -1,8 +1,8 @@
-import { LoadingSpinner } from "@/app/components/Spinner";
-import { TADDViews } from "@/app/components/views";
+import { LoadingSpinner } from "@/components/Spinner";
+import { MDX } from "@/components/mdx";
+import { TADDViews } from "@/components/views";
 import { formatDateXtra } from "@/utils/_date";
 import { noteParam } from "@/utils/sortedContent";
-import { MDX } from "app/components/mdx";
 import { allNotes } from "contentlayer/generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -72,9 +72,9 @@ const PostLayout = async ({ params: { slug } }) => {
 					}),
 				}}
 			/>
-			<h1 className="text-2xl max-w-[650px]">{post.title}</h1>
-			<div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-				<div className="text-sm text-neutral-600 dark:text-neutral-400">{formatDateXtra(post.date)}</div>
+			<h1 className="post-title">{post.title}</h1>
+			<div className="panel">
+				<div className="date">{formatDateXtra(post.date)}</div>
 				<Suspense fallback={<LoadingSpinner />}>
 					<TADDViews slug={post.slug} />
 				</Suspense>

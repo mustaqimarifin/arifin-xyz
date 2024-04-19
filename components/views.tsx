@@ -1,6 +1,6 @@
 "use server";
-import { TViewCounter, ViewCounter } from "../(site)/notes/view-counter";
-import { getViews, ink } from "../../db/actions";
+import { TViewCounter, ViewCounter } from "../app/(site)/notes/view-counter";
+import { getViews, ink } from "../db/actions";
 
 //let inc = cache(ink);
 /* export async function AddViews({ slug }: { slug: string }) {

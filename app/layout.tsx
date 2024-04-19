@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Public_Sans } from "next/font/google";
+//import { Public_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { cx } from "../utils";
 import "./global.css";
@@ -42,11 +42,18 @@ export const metadata: Metadata = {
 	},
 };
 
-const PSans = Public_Sans({
+/* const PSans = Public_Sans({
 	variable: "--public-sans",
-	weight: "variable",
-	style: ["italic", "normal"],
+	weight: ["400", "500", "600", "700", "800"],
+	style: ["normal"],
 	subsets: ["latin"],
+	display: "swap",
+});
+ */
+const inter = localFont({
+	variable: "--inter-sans",
+	src: "../public/fonts/inter-latin.woff2",
+	weight: "variable",
 	display: "swap",
 });
 
@@ -63,7 +70,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={cx(PSans.variable, GMono.variable)}>
+		<html lang="en" className={cx(inter.variable, GMono.variable)}>
 			<body>
 				<main>{children}</main>
 			</body>

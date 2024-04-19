@@ -1,4 +1,4 @@
-import { PageTitle } from "@/app/components/PageTitle";
+import { PageTitle } from "@/components/PageTitle";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -18,7 +18,7 @@ export default function WorkPage() {
 	return (
 		<section>
 			<PageTitle>Work</PageTitle>
-			<div className="prose prose-neutral dark:prose-invert">
+			<article>
 				<p>
 					On a mission to build products developers <Link href="/notes/developer-experience-examples">love</Link>, and
 					along the way, teach the next generation of developers. Here's a summary of my work so far.
@@ -80,7 +80,7 @@ export default function WorkPage() {
 					first production experience using React. I worked on tooling to help predict and alert and regressions in our
 					SaaS platform, building a product similar to open-source tools like Sentry.
 				</p>
-			</div>
+			</article>
 		</section>
 	);
 }

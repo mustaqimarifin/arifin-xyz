@@ -1,7 +1,7 @@
-import { TADDViews } from "@/app/components/views";
+import { MDX } from "@/components/mdx";
+import { TADDViews } from "@/components/views";
 import { formatDateXtra } from "@/utils/_date";
 import { projectParam } from "@/utils/sortedContent";
-import { MDX } from "app/components/mdx";
 import { allNotes, allProjects } from "contentlayer/generated";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";

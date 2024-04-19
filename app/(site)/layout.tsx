@@ -1,4 +1,4 @@
-import Nav2 from "../components/Container";
+import Nav2 from "../../components/Container";
 
 export default function SiteLayout({
 	children,

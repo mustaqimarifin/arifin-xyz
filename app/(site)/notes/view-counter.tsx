@@ -2,8 +2,8 @@ export function ViewCounter({ views }) {
 	const number = views || 0;
 	return (
 		<div className="flex items-center justify-center space-x-1 ">
-			<span className="flex items-center justify-center">{number}</span>
-			<span className="flex-1 ">
+			<span className="flex items-center align-middle mr-1  ">{number}</span>
+			<span className="flex-1 mr-6">
 				{
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +42,8 @@ export function TViewCounter({
 
 	return (
 		<div className="flex items-center justify-center space-x-1 ">
-			<span className="flex items-center align-middle mr-1  ">{number}</span>
-			<span className="flex-1  ">
+			<div className="flex items-center align-middle mr-1  ">{number}</div>
+			<div className="flex-1  ">
 				{
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export function TViewCounter({
 						<circle cx="12" cy="12" r="3" />
 					</svg>
 				}
-			</span>{" "}
+			</div>{" "}
 		</div>
 	);
 }

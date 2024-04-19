@@ -65,7 +65,7 @@ const FileSize = ({ size }: FileSizeProps) => {
 	if (size === undefined || size === null) {
 		return null;
 	}
-	return <span className="mr-2">({humanFileSize(size)})</span>;
+	return <span className="mr-3">({humanFileSize(size)})</span>;
 };
 
 type NodeProps = {
@@ -76,14 +76,14 @@ type NodeProps = {
 const LeafNode = ({ node, depth }: NodeProps) => {
 	const Icon = isDirectory(node) ? FolderOpen : File;
 	return (
-		<li className="flex gap-1">
+		<li className="lfn">
 			{depth > 0 ? (
-				<div className="flex items-center justify-end" style={{ width: depth * 24 }}>
-					<CornerDownRight className="w-6 text-stone-300 dark:text-stone-600" />
+				<div className="cdr" style={{ width: depth * 24 }}>
+					<CornerDownRight className="cdr-2" />
 				</div>
 			) : null}
-			<Icon className="w-6" />
-			<div className="flex w-full space-x-2 space-y-2 justify-between">
+			<Icon className="ikon" />
+			<div>
 				<div>{node.name}</div>
 				<div>{isFile(node) ? <FileSize size={node.size} /> : null}</div>
 			</div>

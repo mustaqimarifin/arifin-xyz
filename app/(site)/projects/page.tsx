@@ -2,7 +2,7 @@ import { formatDate } from "@/utils/_date";
 import { projects } from "@/utils/sortedContent";
 import Link from "next/link";
 import { Suspense } from "react";
-import { TViews } from "../../components/views";
+import { TViews } from "../../../components/views";
 
 export const metadata = {
 	title: "Notes",

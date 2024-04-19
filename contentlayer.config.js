@@ -13,7 +13,7 @@ const isProduction = process.env.NODE_ENV === "production";
 /** @type {import('contentlayer2/source-files').ComputedFields} */
 const computedFields = {
 	tweetIds: {
-		type: "list",
+		type: "json",
 		resolve: (doc) => {
 			const tweetMatches = doc.body.raw.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
 			return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];

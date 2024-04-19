@@ -1,4 +1,4 @@
-import NoteLayout from "@/app/components/NoteLayout";
+import NoteLayout from "@/components/NoteLayout";
 import { notes, posts, years } from "@/utils/sortedContent";
 import { allNotes } from "contentlayer/generated";
 

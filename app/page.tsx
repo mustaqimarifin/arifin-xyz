@@ -1,9 +1,9 @@
 import slow from "next/dynamic";
 import { Suspense } from "react";
-import { PageLinks } from "./components/HomeNav";
+import { PageLinks } from "../components/HomeNav";
 
-const KLC = slow(() => import("./components/Clock"), { ssr: false });
-const Fade = slow(() => import("./components/fade"), { ssr: false });
+const KLC = slow(() => import("../components/Clock"), { ssr: false });
+const Fade = slow(() => import("../components/fade"), { ssr: false });
 
 export default function Page() {
 	return (
