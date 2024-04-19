@@ -45,3 +45,11 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 .env
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
