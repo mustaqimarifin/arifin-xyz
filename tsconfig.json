@@ -1,7 +1,11 @@
 {
 	"compilerOptions": {
 		"target": "es2022",
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": false,
@@ -17,9 +21,15 @@
 		"strictNullChecks": true,
 		"baseUrl": ".",
 		"paths": {
-			"contentlayer/generated": ["./.contentlayer/generated"],
-			"scripts/*": ["./.scripts/*"],
-			"@/*": ["./*"]
+			"contentlayer/generated": [
+				"./.contentlayer/generated"
+			],
+			"scripts/*": [
+				"./.scripts/*"
+			],
+			"@/*": [
+				"./*"
+			]
 		},
 		"plugins": [
 			{
@@ -38,9 +48,11 @@
 		"next.config.js",
 		"postcss.config.js",
 		"utils/withoutBody.mjs",
-		"contentlayer.config.js",
+		"contentlayer.config.ts",
 		"site.config.mjs",
 		"utils/htmlEscaper.mjs"
 	],
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules"
+	]
 }
