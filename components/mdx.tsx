@@ -1,10 +1,10 @@
 import { getMDXComponent } from "next-contentlayer2/hooks";
 import slow from "next/dynamic";
 import NextImage from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import type { SpriteProps } from "./FileTree";
 import FileTree from "./FileTree";
+import { Link } from "./link";
 //import RImage from "./Pics";
 import StaticTweet from "./tweet";
 
@@ -50,23 +50,6 @@ const RImage = slow(() => import("./Pics"), {
 	return <p {...props} />;
 };
  */
-function CustomLink(props) {
-	const href = props.href;
-
-	if (href.startsWith("/")) {
-		return (
-			<Link href={href} {...props}>
-				{props.children}
-			</Link>
-		);
-	}
-
-	if (href.startsWith("#")) {
-		return <a {...props} />;
-	}
-
-	return <a target="_blank" rel="noopener noreferrer" {...props} />;
-}
 
 function Image(props) {
 	return <NextImage alt={props.alt} className="flex mx-auto rounded-lg" {...props} />;
@@ -167,7 +150,7 @@ const components = {
 	h6: heading("h6"),
 	img: RImage,
 	Image,
-	a: CustomLink,
+	a: Link,
 	Callout,
 	ProsCard,
 	ConsCard,

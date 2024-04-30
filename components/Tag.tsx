@@ -1,5 +1,5 @@
 import { slugify } from "@/utils";
-import Link from "next/link";
+import { Link } from "./link";
 interface Props {
 	text: string;
 }

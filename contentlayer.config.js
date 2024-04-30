@@ -1,6 +1,5 @@
 import { writeFileSync } from "node:fs";
 import { defineDocumentType, defineNestedType, makeSource } from "contentlayer2/source-files";
-import impMedia from "rehype-mdx-import-media";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
@@ -178,7 +177,7 @@ export default makeSource({
 	mdx: {
 		cwd: root,
 		remarkPlugins: [remarkUnwrapImages, remarkGfm],
-		rehypePlugins: [[rehypePrettyCode, codeOptions], rehypeSlug, [impMedia, mdxImgOptions]],
+		rehypePlugins: [[rehypePrettyCode, codeOptions], rehypeSlug],
 	},
 	onSuccess: async (importData) => {
 		const { allNotes } = await importData();

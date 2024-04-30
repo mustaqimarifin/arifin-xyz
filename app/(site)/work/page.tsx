@@ -1,18 +1,11 @@
 import { PageTitle } from "@/components/PageTitle";
+import { Link } from "@/components/link";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
 	title: "Work",
 	description: "A summary of my work and contributions.",
 };
-
-async function Stars() {
-	const res = await fetch("https://api.github.com/repos/vercel/next.js");
-	const json = await res.json();
-	const count = Math.round(json.stargazers_count / 1000);
-	return `${count}k stars`;
-}
 
 export default function WorkPage() {
 	return (
@@ -48,11 +41,7 @@ export default function WorkPage() {
 					</li>
 					<li>In 2023, I was promoted to VP of Product, now also leading Product Management.</li>
 				</ul>
-				<p>
-					Since I joined Vercel in 2020, Next.js active developers have grown 1000%, now at ~900k. Next.js is now a top
-					10 software project on GitHub with <Stars />. It's used by Walmart, ChatGPT, Starbucks, Okta, Datastax,
-					Notion, and <a href="https://nextjs.org/showcase">more</a>.
-				</p>
+
 				<hr className="my-6 border-neutral-100 dark:border-neutral-800" />
 				<h2 className="font-medium text-xl mb-1 tracking-tighter">Hy-Vee</h2>
 				<p className="text-neutral-600 dark:text-neutral-400 text-sm">Senior Software Engineer, 2018 — 2020</p>

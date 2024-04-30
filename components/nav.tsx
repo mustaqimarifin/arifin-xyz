@@ -11,6 +11,9 @@ export const navItems = {
 	"/guestbook": {
 		name: "GUESTBOOK",
 	},
+	"/stack": {
+		name: "STACK",
+	},
 	"/feed.xml": {
 		name: "{rss}",
 	},

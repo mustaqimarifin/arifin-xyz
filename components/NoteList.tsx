@@ -1,9 +1,9 @@
 import { fetcher } from "@/utils";
 import { formatDate } from "@/utils/_date";
-import Link from "next/link";
 import { Suspense } from "react";
 import useSWR from "swr";
 import { TViewCounter } from "../app/(site)/notes/view-counter";
+import { Link } from "./link";
 
 type Views = {
 	slug: string;

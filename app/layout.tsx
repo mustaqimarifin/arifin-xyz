@@ -50,11 +50,27 @@ export const metadata: Metadata = {
 	display: "swap",
 });
  */
+
 const inter = localFont({
 	variable: "--inter-sans",
-	src: "../public/fonts/inter-latin.woff2",
-	weight: "variable",
 	display: "swap",
+	src: [
+		{
+			path: "../public/fonts/Inter-Regular.woff2",
+			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "../public/fonts/Inter-Bold.woff2",
+			weight: "700",
+			style: "normal",
+		},
+		{
+			path: "../public/fonts/Inter-Black.woff2",
+			weight: "900",
+			style: "normal",
+		},
+	],
 });
 
 const GMono = localFont({
@@ -64,11 +80,7 @@ const GMono = localFont({
 	//preload: false,
 	display: "swap",
 });
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className={cx(inter.variable, GMono.variable)}>
 			<body>
