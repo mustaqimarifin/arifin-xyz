@@ -12,12 +12,12 @@
       
   <item>
     <guid>https://arifin.xyz/notes/backend</guid>
-    <title>2023 State of Databases for Serverless &amp; Edge</title>
+    <title>The State of The Edge</title>
     <link>https://arifin.xyz/notes/backend</link>
     <description>An overview of databases that pair well with modern application and compute providers.</description>
     <pubDate>Wed, 17 Apr 2024 23:00:40 GMT</pubDate>
     <author>mus@arifin.xyz (Mustaqim Arifin)</author>
-    <category>database</category><category>trends</category>
+    <category>database</category>
   </item>
 
     </channel>

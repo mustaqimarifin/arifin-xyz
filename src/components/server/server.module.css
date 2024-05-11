@@ -1,5 +1,5 @@
 .page-title {
-  @apply flex mb-6 text-3xl font-extrabold justify-center tracking-tight text-black md:text-4xl dark:text-white;
+  @apply flex mb-6 text-3xl font-bold justify-center text-black md:text-5xl dark:text-white;
 }
 
 .panel {
@@ -19,7 +19,7 @@
 }
 
 .tags {
-  @apply duration-700 ease-in-out transition-all hover:text-rose-300 dark:hover:text-rose-200 flex flex-wrap mr-3 text-xs font-semibold justify-center uppercase;
+  @apply duration-700 ease-in-out transition-all hover:text-rose-300 dark:hover:text-rose-200 flex mr-3 text-xs font-semibold justify-center uppercase;
 }
 
 .section {

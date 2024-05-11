@@ -1,3 +1,4 @@
+import { HeartSolid } from "@/components/Sprites";
 import { HomePageNav } from "@/components/client";
 import slow from "next/dynamic";
 

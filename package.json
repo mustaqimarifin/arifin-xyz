@@ -27,6 +27,7 @@
     "drizzle-orm": "^0.30.10",
     "drizzle-zod": "^0.5.1",
     "fast-glob": "^3.3.2",
+    "lucide-react": "^0.378.0",
     "nanoid": "^5.0.7",
     "next": "14.2.3",
     "next-auth": "5.0.0-beta.16",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
+    "@iconify-json/radix-icons": "^1.1.14",
     "@types/bun": "^1.1.1",
     "@types/node": "20.12.10",
     "@types/pg": "^8.11.5",

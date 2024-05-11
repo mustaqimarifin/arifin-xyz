@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "$$/global.css";
 import { Provider } from "./providers";
+//import localFont from 'next/font/local'
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arifin.xyz"),

@@ -1,7 +1,7 @@
-import rss from "./rss";
+import rss from './rss'
 
-async function postbuild() {
-  await rss();
+function postbuild() {
+  rss()
 }
 
-postbuild();
+postbuild()

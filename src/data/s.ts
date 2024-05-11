@@ -1,7 +1,7 @@
-import {getComments} from '@/db/actions'
+import { getComments } from "@/db/actions";
 
 const main = async () => {
-  const m = await getComments('sass')
+  const m = await getComments("sass");
   // console.log(m);
-}
-main()
+};
+main();

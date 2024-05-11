@@ -1,3 +1,5 @@
+import { cx } from "@/utils";
+
 export type SpriteProps = {
   className?: string;
 };
@@ -133,6 +135,20 @@ const Trash = ({ className }: SpriteProps) => {
   );
 };
 
+const Kat = ({ className }: SpriteProps) => {
+  return (
+    <svg
+      width="120"
+      height="120"
+      className={cx("mb-1.5 w-6 h-6 invert-30", className)}
+      role="img"
+      aria-label="Tr"
+    >
+      <use href="/ui.svg#kitteh" />
+    </svg>
+  );
+};
+
 export {
   CornerDownRight,
   File,
@@ -144,4 +160,5 @@ export {
   Heart,
   HeartSolid,
   Trash,
+  Kat,
 };

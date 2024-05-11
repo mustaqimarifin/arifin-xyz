@@ -7,6 +7,14 @@
   isolation: isolate;
 }
 
+@font-face {
+  font-family: Cheltenham;
+  src: url("/fonts/cheltenham-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /*     --sh-class: oklch(83.3% 0.0081 30);
     --sh-keyword: oklch(73.03% 0 0);
     --sh-string: oklch(85.76% 0.002 247.8);
@@ -37,6 +45,8 @@
     "URW Bookman L", "Georgia Pro", Georgia, serif;
   --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
     "DejaVu Sans Mono", monospace;
+  --font-headings: Cheltenham, "Bookman Old Style", "URW Bookman",
+    "URW Bookman L", "Georgia Pro", Georgia, serif;
 
   /* Theme */
 
@@ -114,7 +124,6 @@
   color: #57534e;
 }
 
-h1,
 h2,
 h3,
 h4,
@@ -126,9 +135,11 @@ h6 {
 }
 
 h1 {
+  font-family: var(--font-headings);
   color: var(--headings);
-  font-weight: 800;
-  font-size: 2.25em;
+  font-weight: 700;
+  font-size: 2.5em;
+  padding-top: 0.5em;
   margin-top: 0;
   margin-bottom: 0.8888889em;
   line-height: 1.1111111;
@@ -291,3 +302,14 @@ figcaption + pre {
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+
+/* .lucide {
+  color: #ffadff;
+  width: 90px;
+  height: 90px;
+  stroke-width: 1px;
+}
+
+.lucide * {
+  vector-effect: non-scaling-stroke;
+} */

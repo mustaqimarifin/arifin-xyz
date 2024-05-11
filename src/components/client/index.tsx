@@ -1,22 +1,23 @@
 'use client'
 import {cx} from '@/utils'
+import {BriefcaseBusinessIcon, LayersIcon, MessagesSquareIcon, NewspaperIcon, NotebookPenIcon, RssIcon} from 'lucide-react'
 import Image from 'next/image'
 import {usePathname} from 'next/navigation'
 import Script from 'next/script'
 import {type FC, type ReactNode, Suspense} from 'react'
 import {useInView} from 'react-intersection-observer'
-import {GreenCheck, RedCross} from '../Sprites'
+import {GreenCheck, Kat, RedCross} from '../Sprites'
 import {Link} from '../server'
 import styles from './client.module.css'
 
 const pages = [
-  {name: '[𝖆𝖗𝖎𝖋𝖎𝖓]', path: '/'},
-  {name: 'WORK', path: '/work'},
-  {name: 'NOTES', path: '/notes'},
-  {name: 'STACK', path: '/stack'},
-  {name: 'GUESTBOOK', path: '/guestbook'},
-  {name: 'BOOKMARKS', path: '/bookmarks'},
-  {name: '{rss}', path: '/feed.xml'},
+  {name: '[𝖆𝖗𝖎𝖋𝖎𝖓]', path: '/', icon: Kat},
+  {name: 'WORK', path: '/work', icon: BriefcaseBusinessIcon},
+  {name: 'NOTES', path: '/notes', icon: NotebookPenIcon},
+  {name: 'STACK', path: '/stack', icon: LayersIcon},
+  {name: 'GUESTBOOK', path: '/guestbook', icon: MessagesSquareIcon},
+  {name: 'BOOKMARKS', path: '/bookmarks', icon: NewspaperIcon},
+  {name: '{rss}', path: '/feed', icon: RssIcon},
 ]
 
 export const HomePageNav = () => {
@@ -46,10 +47,15 @@ export const Navbar = () => {
           key={link.path}
           href={link.path}
           label={link.name}
-          prefetch={false}
-          className={cx('relative py-3', isActive(link.path) ? 'font-medium text-rose-500' : 'text-neutral-500 dark:text-neutral-400')}>
-          <span className="block sm:hidden">{}</span>
-          <span className="hidden sm:block">{link.name}</span>
+          //prefetch={false}
+          className={cx(
+            'relative py-3',
+            isActive(link.path) ? 'font-medium text-purple dark:text-purple-7' : 'text-neutral-400 dark:text-neutral-700'
+          )}>
+          <span className="block sm:hidden">
+            <link.icon className="w-5 h-5" />
+          </span>
+          <span className="hidden sm:block font-600">{link.name}</span>
           {isActive(link.path) && <span className={styles['navbar-span']} />}
         </Link>
       ))}

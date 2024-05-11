@@ -2,10 +2,10 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: "*",
+        userAgent: '*',
       },
     ],
-    sitemap: "https://arifin.xyz/sitemap.xml",
-    host: "https://arifin.xyz",
-  };
+    sitemap: 'https://arifin.xyz/sitemap.xml',
+    host: 'https://arifin.xyz',
+  }
 }
