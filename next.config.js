@@ -1,47 +1,42 @@
-const { withContentlayer } = require("next-contentlayer2");
+//import path from "path";
+//import {fileURLToPath} from 'url'
+const { createContentlayerPlugin } = require("next-contentlayer2");
 //import { withContentlayer } from "next-contentlayer2";
 
+//const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+//const __dirname = path.dirname(__filename); // get the name of the directory
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	images: {
-		formats: ["image/avif", "image/webp"],
-		remotePatterns: [
-			{ protocol: "https", hostname: "*.twimg.com", pathname: "/**" },
-			{ protocol: "https", hostname: "cdn.sanity.io", pathname: "/**" },
-			{ protocol: "https", hostname: "i.scdn.co", pathname: "/**" },
-			{
-				protocol: "https",
-				hostname: "ik.imagekit.io",
-				pathname: "/mstqmarfn/**",
-			},
-			{
-				protocol: "https",
-				hostname: "lh3.googleusercontent.com",
-				pathname: "/**",
-			},
-			{
-				protocol: "https",
-				hostname: "avatars.githubusercontent.com",
-				pathname: "/**",
-			},
-		],
-		dangerouslyAllowSVG: true,
-	},
-	/*  webpack: (config, options) => {
-    config.module.rules.push(      {
-      test: /\.(jpe?g|png|svg|gif|ico|ttf|woff2|mp4|webp|webm)$/,
-      type: 'asset',
-      generator: {
-        filename: 'static/chunks/[path][name].[hash][ext]',
-				//filename: '_next/static/[path][name].[hash].[ext]'
+  images: {
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      { protocol: "https", hostname: "*.twimg.com", pathname: "/**" },
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/mstqmarfn/**",
       },
-    });
-
-      return config;
-  } */
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        pathname: "/**",
+      },
+    ],
+    dangerouslyAllowSVG: true,
+  },
 };
+
+const withContentlayer = createContentlayerPlugin({
+  // Additional Contentlayer config options
+});
 
 module.exports = withContentlayer(nextConfig);
 

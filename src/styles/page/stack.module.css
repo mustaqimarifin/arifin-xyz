@@ -1,0 +1,22 @@
+.stack {
+  @apply mt-8 grid gap-8;
+}
+.card {
+  @apply p-2 grid sm:grid-cols-2 gap-x-2;
+}
+
+.url {
+  @apply no-underline items-center flex gap-4 p-4 rounded-lg transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800;
+}
+
+.name {
+  @apply text-sm font-medium text-neutral-900 dark:text-neutral-100;
+}
+
+.feat {
+  @apply text-xs px-2 rounded-full font-medium bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300;
+}
+
+.desc {
+  @apply text-sm text-neutral-500 dark:text-neutral-400;
+}

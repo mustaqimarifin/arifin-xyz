@@ -1,0 +1,79 @@
+/* Light theme (default) */
+.tweet .react-tweet-theme {
+  /* margin is handled by our wrappers */
+  --tweet-container-margin: 0;
+  --tweet-font-family: inherit;
+  --tweet-font-color: inherit;
+
+  /* Light colors */
+  --tweet-bg-color: oklch(100% 0 0);
+  --tweet-bg-color-hover: var(--tweet-bg-color);
+  --tweet-color-blue-secondary: #4b5563;
+  --tweet-color-blue-secondary-hover: #f3f4f6;
+  --tweet-font-color-secondary: #6b7280;
+
+  /* Common properties for both themes */
+  --tweet-quoted-bg-color-hover: oklch(0% 0 0 / 0.03);
+  --tweet-border: 1px solid oklch(87.91% 0.013 228.9);
+  --tweet-skeleton-gradient: linear-gradient(
+    270deg,
+    oklch(98.51% 0 0),
+    oklch(93.7% 0 0),
+    oklch(93.7% 0 0),
+    oklch(98.51% 0 0)
+  );
+  --tweet-color-red-primary: oklch(63.98% 0.25 2.079);
+  --tweet-color-red-primary-hover: oklch(63.98% 0.25 2.079 / 0.1);
+  --tweet-color-green-primary: oklch(69.64% 0.156 160.6);
+  --tweet-color-green-primary-hover: oklch(69.64% 0.156 160.6 / 0.1);
+  --tweet-twitter-icon-color: var(--tweet-font-color);
+  --tweet-verified-old-color: oklch(67.35% 0.037 239);
+  --tweet-verified-blue-color: var(--tweet-color-blue-primary);
+
+  --tweet-actions-font-weight: 500;
+  --tweet-replies-font-weight: 500;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  .tweet .react-tweet-theme {
+    /* Dark theme colors */
+    --tweet-bg-color: oklch(25.2% 0 0);
+    --tweet-bg-color-hover: var(--tweet-bg-color);
+    --tweet-quoted-bg-color-hover: oklch(100% 0 0 / 0.03);
+    --tweet-border: 1px solid oklch(32.11% 0 0);
+    --tweet-color-blue-secondary: #fff;
+    --tweet-color-blue-secondary-hover: oklch(32.11% 0 0);
+    --tweet-font-color-secondary: #9ca3af;
+  }
+}
+
+/* Common styles for both themes */
+.tweet .react-tweet-theme p {
+  font-size: inherit;
+  line-height: 1.3rem;
+}
+
+.tweet .react-tweet-theme p a {
+  @apply border-b border-gray-300 transition-[border-color] hover:border-gray-600;
+}
+
+/* Dark theme link styles */
+@media (prefers-color-scheme: dark) {
+  .tweet .react-tweet-theme p a {
+    @apply border-gray-500 text-white hover:border-white;
+  }
+}
+
+/* Remove link underline on hover for both themes */
+.tweet .react-tweet-theme p a:hover {
+  text-decoration: none;
+}
+
+.tweet a div {
+  @apply font-medium tracking-tight;
+}
+
+.tweet div[class*="mediaWrapper"] {
+  max-height: 250px;
+}

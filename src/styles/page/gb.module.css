@@ -1,0 +1,31 @@
+.log-in {
+  @apply px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center text-neutral-900 dark:text-neutral-100 mb-8;
+}
+
+.log-out {
+  @apply text-xs text-neutral-700 dark:text-neutral-300 mt-2 mb-6;
+}
+
+.form {
+  @apply flex w-full relative max-w-screen;
+}
+
+.input {
+  @apply pl-4 pr-32 py-2 focus:ring-blue-500 focus:border-blue-500 block w-full border-neutral-300 rounded-md bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100;
+}
+
+.submit {
+  @apply flex items-center justify-center absolute right-1 top-1 px-2 py-1 font-medium h-8 bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 rounded w-16;
+}
+
+.page {
+  @apply w-full mt-10 flex flex-col space-y-1 mb-4 h-dvh;
+}
+
+.entry-ow {
+  @apply flex flex-col items-center text-justify space-x-4 space-y-1 mb-4;
+}
+
+.entry-iw {
+  @apply flex items-center w-full text-sm text-neutral-600 dark:text-neutral-400 break-words;
+}

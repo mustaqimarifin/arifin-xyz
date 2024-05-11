@@ -1,0 +1,31 @@
+.page-title {
+  @apply flex mb-6 text-3xl font-extrabold justify-center tracking-tight text-black md:text-4xl dark:text-white;
+}
+
+.panel {
+  @apply flex justify-center items-center font-semibold uppercase text-xs text-gray-500 dark:text-gray-400;
+}
+
+.card {
+  @apply rounded-2xl p-1 bg-neutral-100 dark:bg-neutral-900;
+}
+
+.title {
+  @apply text-sm font-medium py-2 px-4 text-neutral-900 dark:text-neutral-100;
+}
+
+.detail {
+  @apply border rounded-xl overflow-hidden shadow-sm bg-white border-neutral-200 dark:bg-neutral-950 dark:border-neutral-800;
+}
+
+.tags {
+  @apply duration-700 ease-in-out transition-all hover:text-rose-300 dark:hover:text-rose-200 flex flex-wrap mr-3 text-xs font-semibold justify-center uppercase;
+}
+
+.section {
+  @apply container mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0;
+}
+
+.cover-wrapper {
+  @apply relative z-0 mx-auto m-4 aspect-[21/12] max-w-5xl overflow-hidden lg:rounded-lg;
+}

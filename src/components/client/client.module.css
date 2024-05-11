@@ -1,0 +1,113 @@
+.nav-1 {
+  @apply flex mr-40 justify-between flex-col;
+}
+
+.nav-1-link {
+  @apply duration-700 ease-in-out transition-all hover:text-rose-300 dark:hover:text-rose-200 text-2xl md:text-5xl tracking-tight py-1 md:py-2 font-black;
+}
+
+.navbar {
+  @apply rounded-full px-6 flex items-center gap-6 fixed bottom-6 left-1/2 -translate-x-1/2 backdrop-blur-sm backdrop-filter bg-opacity-50 shadow-lg border text-sm bg-white/80 border-neutral-950/10 dark:bg-neutral-950/80 dark:border-neutral-100/10;
+}
+
+.navbar-span {
+  @apply w-full h-px bg-current absolute left-0 top-full;
+}
+
+.pix {
+  @apply filter drop-shadow-sm;
+
+  .img {
+    border-radius: 0.5rem;
+    background-color: oklch(21.0331% 0.00586 285.885);
+  }
+
+  &:has(figcaption) {
+    display: flex;
+    align-items: start;
+  }
+
+  & figcaption {
+    text-align: right;
+
+    & span {
+      @apply text-sm text-gray-600 dark:text-gray-400;
+    }
+  }
+}
+
+/* .pix {
+  @apply filter drop-shadow-sm;
+}
+
+.pix-img {
+  border-radius: 0.5rem;
+  background-color: oklch(21.0331% 0.00586 285.885);
+}
+
+.pix-cap {
+  @apply text-sm text-gray-600 dark: text-gray-400;
+  display: flex;
+  align-items: start;
+  text-align: right;
+}
+ */
+
+.clock {
+  @apply md:fixed bottom-0 left-0 col-span-full lg:col-start-9 lg:col-span-8 row-start-1 lg:row-auto self-start flex flex-col justify-between pt-4 font-bold font-mono text-[6vw] md:text-[4vw] md:ml-6 tabular-nums;
+}
+
+.bg-wrap {
+  @apply w-[500px] h-[600px] md:w-[650px] dark:invert;
+  position: fixed;
+  background-image: url("/av3.svg");
+  min-height: 100vh;
+  overflow: visible;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.callout {
+  @apply px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-balance rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8;
+}
+
+.emoji {
+  @apply pl-4 flex items-center w-4 h-4 mr-4;
+}
+
+.children {
+  width: 100%;
+}
+
+.pro-card {
+  @apply border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full;
+
+  .pc-ow {
+    @apply flex font-medium items-baseline mb-2;
+
+    .pc-iw {
+      @apply h-4 w-4 mr-2;
+
+      .pc-cm {
+        @apply h-4 w-4 text-emerald-500;
+      }
+    }
+  }
+}
+
+.con-card {
+  @apply border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full;
+
+  .cc-ow {
+    @apply flex font-medium items-baseline mb-2;
+
+    .cc-iw {
+      @apply h-4 w-4 mr-2;
+
+      .cc-cm {
+        @apply h-4 w-4 text-red-500;
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+.mdx {
+  max-width: var(--main-content);
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.mdx > * + * {
+  margin-top: 2em;
+}
+
+.mdx p {
+  color: var(--body);
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.mdx img,
+picture,
+video {
+  display: block;
+}
+
+.mdx img {
+  max-width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: auto;
+  border-radius: var(--radius);
+}
+
+.mdx [id]::before {
+  content: "";
+  display: block;
+  height: 70px;
+  margin-top: -70px;
+  visibility: hidden;
+}
+
+/* Lists */
+
+.mdx ul {
+  list-style-type: disc;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-inline-start: 1.625em;
+}
+
+.mdx ol {
+  list-style-type: decimal;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-inline-start: 1.625em;
+}
+
+.mdx ul li.reset {
+  display: flex;
+  align-items: flex-start;
+
+  list-style-type: none;
+  margin-left: -0.5rem;
+}
+
+.mdx ul li.reset .check {
+  display: flex;
+  align-items: center;
+  margin-right: 0.51rem;
+}
+
+/* Code Snippets */
+
+/* .mdx *:not(pre)>code {
+  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0 3px;
+}
+ */
+/* .mdx *:not(pre)>code::before,
+.mdx *:not(pre)>code::after {
+  content: '\`';
+  color: var(--gray);
+  user-select: none;
+}
+ */
+
+.mdx pre {
+  overflow-x: auto;
+  background-color: var(--code);
+  border-radius: var(--inline-radius);
+  line-height: 1.8;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mdx pre {
+    overflow-x: auto;
+    background-color: var(--code);
+    border-radius: var(--inline-radius);
+    line-height: 1.8;
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.mdx code {
+  @apply scroll-px-2 py-0.5 rounded-lg;
+}
+
+.mdx pre code {
+  @apply p-0 rounded-lg;
+  border: initial;
+  line-height: 1.5;
+}
+
+.mdx code span {
+  @apply font-medium;
+}
+
+.mdx img {
+  @apply m-0;
+}
+
+.mdx strong {
+  @apply font-medium;
+}
+
+.mdx > :first-child {
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+.mdx .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.mdx a {
+  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+}
+
+.mdx .anchor:after {
+  @apply text-neutral-300 dark:text-neutral-700;
+  content: "#";
+}
+
+.mdx *:hover > .anchor {
+  @apply visible;
+}
+
+.mdx :where(code)::before {
+  content: none;
+}
+
+.mdx :where(code)::after {
+  content: none;
+}
+
+/* Linkable Headers */
+
+.header-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header-link::after {
+  opacity: 0;
+  content: "#";
+  margin-left: var(--gap-half);
+  color: var(--gray);
+}
+
+.header-link:hover::after {
+  opacity: 1;
+}

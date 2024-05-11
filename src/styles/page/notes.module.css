@@ -1,0 +1,15 @@
+.note-link {
+  @apply flex items-center gap-4 no-underline text-inherit font-normal group transition-colors sm:truncate;
+
+  .title {
+    @apply m-0 sm:truncate text-neutral-950 dark:text-white font-semibold group-hover:text-rose-500 transition-colors;
+  }
+
+  .rule {
+    @apply hidden sm:block min-w-7 flex-1 m-0 group-hover:border-rose-400 transition-colors;
+  }
+
+  .date {
+    @apply duration-700 ease-in-out transition-all hover:text-rose-300 dark:hover:text-rose-200 hidden sm:block shrink-0 m-0 text-sm font-mono group-hover:text-rose-400 transition-colors;
+  }
+}

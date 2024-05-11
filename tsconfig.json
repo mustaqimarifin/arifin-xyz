@@ -1,58 +1,49 @@
 {
-	"compilerOptions": {
-		"target": "es2022",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": false,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"incremental": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "Node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"strictNullChecks": true,
-		"baseUrl": ".",
-		"paths": {
-			"contentlayer/generated": [
-				"./.contentlayer/generated"
-			],
-			"scripts/*": [
-				"./.scripts/*"
-			],
-			"@/*": [
-				"./*"
-			]
-		},
-		"plugins": [
-			{
-				"name": "next"
-			}
-		]
-	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		".contentlayer/generated",
-		".scripts/**/*.json",
-		"eslint.config.js",
-		"next.config.js",
-		"postcss.config.js",
-		"utils/withoutBody.mjs",
-		"contentlayer.config.ts",
-		"site.config.mjs",
-		"utils/htmlEscaper.mjs"
-	],
-	"exclude": [
-		"node_modules"
-	]
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "allowArbitraryExtensions": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"],
+      "$$/*": ["./src/styles/*"],
+      "@/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated",
+    "src/meta/**/*.json",
+    "eslint.config.js",
+    "next.config.js",
+    "postcss.config.js",
+    "contentlayer.config.ts",
+    "site.config.ts",
+    "src/data/work2.yaml",
+    "src/scripts/nobody.ts",
+    "src/scripts/meta.mjs"
+  ],
+  "exclude": ["node_modules"]
 }

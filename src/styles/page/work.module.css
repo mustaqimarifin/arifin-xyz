@@ -1,0 +1,15 @@
+.ja-rule {
+  @apply my-6 border-neutral-100 dark:border-neutral-800;
+}
+
+.firm {
+  @apply font-medium text-xl mb-1 tracking-tighter;
+}
+
+.position {
+  @apply text-neutral-600 dark:text-neutral-400 text-sm;
+}
+
+.summary {
+  @apply italic text-sm;
+}

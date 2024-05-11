@@ -185,4 +185,3 @@ Procfile          text
 *.*rc             text
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
-.yarn/unplugged/@next-swc-darwin-x64-npm-14.2.2-3665c98a93/node_modules/@next/swc-darwin-x64/next-swc.darwin-x64.node filter=lfs diff=lfs merge=lfs -text

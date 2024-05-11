@@ -1,0 +1,293 @@
+@import "@unocss/reset/tailwind.css";
+/* @import "../styles/reset.css"; */
+@unocss all;
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*     --sh-class: oklch(83.3% 0.0081 30);
+    --sh-keyword: oklch(73.03% 0 0);
+    --sh-string: oklch(85.76% 0.002 247.8);
+    --sh-sign: oklch(93.7% 0 0);
+    --sh-entity: oklch(73.03% 0 0);
+    --sh-jsxliterals: oklch(85.76% 0.012 7.8);
+    --sh-comment: oklch(68% 0 0 / 60%);
+    --sh-property: oklch(83.3% 0.0081 200);
+    --sh-identifier: oklch(85.76% 0.002 247.8); */
+
+:root {
+  /* Spacing */
+  --gap-quarter: 0.25rem;
+  --gap-half: 0.5rem;
+  --gap: 1rem;
+  --gap-double: 2rem;
+  --small-gap: 4rem;
+  --big-gap: 4rem;
+  --main-content: 45rem;
+  --radius: 8px;
+  --inline-radius: 5px;
+
+  /* Fonts */
+
+  --font-sans: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+    Arial, sans-serif;
+  --font-serif: Superclarendon, "Bookman Old Style", "URW Bookman",
+    "URW Bookman L", "Georgia Pro", Georgia, serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
+
+  /* Theme */
+
+  color-scheme: light dark;
+
+  --tx1: oklch(98.16% 0.002 247.84);
+  --tx2: oklch(94.17% 0.005 247.88);
+  --tx3: oklch(91.09% 0.007 247.9);
+  --tx4: oklch(86.71% 0.011 247.95);
+  --tx5: oklch(76.92% 0.015 248.02);
+  --tx5a: oklch(68.68% 0 0);
+  --tx6: oklch(55.75% 0.016 244.89);
+  --tx7: oklch(42.76% 0.015 248.17);
+  --tx8: oklch(34.51% 0.013 248.21);
+  --tx9: oklch(26.21% 0.009 248.19);
+  --tx10: oklch(17% 0 0);
+
+  --bg: oklch(100% 0 0);
+  --fg: oklch(0% 0 0);
+  --gray: oklch(62.68% 0 0);
+  --light-gray: oklch(90.06% 0 0);
+  --lighter-gray: oklch(97.02% 0 0);
+  --lightest-gray: oklch(98.51% 0 0);
+  --article-color: oklch(24.78% 0 0);
+  --code: oklch(96.42% 0 0);
+  --pre-code: oklch(92.88% 0.013 255.5);
+  --pre-bg: oklch(27.95% 0.037 260);
+  --headings: oklch(20.77% 0.04 265.8);
+  --header-bg: oklch(100% 0 0 / 0.8);
+  --gray-alpha: oklch(19.06% 0.003 248 / 0.5);
+  --selection: oklch(70.28% 0.11 346.02);
+  --dark-selection: oklch(88.28% 0.11 346.02);
+  --sh-class: oklch(32.68% 0 0);
+  --sh-sign: #8f8f8f;
+  --sh-entity: oklch(25.2% 0 0);
+  --sh-jsxliterals: oklch(34.06% 0 0);
+  --sh-string: #3a3a3a;
+  --sh-comment: oklch(68% 0 0);
+  --sh-keyword: #3a3a3a;
+  --sh-property: oklch(24.78% 0 0);
+  --sh-identifier: oklch(19.06% 0.003 248 / 0.8);
+  /* Code */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: oklch(21.78% 0 0);
+    --fg: oklch(98.76% 0.002 247.8);
+    --gray: oklch(51.03% 0 0);
+    --light-gray: oklch(38.67% 0 0);
+    --lighter-gray: oklch(25.2% 0 0);
+    --lightest-gray: oklch(21.78% 0 0);
+    --article-color: oklch(93.7% 0 0);
+    --code: oklch(25.62% 0 0);
+    --pre-code: oklch(86.9% 0.02 252.9);
+    --pre-bg: oklch(0% 0 0 / 0.5);
+    --headings: oklch(100% 0 0);
+    --header-bg: oklch(19.06% 0.003 247.96 / 45%);
+    --gray-alpha: oklch(100% 0 0 / 50%);
+    --selection: oklch(100% 0 0 / 99%);
+    --sh-class: oklch(62.68% 0 0);
+    --sh-sign: #8f8f8f;
+    --sh-entity: oklch(70.2% 0 0);
+    --sh-jsxliterals: oklch(90.06% 0 0);
+    --sh-string: oklch(100% 0 0 / 50%);
+    --sh-comment: oklch(68% 0 0);
+    --sh-keyword: oklch(100% 0 0 / 50%);
+    --sh-property: oklch(68% 0 0);
+    --sh-identifier: oklch(85.76% 0.002 247.8);
+  }
+}
+
+::selection {
+  background-color: light-dark(var(--selection), var(--dark-selection));
+  color: #57534e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+h1 {
+  color: var(--headings);
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+h2 {
+  color: var(--headings);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+h3 {
+  color: var(--headings);
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+h4 {
+  color: var(--headings);
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+blockquote {
+  font-style: italic;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--light-gray);
+}
+
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+  font-size: inherit;
+}
+
+p a,
+a.reset {
+  outline: none;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+p a:hover,
+p a:focus,
+p a:active,
+a.reset:hover,
+a.reset:focus {
+  color: var(--gray);
+}
+
+html {
+  @apply scroll-smooth;
+  min-width: 360px;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  background-color: var(--bg);
+  color: var(--fg);
+  text-size-adjust: none;
+  font-family: var(--font-sans);
+}
+
+picture > img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+body {
+  @apply max-w-3xl antialiased text-black dark:text-white mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto;
+}
+
+main {
+  @apply flex-auto min-w-0 mt-6 flex flex-col;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 1rem 0;
+
+  @apply !px-3 rounded-lg;
+}
+
+pre,
+code {
+  font-family: var(--font-mono);
+  font-weight: lighter;
+  border-radius: var(--radius);
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+figcaption + pre {
+  @apply !rounded-t-none;
+}
+
+.lfn {
+  @apply flex gap-1;
+}
+
+.cdr {
+  @apply flex items-center justify-end dark:text-stone-600;
+}
+
+.cdr-2 {
+  @apply w-6 text-stone-300 dark:text-stone-600;
+}
+
+.arifin {
+  @apply font-bold tracking-wide text-gray-800 dark:text-gray-200 inline-block p-1 px-3 py-2 transition-all;
+}
+
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

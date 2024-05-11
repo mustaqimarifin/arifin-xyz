@@ -1,9 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/tw
 /node_modules
-/.pnp
+/.pnp.*
 .pnp.js
+
+test.json
+test.ts
 
 s.js
 
@@ -45,13 +49,7 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 .env
+page_orig.txt
 
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-.yarn/install-state.gz
+/src/db/sqlite
+/src/components/comments
