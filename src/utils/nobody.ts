@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs'
 import path from 'node:path'
 
-export const omit = <Obj, Keys extends keyof Obj>(
+/* export const omit = <Obj, Keys extends keyof Obj>(
   obj: Obj,
   keys: Keys[]
 ): Omit<Obj, Keys> => {
@@ -11,7 +11,7 @@ export const omit = <Obj, Keys extends keyof Obj>(
   }
   return result
 }
-
+ */
 export async function withoutBody(allNotes) {
   const file = path.join('./schema', 'noteSchema.json')
   const json = () => {

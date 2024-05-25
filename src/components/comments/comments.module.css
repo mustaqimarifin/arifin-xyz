@@ -1,0 +1,57 @@
+.form {
+  @apply flex w-full relative max-w-screen;
+}
+
+.input {
+  @apply pl-4 pr-32 py-2 focus:ring-blue-500 focus:border-blue-500 block w-full border-neutral-300 rounded-md bg-gray-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100;
+}
+
+.avatar {
+  .del {
+    @apply rounded-full border border-white shadow-sm bg-gray-500;
+  }
+
+  .fl {
+    @apply @apply rounded-full border border-white shadow-sm bg-gray-500;
+  }
+
+  .pf {
+    @apply rounded-full border border-white shadow-sm object-cover;
+  }
+
+  .name {
+    @apply rounded-full border border-white bg-indigo-600 text-white shadow-sm flex items-center justify-center capitalize font-light;
+  }
+
+  .def {
+    @apply skeleton rounded-full border border-white bg-indigo-600 text-white shadow-sm flex items-center justify-center capitalize font-light;
+  }
+}
+
+.cform {
+  @apply flex flex-grow flex-col min-h-10 p-3;
+
+  .cform-2 {
+    @apply flex-grow flex items-center space-x-2;
+  }
+
+  .label-1 {
+    @apply flex-grow flex items-center cursor-text select-none min-h-14;
+
+    .t-area {
+      @apply block bg-zinc-7 rounded-lg p-4 flex-grow leading-5 min-h-5 max-h-36 resize-none mx-0 -my-1 py-4 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-300 border-none overflow-auto text-sm transition-opacity disabled:opacity-50 focus:outline-none focus:shadow-none focus:ring-0;
+    }
+  }
+
+  .b-wrap {
+    @apply h-full flex items-center justify-center w-12;
+
+    .b-in {
+      @apply text-indigo-500 dark: text-indigo-400 font-semibold px-2 text-sm h-full max-h-10 border border-transparent focus-ring;
+    }
+  }
+
+  .fkit {
+    @apply pt-2 font-medium text-sm text-red-500;
+  }
+}

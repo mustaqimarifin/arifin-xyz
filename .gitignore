@@ -52,5 +52,3 @@ next-env.d.ts
 page_orig.txt
 
 /src/db/sqlite
-/src/components/comments
-/src/meta/serialized-posts.json

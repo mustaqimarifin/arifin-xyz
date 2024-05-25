@@ -4,11 +4,6 @@ import { withContentCollections } from '@content-collections/next'
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
-  },
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },

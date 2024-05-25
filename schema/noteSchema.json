@@ -1,1 +1,53 @@
-[{"title":"The State of The Edge","summary":"An overview of databases that pair well with modern application and compute providers.","date":"2024-04-17T23:00:40.373Z","image":"/images/backend/og.avif","tags":["markdown","react","vite"],"_meta":{"filePath":"backend/index.mdx","fileName":"index.mdx","directory":"backend","extension":"mdx","path":"backend"},"slug":"backend","wordCount":1714,"readTime":"10 min read","lastModified":"2024-05-25T05:27:11.000Z"},{"title":"Contentlayer with Next/Image","summary":"How to use static markdown images with contentlayer and next/image","date":"2022-12-11T00:00:40.373Z","image":"/images/contentlayer-next-image/process.jpg","_meta":{"filePath":"contentlayer-next-image/index.mdx","fileName":"index.mdx","directory":"contentlayer-next-image","extension":"mdx","path":"contentlayer-next-image"},"slug":"contentlayer-next-image","wordCount":1488,"readTime":"8 min read","lastModified":"2024-05-25T05:27:11.000Z"},{"title":"Tits","summary":"Including some of my latest hot takes (okay they are pretty mild).","date":"2023-11-19T00:00:00.000Z","_meta":{"filePath":"syntax/index.mdx","fileName":"index.mdx","directory":"syntax","extension":"mdx","path":"syntax"},"slug":"syntax","wordCount":1428,"readTime":"8 min read","lastModified":"2024-05-25T05:27:11.000Z"}]
+[
+  {
+    "title": "The State of The Edge",
+    "summary": "An overview of databases that pair well with modern application and compute providers.",
+    "date": "2024-04-17T23:00:40.373Z",
+    "image": "/images/backend/og.avif",
+    "tags": ["markdown", "react", "vite"],
+    "_meta": {
+      "filePath": "backend/index.mdx",
+      "fileName": "index.mdx",
+      "directory": "backend",
+      "extension": "mdx",
+      "path": "backend"
+    },
+    "slug": "backend",
+    "wordCount": 1714,
+    "readTime": "10 min read",
+    "lastModified": "2024-05-25T05:27:11.000Z"
+  },
+  {
+    "title": "Contentlayer with Next/Image",
+    "summary": "How to use static markdown images with contentlayer and next/image",
+    "date": "2022-12-11T00:00:40.373Z",
+    "image": "/images/contentlayer-next-image/process.jpg",
+    "_meta": {
+      "filePath": "contentlayer-next-image/index.mdx",
+      "fileName": "index.mdx",
+      "directory": "contentlayer-next-image",
+      "extension": "mdx",
+      "path": "contentlayer-next-image"
+    },
+    "slug": "contentlayer-next-image",
+    "wordCount": 1488,
+    "readTime": "8 min read",
+    "lastModified": "2024-05-25T05:27:11.000Z"
+  },
+  {
+    "title": "Tits",
+    "summary": "Including some of my latest hot takes (okay they are pretty mild).",
+    "date": "2023-11-19T00:00:00.000Z",
+    "_meta": {
+      "filePath": "syntax/index.mdx",
+      "fileName": "index.mdx",
+      "directory": "syntax",
+      "extension": "mdx",
+      "path": "syntax"
+    },
+    "slug": "syntax",
+    "wordCount": 1428,
+    "readTime": "8 min read",
+    "lastModified": "2024-05-25T05:27:11.000Z"
+  }
+]

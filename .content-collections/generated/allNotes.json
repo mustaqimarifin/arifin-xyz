@@ -5,11 +5,7 @@
     "summary": "An overview of databases that pair well with modern application and compute providers.",
     "date": "2024-04-17T23:00:40.373Z",
     "image": "/images/backend/og.avif",
-    "tags": [
-      "markdown",
-      "react",
-      "vite"
-    ],
+    "tags": ["markdown", "react", "vite"],
     "_meta": {
       "filePath": "backend/index.mdx",
       "fileName": "index.mdx",
