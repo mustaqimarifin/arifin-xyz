@@ -1,9 +1,9 @@
-import allNotes from 'src/meta/allNotes.json'
+import noteSchema from 'schema/noteSchema.json'
 import { env } from 'site.config'
 import { esc } from '@/utils'
 
 export async function GET() {
-  const itemsXml = allNotes
+  const itemsXml = noteSchema
     .map(
       (post) =>
         `<item>
@@ -23,7 +23,7 @@ export async function GET() {
          <description>${esc(env.description)}</description>
       <language>${env.language}</language>
       <webMaster>${env.email} (${env.author})</webMaster>
-      <lastBuildDate>${new Date(allNotes[0].date).toUTCString()}</lastBuildDate>
+      <lastBuildDate>${new Date(noteSchema[0].date).toUTCString()}</lastBuildDate>
         ${itemsXml}
     </channel>
   </rss>`

@@ -1,6 +1,6 @@
 import type { Stack } from '@/app/(site)/stack/page'
+import { allNotes } from 'content-collections'
 import { compareDesc, getYear } from './_date'
-import allNotes from '@/meta/allNotes.json'
 //import {allProjects} from 'contentlayer/generated'
 import { pick } from '.'
 
