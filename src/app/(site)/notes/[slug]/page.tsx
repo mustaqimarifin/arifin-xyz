@@ -7,7 +7,6 @@ import { SignIn, SignOut } from '../../guestbook/buttons'
 import { allNotes } from 'content-collections'
 import MDXLayout from '@/layouts/mdxLayout'
 import { notFound } from 'next/navigation'
-import meta from '@/meta/metadata.json'
 import { MDX } from '@/components/mdx'
 import { pg_ink } from '@/db/actions'
 import type { Metadata } from 'next'
@@ -40,7 +39,7 @@ export const generateStaticParams = async () =>
 export async function generateMetadata({
   params: { slug },
 }: NoteProps): Promise<Metadata | undefined> {
-  const post = meta.find((p) => p.slug === slug)
+  const post = noteSchema.find((p) => p.slug === slug)
   if (!post) {
     return
   }

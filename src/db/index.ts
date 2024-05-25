@@ -4,12 +4,12 @@ import { env } from 'site.config'
 import postgres from 'postgres'
 //import { appendFile } from 'fs'
 import { Pool } from 'pg'
-export const sql = postgres(env.postgrease)
+export const sql = postgres(env.pgPool)
 
 export type SQL = typeof sql
 
 export const db = new Pool({
-  connectionString: env.postgrease,
+  connectionString: env.pgPool,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,

@@ -10,7 +10,7 @@ export async function getTweet(
     if (data) {
       //await sx.insert(tweets).values({ key: `tweet:${id}`, value: data })
       await db.query(`insert into tweets (key,value) values ($1, $2)`, [
-        id,
+        `tweet:${id}`,
         structuredClone(data),
       ])
       console.log('TWEET::Fetch', 1)
@@ -19,7 +19,7 @@ export async function getTweet(
     }
     if (tombstone || notFound) {
       //await sx.delete(tweets).where(eq(tweets.key, `tweet:${id}`))
-      await db.query(`delete from tweets where key = $1`, [id])
+      await db.query(`delete from tweets where key = $1`, [`tweet:${id}`])
     }
   } catch (error) {}
   /*   const cachedTweet = await sx
@@ -29,7 +29,7 @@ export async function getTweet(
 
   const cachedTweet = await db.query<Tweet>(
     `select * from tweet where key = $1`,
-    [id]
+    [`tweet:${id}`]
   )
 
   console.log('TWEET::Cache', 1)
