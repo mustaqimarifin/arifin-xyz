@@ -1,11 +1,15 @@
-import { db } from "@/db";
-import { xId } from "@/db/nanoid";
-//import {SQLiteDrizzleAdapter} from '@/db/sqlite-adapter'
-import NextAuth from "next-auth";
-import GitHub from "next-auth/providers/github";
-import Google from "next-auth/providers/google";
-import Twitter from "next-auth/providers/twitter";
-import { PostgresDrizzleAdapter } from "./pg-adapter";
+//import type { Adapter } from '@auth/core/adapters'
+import Twitter from 'next-auth/providers/twitter'
+import GitHub from 'next-auth/providers/github'
+import Google from 'next-auth/providers/google'
+//import PostgresAdapter from './node_pg_adapter'
+import PostgresJSAdapter from './pgjs_adapter'
+import { fuckyouID } from '@/utils/genID'
+import NextAuth from 'next-auth'
+import { sql } from '.'
+
+//import {SxAdapter} from './pg-adapter'
+//import PostgresAdapter from './pg_adapter_nextauth'
 
 export const {
   handlers: { GET, POST },
@@ -13,31 +17,36 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
-  //adapter: SQLiteDrizzleAdapter(db),
-  //@ts-expect-errors
-  adapter: PostgresDrizzleAdapter(db),
+  debug: true,
+  adapter: PostgresJSAdapter(sql) as any,
   providers: [GitHub, Google, Twitter],
   session: {
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-    updateAge: 24 * 60 * 60, // Status update every 24hrs
     generateSessionToken: () => {
-      return `wHoDisB1Tch${xId()}`;
+      return `wHoDisB1Tch${fuckyouID(4)}`
     },
   },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.sub = user.id;
+        token.sub = user.id
       }
-      return token;
+      return token
     },
     async session({ session, user }) {
-      session.userId = user.id;
-      session.user.role = user.role;
-      return session;
+      session.user.id = user.id
+      session.user.role = user.role
+      return session
     },
   },
   /*   pages: {
     signIn: "/sign-in",
   }, */
-});
+})
+
+enum Role {
+  admin = 'admin',
+  blocked = 'blocked',
+  user = 'user',
+}
+
+export type UserRole = keyof typeof Role

@@ -1,30 +1,30 @@
-import styles from "$$/page/notes.module.css";
-import { Header, Link } from "@/components/server";
-import { Tag } from "@/components/server";
-import { dayAndMonth, formatDate, mnyShort } from "@/utils/_date";
-import { notes, sortedNotes, years } from "@/utils/sortedContent";
-import type { Metadata } from "next";
-const title = "Notes";
-const description = "Thoughts, ideas, and opinions.";
+import { Header, Link } from '@/components/server'
+import noteSchema from 'schema/noteSchema.json'
+import type { Note } from 'content-collections'
+import styles from '$$/page/notes.module.css'
+import { dayAndMonth } from '@/utils/_date'
+import type { Metadata } from 'next'
+const title = 'Notes'
+const description = 'Thoughts, ideas, and opinions.'
 
 export const metadata: Metadata = {
   title,
   description,
-};
+}
 
-const Post = (post) => {
-  const { title, date, slug, tags } = post;
+const Post = (post: { title: string; date: string; slug: string }) => {
+  const { title, date, slug } = post
 
   return (
-    <Link className={styles["note-link"]} key={slug} href={`/notes/${slug}`}>
+    <Link className={styles['note-link']} key={slug} href={`/notes/${slug}`}>
       <div className={styles.title}>{title}</div>
       {/*       <div className="">{tags?.map((tag) => <Tag key={tag} text={tag} />)}</div>
-       */}{" "}
+       */}{' '}
       <hr className={styles.rule} />
-      <div className={styles.date}>{dayAndMonth(date!)}</div>
+      <div className={styles.date}>{dayAndMonth(date)}</div>
     </Link>
-  );
-};
+  )
+}
 
 export default function Note() {
   return (
@@ -49,10 +49,10 @@ export default function Note() {
             </section>
           ))}
         </div> */}
-        {sortedNotes.map((post) => (
+        {noteSchema.map((post) => (
           <Post key={post.slug} {...post} />
         ))}
       </div>
     </section>
-  );
+  )
 }

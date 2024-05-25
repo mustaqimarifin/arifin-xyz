@@ -2,7 +2,7 @@
 .tweet .react-tweet-theme {
   /* margin is handled by our wrappers */
   --tweet-container-margin: 0;
-  --tweet-font-family: inherit;
+  --tweet-font-family: var(--font-sans);
   --tweet-font-color: inherit;
 
   /* Light colors */
@@ -50,6 +50,7 @@
 
 /* Common styles for both themes */
 .tweet .react-tweet-theme p {
+  font-family: var(--font-sans);
   font-size: inherit;
   line-height: 1.3rem;
 }
@@ -74,6 +75,6 @@
   @apply font-medium tracking-tight;
 }
 
-.tweet div[class*="mediaWrapper"] {
+.tweet div[class*='mediaWrapper'] {
   max-height: 250px;
 }

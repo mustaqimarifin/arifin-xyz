@@ -1,0 +1,79 @@
+{
+  "public": {
+    "comments": {
+      "id": "string",
+      "date": "Date",
+      "slug": "string",
+      "userId": "number",
+      "body": "string | null",
+      "parentId": "string | null"
+    },
+    "bookmarks": {
+      "date": "Date",
+      "image": "string | null",
+      "name": "string | null",
+      "type": "\"article\" | \"blog\" | \"bodoh\" | \"video\" | null",
+      "description": "string | null",
+      "url": "string | null",
+      "featured": "boolean | null",
+      "id": "string"
+    },
+    "users": {
+      "id": "number",
+      "role": "\"ADMIN\" | \"BLOCKED\" | \"USER\"",
+      "emailVerified": "Date | null",
+      "image": "string | null",
+      "name": "string | null",
+      "email": "string | null"
+    },
+    "sessions": {
+      "id": "number",
+      "sessionToken": "string",
+      "userId": "number",
+      "expires": "Date"
+    },
+    "accounts": {
+      "type": "string",
+      "userId": "number",
+      "providerAccountId": "string",
+      "id_token": "string | null",
+      "access_token": "string | null",
+      "expires_at": "number | null",
+      "refresh_token": "string | null",
+      "scope": "string | null",
+      "token_type": "string | null",
+      "id": "number",
+      "session_state": "string | null",
+      "provider": "string"
+    },
+    "stacks": {
+      "name": "string | null",
+      "type": "\"code\" | \"misc\" | \"music\" | \"productivity\" | null",
+      "description": "string | null",
+      "image": "string | null",
+      "date": "Date",
+      "featured": "boolean | null",
+      "id": "string",
+      "url": "string | null"
+    },
+    "views": {
+      "slug": "string",
+      "count": "number"
+    },
+    "guests": {
+      "id": "number",
+      "date": "Date",
+      "body": "string | null",
+      "userId": "number"
+    },
+    "tweets": {
+      "key": "string",
+      "value": "Object"
+    },
+    "verification_token": {
+      "identifier": "string",
+      "token": "string",
+      "expires": "Date"
+    }
+  }
+}

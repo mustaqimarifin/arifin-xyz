@@ -1,9 +1,8 @@
 ---
 title: Contentlayer with Next/Image
 summary: How to use static markdown images with contentlayer and next/image
-date: 2022-12-11T00:00:40.373Z
+date: '2022-12-11T00:00:40.373Z'
 image: /images/contentlayer-next-image/process.jpg
-tags: ["dev"]
 ---
 
 Getting images right and fast on the web is hard.
@@ -26,9 +25,8 @@ It also creates a placeholder to avoid the CLS.
 The following example shows the usage of `next/image` with a static image:
 
 ```tsx
-import picture from "./pictures/mountain.jpg";
-
-<Image src={picture} alt="Picture of a mountain" placeholder="blur" />;
+import picture from './pictures/mountain.jpg'
+;<Image src={picture} alt="Picture of a mountain" placeholder="blur" />
 ```
 
 ### Markdown
@@ -58,6 +56,8 @@ If we would use a static import for the image,
 the import magic would provide the dimensions for us.
 To pass the width and height to the image component we use a [rehype](https://github.com/rehypejs/rehype) plugin called [rehype-img-size](https://github.com/ksoichiro/rehype-img-size).
 
+![pussy](/contentlayer-next-image/process.jpg)
+
 ```bash pnpm
 pnpm add -D rehype-img-size
 ```
@@ -67,13 +67,13 @@ but it should work with [markdown](https://www.contentlayer.dev/docs/reference/s
 
 ```javascript contentlayer.config.js
 export default makeSource({
-  contentDirPath: "content/posts",
+  contentDirPath: 'content/posts',
   documentTypes: [Post],
   mdx: {
-    rehypePlugins: [[rehypeImgSize, { dir: "public" }]],
+    rehypePlugins: [[rehypeImgSize, { dir: 'public' }]],
     remarkPlugins: [],
   },
-});
+})
 ```
 
 The plugin will now find each image in the markdown content and pass its dimensions to the image component.
@@ -89,25 +89,27 @@ calculate its size.
 Now we can replace the image component with `next/image`:
 
 <a id="replace-img-with-next-image"></a>
-```tsx components/Markdown.tsx import {useMDXComponent} from
-"next-contentlayer/hooks"; import Image from "next/image";
+
+```tsx components/Markdown.tsx
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import Image from 'next/image'
 
 type Props = {
-code: string;
-};
+  code: string
+}
 
 const Markdown = ({ code }: Props) => {
-const MDXComponent = useMDXComponent(code);
-return (
+  const MDXComponent = useMDXComponent(code)
+  return (
+    <MDXComponent
+      components={{
+        img: Image,
+      }}
+    />
+  )
+}
 
-<MDXComponent
-  components={{
-    img: Image,
-  }}
-/>
-); };
-
-export default Markdown;
+export default Markdown
 ```
 
 And that's it, we are now using `next/image` to render our markdown images.
@@ -178,31 +180,31 @@ call the `done` function if all `Promises` are resolved and the work is done.
 
 ```ts lib/static-images.ts
 type Options = {
-  publicDir: string;
-};
+  publicDir: string
+}
 
 const staticImages: Plugin<[Options], Root> =
   (options) => (tree, file, done) => {
-    const tasks: Promise<void>[] = [];
+    const tasks: Promise<void>[] = []
 
-    visit(tree, "element", (node) => {
-      if (node.tagName === "img") {
-        tasks.push(processImage(options, file, node));
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'img') {
+        tasks.push(processImage(options, file, node))
       }
-    });
+    })
 
-    Promise.all(tasks).then(() => done());
-  };
+    Promise.all(tasks).then(() => done())
+  }
 
 const processImage = async (
   options: Options,
   file: VFileWithOutput<unknown>,
-  Element,
+  Element
 ): Promise<void> => {
   // implementation comes next
-};
+}
 
-export default staticImages;
+export default staticImages
 ```
 
 Ok, now we can have a detailed look at the implementation of the `processImage` function.
@@ -211,53 +213,53 @@ Fortunately, contentlayer stores information about the location of our markdown 
 
 ```ts lib/static-images.ts
 // find the content directory
-const root = file.dirname || process.cwd();
+const root = file.dirname || process.cwd()
 
 // find the directory of the markdown file
 // RawDocumentData is an import from contentlayer/source-files
-const data = file.data as { rawDocumentData: RawDocumentData };
-const directory = data.rawDocumentData.sourceFileDir;
+const data = file.data as { rawDocumentData: RawDocumentData }
+const directory = data.rawDocumentData.sourceFileDir
 
 // get the path of the image from the src attributes
-const filePath = (image.properties?.src as string) || "";
+const filePath = (image.properties?.src as string) || ''
 
 // create the path by joining root, directory and filePath
 // path is imported from path
-const imagePath = path.join(root, directory, filePath);
+const imagePath = path.join(root, directory, filePath)
 ```
 
 Now that we have the path we can use [sharp](https://sharp.pixelplumbing.com/) to read the width and height of the image.
 
 ```ts lib/static-images.ts
 // sharp is an import from sharp (@types/sharp)
-const image = await sharp(imagePath);
+const image = await sharp(imagePath)
 
 // get the width and height of the image
-const { width, height } = await image.metadata();
+const { width, height } = await image.metadata()
 ```
 
 After that we can create a small version of the image for the blurred placeholder.
 We will create a `png` with a `quality` of `75`, a width of `8px` and we keep the aspect ratio.
 
 ```ts lib/static-images.ts
-const imgAspectRatio = width / height;
+const imgAspectRatio = width / height
 const blurDataURL = await image
   .resize(8, Math.round(8 / imgAspectRatio))
   .png({
     quality: 75,
   })
   .toBuffer()
-  .then((buffer) => `data:image/png;base64,${buffer.toString("base64")}`);
+  .then((buffer) => `data:image/png;base64,${buffer.toString('base64')}`)
 ```
 
 Then we can copy the image to the `public` folder and create a new path for the `src` attribute of the image.
 
 ```ts lib/static-images.ts
-const src = path.join(directory, filePath);
-const target = path.join(options.publicDir, src);
+const src = path.join(directory, filePath)
+const target = path.join(options.publicDir, src)
 
-await fs.mkdir(path.dirname(targetDir), { recursive: true });
-await fs.copyFile(imagePath, target);
+await fs.mkdir(path.dirname(targetDir), { recursive: true })
+await fs.copyFile(imagePath, target)
 ```
 
 With all the information in place we can update the properties of the `img` tag.
@@ -267,26 +269,26 @@ node.properties = {
   ...node.properties,
   width,
   height,
-  src: path.join("/", src),
+  src: path.join('/', src),
   blurDataURL,
-};
+}
 ```
 
 After we have finished writing our plugin, it is time to configure contentlayer.
 
 ```javascript contentlayer.config.js focus=7
-import mdxImages from "./lib/static-images";
+import mdxImages from './lib/static-images'
 
 export default makeSource({
-  contentDirPath: "content/posts",
+  contentDirPath: 'content/posts',
   documentTypes: [Post],
   mdx: {
     rehypePlugins: [
-      [mdxImages, { publicDir: path.join(process.cwd(), "public") }],
+      [mdxImages, { publicDir: path.join(process.cwd(), 'public') }],
     ],
     remarkPlugins: [],
   },
-});
+})
 ```
 
 <Callout emoji="⚠️">

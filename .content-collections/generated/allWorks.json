@@ -1,0 +1,77 @@
+[
+  {
+    "startYear": 2021,
+    "endYear": "Ongoing",
+    "role": "Chief Product Officer",
+    "company": "Corellium",
+    "url": "https://www.corellium.com/",
+    "_meta": {
+      "filePath": "correlium.yaml",
+      "fileName": "correlium.yaml",
+      "directory": ".",
+      "extension": "yaml",
+      "path": "correlium"
+    },
+    "lastModified": "2024-05-25T05:25:51.104Z"
+  },
+  {
+    "startYear": 2017,
+    "endYear": 2023,
+    "role": "Director",
+    "company": "Jellypepper",
+    "url": "https://jellypepper.com/",
+    "_meta": {
+      "filePath": "jellypepper.yaml",
+      "fileName": "jellypepper.yaml",
+      "directory": ".",
+      "extension": "yaml",
+      "path": "jellypepper"
+    },
+    "lastModified": "2024-05-25T05:25:51.111Z"
+  },
+  {
+    "startYear": 2015,
+    "endYear": 2015,
+    "role": "Product Design Intern",
+    "company": "Palantir",
+    "url": "https://www.palantir.com/",
+    "_meta": {
+      "filePath": "palantir.yaml",
+      "fileName": "palantir.yaml",
+      "directory": ".",
+      "extension": "yaml",
+      "path": "palantir"
+    },
+    "lastModified": "2024-05-25T05:25:51.118Z"
+  },
+  {
+    "startYear": 2020,
+    "endYear": 2021,
+    "role": "Contract Senior User Experience Designer",
+    "company": "R/GA",
+    "url": "https://rga.com/",
+    "_meta": {
+      "filePath": "rga.yaml",
+      "fileName": "rga.yaml",
+      "directory": ".",
+      "extension": "yaml",
+      "path": "rga"
+    },
+    "lastModified": "2024-05-25T05:25:51.124Z"
+  },
+  {
+    "startYear": 2016,
+    "endYear": 2017,
+    "role": "Head of Product and Design",
+    "company": "Spaceship",
+    "url": "https://www.spaceship.com.au/",
+    "_meta": {
+      "filePath": "spaceship.yaml",
+      "fileName": "spaceship.yaml",
+      "directory": ".",
+      "extension": "yaml",
+      "path": "spaceship"
+    },
+    "lastModified": "2024-05-25T05:25:51.130Z"
+  }
+]

@@ -18,6 +18,23 @@
   @apply flex items-center justify-center absolute right-1 top-1 px-2 py-1 font-medium h-8 bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 rounded w-16;
 }
 
+.submit-contact {
+  @apply bg-gradient-from-rose text-white rounded-lg px-6 py-2.5 text-sm font-medium',
+ 'disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.submit-newsletter {
+  @apply absolute right-0.5 top-0.5 rounded-full bg-orange-500 text-white text-sm font-medium py-2 px-6 select-none disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.submit-del {
+  @apply px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8 transition-all;
+}
+
+.submit-del-2 {
+  @apply "bg-red-300/50 dark:bg-red-700/50";
+}
+
 .page {
   @apply w-full mt-10 flex flex-col space-y-1 mb-4 h-dvh;
 }

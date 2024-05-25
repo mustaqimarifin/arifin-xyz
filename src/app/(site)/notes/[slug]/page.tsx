@@ -1,29 +1,54 @@
-//import Comments from '@/components/comments'
-import { MDX } from "@/components/mdx";
-import { CoverPix, PagePanel, Section } from "@/components/server";
-import { TADDViews } from "@/db/actions";
-import MDXLayout from "@/layouts/mdxLayout";
-import { sortedNotes } from "@/utils/sortedContent";
-import { allNotes } from "contentlayer/generated";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
+import { Form, RootComments } from '@/components/comments'
+import noteSchema from 'schema/noteSchema.json'
+
+import { CoverPix, PagePanel, Section, ViewCounter } from '@/components/server'
+import CommentSkeleton from '@/components/comments/Skeleton'
+import { SignIn, SignOut } from '../../guestbook/buttons'
+import { allNotes } from 'content-collections'
+import MDXLayout from '@/layouts/mdxLayout'
+import { notFound } from 'next/navigation'
+import meta from '@/meta/metadata.json'
+import { MDX } from '@/components/mdx'
+import { pg_ink } from '@/db/actions'
+import type { Metadata } from 'next'
+import { auth } from '@/db/auth'
+import { Suspense } from 'react'
+
+type NoteProps = {
+  params: {
+    slug: string
+  }
+}
+
+async function CommentState() {
+  const session = await auth()
+  return session?.user ? (
+    <>
+      <Form session={session} />
+      <SignOut />
+    </>
+  ) : (
+    <>
+      <SignIn />
+    </>
+  )
+}
 
 export const generateStaticParams = async () =>
-  sortedNotes.map((p) => ({ slug: p.slug }));
+  noteSchema.map((p) => ({ slug: p.slug }))
 
 export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
-  const post = sortedNotes.find((p) => p.slug === params.slug);
+  params: { slug },
+}: NoteProps): Promise<Metadata | undefined> {
+  const post = meta.find((p) => p.slug === slug)
   if (!post) {
-    return;
+    return
   }
 
-  const { title, date: publishedTime, summary: description, image } = post;
+  const { title, date: publishedTime, summary: description, image } = post
   const ogImage = image
     ? `https://arifin.xyz${image}`
-    : `https://arifin.xyz/og?title=${title}`;
+    : `https://arifin.xyz/og?title=${title}`
 
   return {
     title,
@@ -31,7 +56,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      type: "article",
+      type: 'article',
       publishedTime,
       url: `https://arifin.xyz/notes/${post.slug}`,
       images: [
@@ -41,19 +66,21 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description,
       images: [ogImage],
     },
-  };
+  }
 }
 
-const NoteLayout = async ({ params: { slug } }) => {
-  const post = allNotes.find((p) => p.slug === slug);
+const NoteLayout = async ({ params }: NoteProps) => {
+  const views = await pg_ink(params.slug)
+
+  const post = allNotes.find((p) => p.slug === params.slug)
 
   if (!post) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -66,23 +93,24 @@ const NoteLayout = async ({ params: { slug } }) => {
           tags={post.tags}
         />
       </Section>
-      {post.image && <CoverPix src={post.image} alt={"Thumbnail"} />}
+      {post.image && <CoverPix src={post.image} alt={'Thumbnail'} />}
       <Section>
         <MDXLayout>
-          <MDX code={post.body.code} />
-          {/* {gb.map((p) => (
-            <GBPost entry={p} key={p.id} {...p} />
-          ))} */}
-          {/*  <Comments slug={post.slug} /> */}
+          <MDX code={post.content} />
         </MDXLayout>
+        <Suspense fallback={<CommentSkeleton />}>
+          <h2 className="text-xl pt-3 text-black dark:text-gray-50 font-bold">
+            Comments
+          </h2>
+          <CommentState />
+          <RootComments />
+        </Suspense>
+        <Suspense>
+          <ViewCounter views={views.count} />
+        </Suspense>
       </Section>
-      <Suspense>
-        <span id="ass" className="ass">
-          <TADDViews slug={post.slug} />
-        </span>
-      </Suspense>
     </>
-  );
-};
+  )
+}
 
-export default NoteLayout;
+export default NoteLayout

@@ -1,25 +1,35 @@
-import * as schema from "@/db/pg-schema";
-//import * as sqliteSchema from '@/db/schema'
-//import {neon} from '@neondatabase/serverless'
+//import { DefaultLogger, type LogWriter } from 'drizzle-orm/logger'
 
-//import {createClient} from '@libsql/client'
-//import {drizzle} from 'drizzle-orm/neon-http'
-//const sql = neon(env.pgPool)
+import { env } from 'site.config'
+import postgres from 'postgres'
+//import { appendFile } from 'fs'
+import { Pool } from 'pg'
+export const sql = postgres(env.postgrease)
 
-//export const db = drizzle(turso, {sqliteSchema})
-//import {drizzle} from 'drizzle-orm/libsql'
-/* export const turso = createClient({
-  url: env.tursoURL!,
-  authToken: env.tursoTKN,
-}) */
+export type SQL = typeof sql
 
-//! Local Postgres
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
-import { env } from "site.config";
+export const db = new Pool({
+  connectionString: env.postgrease,
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+})
 
-const pool = new Pool({
-  connectionString: env.pgPool,
-});
+//const connectionString = 'postgresql://arifin:xyz@localhost:5432/pgx'
+//export const sql = postgres(connectionString, { max: 4 })
 
-export const db = drizzle(pool, { schema });
+//const sqldz = postgres(connectionString, { max: 4 })
+
+//const sqldz = drizzle(db,)
+
+/* const file = 'npde_pg_queries.sql'
+class MyLogWriter implements LogWriter {
+  write(message: string) {
+    appendFile(file, message, 'utf8', (err) => {
+      if (err) throw err
+      //console.log(`() )====D)!`);
+    })
+  }
+} */
+//const logger = new DefaultLogger({ writer: new MyLogWriter() })
+//export const sx = drizzle(db, { logger })

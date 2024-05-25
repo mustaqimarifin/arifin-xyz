@@ -1,41 +1,28 @@
-import styles from "$$/page/stack.module.css";
-import { Header, Link } from "@/components/server";
-import { db } from "@/db";
-import { stacks } from "@/db/pg-schema";
+import { miscStack, musicStack, prodStack } from '@/utils/sortedContent'
+import { unstable_cache as cache } from 'next/cache'
+import { Header, Link } from '@/components/server'
+import styles from '$$/page/stack.module.css'
+import { Card } from '@/components/server'
+import { pg_ink } from '@/db/actions'
+import type { Metadata } from 'next'
+import { db } from '@/db'
 
-import { miscStack, musicStack, prodStack } from "@/utils/sortedContent";
+export const dynamic = 'force-static'
 
-import { Card } from "@/components/server";
-import type { Metadata } from "next";
-
-const title = "Stack";
-const description = "Tools and technologies I use.";
+const title = 'Stack'
+const description = 'Tools and technologies I use.'
 
 export const metadata: Metadata = {
   title,
   description,
-};
+}
 
-type Stack = {
-  type: "Code" | "Productivity" | "Music" | "Misc";
-  items: Item[];
-};
-
-type Item = {
-  name: string;
-  url: string;
-  description: string;
-  featured?: boolean;
-  image?: string;
-};
-
-const Tool = ({ data }) => {
-  const { hostname } = new URL(data.url);
-
+const Tool = ({ url, name, description, featured }: Stack) => {
+  const { hostname } = new URL(url)
   return (
-    <Link href={data.url} key={data.url} className={styles.url}>
+    <Link href={url} key={url} className={styles.url}>
       <img
-        src={`https://logo.clearbit.com/${hostname.replace("www.", "")}`}
+        src={`https://logo.clearbit.com/${hostname.replace('www.', '')}`}
         alt={hostname}
         width={32}
         height={32}
@@ -43,23 +30,24 @@ const Tool = ({ data }) => {
       />
       <div>
         <div className="flex items-center gap-2">
-          <p className={styles.name}>{data.name}</p>
-          {data.featured ? <span className={styles.feat}>Featured</span> : null}
+          <p className={styles.name}>{name}</p>
+          {featured ? <span className={styles.feat}>Featured</span> : null}
         </div>
-        <p className={styles.desc}>{data.description}</p>
+        <p className={styles.desc}>{description}</p>
       </div>
     </Link>
-  );
-};
+  )
+}
 
 export default async function StackPage() {
+  await pg_ink('stack')
   //time();
   //let stack = require(`@/data/stack.json`) as Stack[]
-  const stack = await db.select().from(stacks);
+  const stack = await getStacks()
   //let aStack = allStack(stack)
-  const mStack = musicStack(stack);
-  const pStack = prodStack(stack);
-  const mcStack = miscStack(stack);
+  const mStack = musicStack(stack)
+  const pStack = prodStack(stack)
+  const mcStack = miscStack(stack)
 
   //console.log(aStack)
   return (
@@ -68,20 +56,42 @@ export default async function StackPage() {
       <div className={styles.stack}>
         <Card title="music" className={styles.card}>
           {mStack.map((item) => (
-            <Tool data={item} key={item.name} />
+            <Tool {...item} />
           ))}
         </Card>
         <Card title="productivity" className={styles.card}>
           {pStack.map((item) => (
-            <Tool data={item} key={item.name} />
+            <Tool {...item} />
           ))}
         </Card>
         <Card title="misc" className={styles.card}>
           {mcStack.map((item) => (
-            <Tool data={item} key={item.name} />
+            <Tool {...item} />
           ))}
         </Card>
       </div>
     </>
-  );
+  )
 }
+
+export type Stack = {
+  date: Date
+  id: string
+  name: string
+  type: 'code' | 'productivity' | 'music' | 'misc' | null
+  url: string
+  description: string
+  featured?: boolean
+  image: string
+}
+
+const getStacks = cache(
+  async (): Promise<Stack[]> => {
+    const { rows } = await db.query<Stack>(`select * from stacks`)
+    return rows
+  },
+  ['stacks'],
+  {
+    revalidate: 86400,
+  }
+)

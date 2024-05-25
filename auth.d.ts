@@ -1,22 +1,20 @@
-import type { users } from "@/db/pg-schema";
-import type { AdapterUser } from "@auth/core/adapters";
-import NextAuth, { type DefaultSession, Session, User } from "next-auth";
+import type { AdapterUser } from '@auth/core/adapters'
+import { type DefaultSession } from 'next-auth'
+import type { UserRole } from '@/db/auth'
 
-type UserRole = ["blocked", "user", "admin"];
-
-declare module "next-auth" {
+declare module 'next-auth' {
   interface Session {
     user: {
       /**
        * Returned by `useViewerQuery`, `getSession` and received as a prop on the `SessionProvider` React Context
        */
-      id: string;
-      role: UserRole | undefined;
-    } & DefaultSession["user"];
-    userId: string;
+      id: string
+      role: UserRole
+      location?: string
+    } & DefaultSession['user']
+    //userId: string
   }
-
   interface User extends AdapterUser {
-    role: UserRole | undefined;
+    role: UserRole
   }
 }

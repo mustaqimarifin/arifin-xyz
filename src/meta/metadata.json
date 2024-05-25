@@ -1,0 +1,32 @@
+[
+  {
+    "title": "The State of The Edge",
+    "date": "2024-04-17T23:00:40.373Z",
+    "summary": "An overview of databases that pair well with modern application and compute providers.",
+    "image": "/images/backend/og.avif",
+    "slug": "backend",
+    "wordCount": 1714,
+    "readTime": "10 min read",
+    "tags": ["markdown", "react", "vite"],
+    "lastModified": "2024-05-11T14:54:12.000Z"
+  },
+  {
+    "title": "Contentlayer with Next/Image",
+    "date": "2022-12-11T00:00:40.373Z",
+    "summary": "How to use static markdown images with contentlayer and next/image",
+    "image": "/images/contentlayer-next-image/process.jpg",
+    "slug": "contentlayer-next-image",
+    "wordCount": 1488,
+    "readTime": "8 min read",
+    "lastModified": "2024-05-11T14:54:12.000Z"
+  },
+  {
+    "title": "Tits",
+    "date": "2023-11-19T00:00:00.000Z",
+    "summary": "Including some of my latest hot takes (okay they are pretty mild).",
+    "slug": "syntax",
+    "wordCount": 1427,
+    "readTime": "8 min read",
+    "lastModified": "2024-05-11T11:15:19.000Z"
+  }
+]

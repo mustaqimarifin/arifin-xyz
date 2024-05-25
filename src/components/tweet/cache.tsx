@@ -1,39 +1,37 @@
-import { db } from "@/db";
-import { tweets } from "@/db/pg-schema";
-import { eq } from "drizzle-orm";
-import { type Tweet, fetchTweet } from "react-tweet/api";
+import { type Tweet, fetchTweet } from 'react-tweet/api'
+
+import { db } from '@/db'
 export async function getTweet(
   id: string,
-  fetchOptions?: RequestInit,
+  fetchOptions?: RequestInit
 ): Promise<Tweet | undefined> {
   try {
-    // const cachedTweet = await kv.get(`tweet:${id}`)
-
-    //return cachedTweet ?? undefined
-    const { data, tombstone, notFound } = await fetchTweet(id, fetchOptions);
+    const { data, tombstone, notFound } = await fetchTweet(id, fetchOptions)
     if (data) {
-      await db.insert(tweets).values({ key: `tweet:${id}`, value: data! });
-      //return JSONB.parse(data) as any
-      //console.log("insert", 1);
+      //await sx.insert(tweets).values({ key: `tweet:${id}`, value: data })
+      await db.query(`insert into tweets (key,value) values ($1, $2)`, [
+        id,
+        structuredClone(data),
+      ])
+      console.log('TWEET::Fetch', 1)
 
-      return data;
+      return data
     }
     if (tombstone || notFound) {
-      // remove the tweet from the cache if it has been made private by the author (tombstone)
-      // or if it no longer exists.
-      await db.delete(tweets).where(eq(tweets.key, `tweet:${id}`));
+      //await sx.delete(tweets).where(eq(tweets.key, `tweet:${id}`))
+      await db.query(`delete from tweets where key = $1`, [id])
     }
-  } catch (error) {
-    /*   if (cachedTweet) {
-    console.log('cachedTweet', 1)
-    return JSONB.parse(cachedTweet[0].value!) as any
-  } */
-  }
-  const cachedTweet = await db
+  } catch (error) {}
+  /*   const cachedTweet = await sx
     .select()
     .from(tweets)
-    .where(eq(tweets.key, `tweet:${id}`));
+    .where(eq(tweets.key, `tweet:${id}`)) */
 
-  //console.log("cachedTweet", 1);
-  return cachedTweet[0].value as any;
+  const cachedTweet = await db.query<Tweet>(
+    `select * from tweet where key = $1`,
+    [id]
+  )
+
+  console.log('TWEET::Cache', 1)
+  return cachedTweet.rowCount !== 0 ? cachedTweet.rows[0] : undefined
 }

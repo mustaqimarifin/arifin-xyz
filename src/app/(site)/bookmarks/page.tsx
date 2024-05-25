@@ -1,36 +1,38 @@
-import styles from "$$/page/notes.module.css";
+import { unstable_cache as cache } from 'next/cache'
+import { sortAZ } from '@/utils/sortedContent'
+import styles from '$$/page/notes.module.css'
+import { Header } from '@/components/server'
+import MDXLayout from '@/layouts/mdxLayout'
+import { pg_ink } from '@/db/actions'
+import type { Metadata } from 'next'
+import { cx } from '@/utils'
+import { db } from '@/db'
 
-import { Header } from "@/components/server";
-import { db } from "@/db";
-import { type Bookmark, bookmarks } from "@/db/pg-schema";
-import MDXLayout from "@/layouts/mdxLayout";
-import { cx } from "@/utils";
-import { sortAZ } from "@/utils/sortedContent";
-import type { Metadata } from "next";
+const title = 'Bookmarks'
+const description = 'From across the Internetz'
 
-const title = "Bookmarks";
-const description = "From across the Internetz";
-
+export const dynamic = 'force-static'
 export const metadata: Metadata = {
   title,
   description,
-};
+}
 
-const Post = (post) => {
-  const { name, type, url } = post;
+const Post = (post: Bookmark) => {
+  const { name, type, url } = post
 
   return (
-    <a className={styles["note-link"]} key={name} href={url}>
+    <a className={styles['note-link']} key={name} href={url}>
       <div className={styles.title}>{name}</div>
       <hr className={styles.rule} />
-      <div className={cx(styles.date, "italic")}>{type}</div>
+      <div className={cx(styles.date, 'italic')}>{type}</div>
     </a>
-  );
-};
+  )
+}
 
 const Bookmarks = async () => {
-  const bmx = await db.select().from(bookmarks);
-  const items: Bookmark[] = sortAZ(bmx);
+  await pg_ink('bookmarks')
+
+  const items = await getBookmarks()
 
   return (
     <>
@@ -45,7 +47,29 @@ const Bookmarks = async () => {
         </MDXLayout>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Bookmarks;
+export default Bookmarks
+
+type Bookmark = {
+  date: Date
+  id: string
+  name: string
+  type: 'article' | 'blog' | 'video' | 'bodoh' | null
+  url: string
+  description: string | null
+  featured: boolean | null
+  image: string | null
+}
+
+const getBookmarks = cache(
+  async (): Promise<Bookmark[]> => {
+    const { rows } = await db.query<Bookmark>(`select * from bookmarks`)
+    return sortAZ(rows)
+  },
+  ['bookmarks'],
+  {
+    revalidate: 86400,
+  }
+)

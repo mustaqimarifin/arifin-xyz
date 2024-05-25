@@ -1,5 +1,5 @@
 .page-title {
-  @apply flex mb-6 text-3xl font-bold justify-center text-black md:text-5xl dark:text-white;
+  @apply flex mb-6 text-3xl font-bold justify-center md:text-4xl;
 }
 
 .panel {
@@ -11,7 +11,7 @@
 }
 
 .title {
-  @apply text-sm font-medium py-2 px-4 text-neutral-900 dark:text-neutral-100;
+  @apply text-sm font-medium py-2 px-4;
 }
 
 .detail {
@@ -28,4 +28,32 @@
 
 .cover-wrapper {
   @apply relative z-0 mx-auto m-4 aspect-[21/12] max-w-5xl overflow-hidden lg:rounded-lg;
+}
+
+.pix {
+  @apply filter drop-shadow-sm;
+}
+
+.pix-img {
+  border-radius: 0.5rem;
+  background-color: oklch(21.0331% 0.00586 285.885);
+}
+
+/* 
+.pix-mdx {
+  @apply filter drop-shadow-sm;
+
+  .img {
+    @apply filter drop-shadow-sm;
+    border-radius: 0.5rem;
+    background-color: oklch(21.0331% 0.00586 285.885);
+  }
+
+}
+ */
+
+.mdx img {
+  @apply filter drop-shadow-sm;
+  border-radius: 0.5rem;
+  background-color: oklch(21.0331% 0.00586 285.885);
 }

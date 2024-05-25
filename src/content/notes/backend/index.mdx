@@ -1,9 +1,12 @@
 ---
 title: The State of The Edge
-date: 2024-04-17T23:00:40.373Z
+date: '2024-04-17T23:00:40.373Z'
 summary: An overview of databases that pair well with modern application and compute providers.
 image: /images/backend/og.avif
-tags: ["database"]
+tags:
+  - markdown
+  - react
+  - vite
 ---
 
 There's been massive innovation in the database and backend space for developers building applications with serverless and edge compute. There are new tools, companies, and even programming models that simplify how developers store data.
@@ -23,6 +26,8 @@ The “backend” space is vast: search, analytics, data science, and more – s
 
 > **Disclaimer:** I work at Vercel, which partners with companies in this post. I also have personally used many of these tools for my own personal projects. My site currently uses PlanetScale and I'm also an angel investor in Supabase (mentioned below).
 
+DOES ANYONE WANNA EAT MY ASS
+
 ## A new programming model
 
 Relational databases have been around for 25+ years.
@@ -39,32 +44,28 @@ These solutions must be:
 Consider databases like Postgres. New solutions like Neon and Supabase abstract connection management, providing you with a simple way to query and mutate data. In the case of Supabase, there's a client library that uses an HTTP API [built on PostgREST](https://supabase.com/docs/guides/api):
 
 ```jsx
-import { createClient } from "@supabase/supabase-js";
-let supabase = createClient("https://<project>.supabase.co", "<your-anon-key>");
-let { data } = await supabase.from("countries").select();
+import { createClient } from '@supabase/supabase-js'
+let supabase = createClient('https://<project>.supabase.co', '<your-anon-key>')
+let { data } = await supabase.from('countries').select()
 ```
 
 And for Neon:
 
 ```jsx
-import { Client } from "@neondatabase/serverless";
-let client = new Client(env.DATABASE_URL);
+import { Client } from '@neondatabase/serverless'
+let client = new Client(env.DATABASE_URL)
 let {
   rows: [{ now }],
-} = await client.query("select now();");
+} = await client.query('select now();')
 ```
 
 Neon's solution is [particularly interesting](https://neon.tech/notes/serverless-driver-for-postgres/).
 
 > The basic premise is simple: our driver redirects the PostgreSQL wire protocol via a special proxy. Our driver connects from the edge function to the proxy over a WebSocket, telling the proxy which database host and port it wants to reach. The proxy opens a TCP connection to that host and port and relays traffic in both directions.
 
-![Neon](/backend/neon.avif)
-
-<Callout emoji="💡">
+{/* <Callout emoji="💡"> */}
 
 Using WebSockets, instead of HTTP, does have tradeoffs. There might be additional latency on the first request setup, but subsequent requests are faster. There's an [RFC](https://www.rfc-editor.org/rfc/rfc9220.pdf) for WebSockets with `HTTP/3` which would remove that extra network roundtrip.
-
-</Callout>
 
 The connection management isn't going away – it's just being handled by the vendor now.
 

@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "syntax",
+    "title": "MK syntax guide",
+    "summary": "Get started writing content in markdown.",
+    "date": "2024-05-06T22:03:08.173Z",
+    "tags": ["markdown"]
+  },
+  {
+    "slug": "views",
+    "title": "All About Page Counters",
+    "date": "2024-04-18T06:27:44.993Z",
+    "summary": "Want more accurate page view counts? Learn how to track real-time post views using Firebase and Next.js.",
+    "image": "/images/home/mnq.avif",
+    "tags": ["sql"]
+  },
+  {
+    "slug": "sass",
+    "title": "Creating a Loading Placeholder with Sass",
+    "date": "2017-11-12T00:00:40.373Z",
+    "summary": "Using animation to simulate loading text content.",
+    "image": "https://images.unsplash.com/photo-1498084393753-b411b2d26b34",
+    "tags": ["dev"]
+  }
+]

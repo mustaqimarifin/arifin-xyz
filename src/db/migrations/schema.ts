@@ -1,311 +1,173 @@
-import { sql } from "drizzle-orm";
 import {
-  bigint,
-  boolean,
-  foreignKey,
-  index,
-  integer,
-  jsonb,
-  pgEnum,
   pgTable,
-  primaryKey,
-  serial,
+  pgEnum,
   text,
   timestamp,
-} from "drizzle-orm/pg-core";
+  boolean,
+  jsonb,
+  integer,
+  index,
+  serial,
+  primaryKey,
+  bigint,
+} from 'drizzle-orm/pg-core'
+import { sql } from 'drizzle-orm'
 
-export const bookmarkType = pgEnum("bookmark_type", [
-  "bodoh",
-  "video",
-  "blog",
-  "article",
-]);
-export const role = pgEnum("role", ["blocked", "admin", "user"]);
-export const stackType = pgEnum("stack_type", [
-  "misc",
-  "music",
-  "productivity",
-  "code",
-]);
+export const ROLE = pgEnum('ROLE', ['BLOCKED', 'USER', 'ADMIN'])
+export const bookmark_type = pgEnum('bookmark_type', [
+  'article',
+  'blog',
+  'video',
+  'bodoh',
+])
+export const stack_type = pgEnum('stack_type', [
+  'code',
+  'productivity',
+  'music',
+  'misc',
+])
+export const user_role = pgEnum('user_role', ['user', 'admin', 'blocked'])
 
-export const bookmark = pgTable("bookmark", {
-  id: serial("id").primaryKey().notNull(),
-  type: bookmarkType("type"),
-  name: text("name"),
-  url: text("url"),
-  description: text("description"),
-  featured: boolean("featured"),
-  image: text("image"),
-  date: timestamp("date", { mode: "string" }).defaultNow().notNull(),
-});
-
-export const session = pgTable("session", {
-  sessionToken: text("sessionToken").primaryKey().notNull(),
-  userId: text("user_id")
+export const session = pgTable('session', {
+  id: text('id')
+    .default(sql`nanoid()`)
+    .primaryKey()
+    .notNull(),
+  user_id: text('user_id')
     .notNull()
-    .references(() => user.userId, { onDelete: "cascade" }),
-  expires: timestamp("expires", { mode: "string" }).notNull(),
-});
+    .references(() => usr.id, { onDelete: 'cascade' }),
+  expires: timestamp('expires', {
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  session_token: text('session_token').notNull(),
+})
 
-export const stack = pgTable("stack", {
-  id: serial("id").primaryKey().notNull(),
-  type: stackType("type"),
-  name: text("name"),
-  url: text("url"),
-  description: text("description"),
-  featured: boolean("featured"),
-  image: text("image"),
-  date: timestamp("date", { mode: "string" }).defaultNow().notNull(),
-});
+export const bookmark = pgTable('bookmark', {
+  id: text('id')
+    .default(sql`nanoid()`)
+    .notNull(),
+  type: bookmark_type('type'),
+  name: text('name'),
+  url: text('url'),
+  description: text('description'),
+  featured: boolean('featured'),
+  image: text('image'),
+  date: timestamp('date', { withTimezone: true, mode: 'string' })
+    .defaultNow()
+    .notNull(),
+})
 
-export const view = pgTable("view", {
-  slug: text("slug").primaryKey().notNull(),
-  count: integer("count").notNull(),
-});
+export const tweet = pgTable('tweet', {
+  key: text('key').primaryKey().notNull(),
+  value: jsonb('value').notNull(),
+})
 
-export const user = pgTable("user", {
-  userId: text("user_id").primaryKey().notNull(),
-  name: text("name"),
-  email: text("email").notNull(),
-  emailVerified: timestamp("emailVerified", { mode: "string" }),
-  image: text("image"),
-  role: role("role").default("user"),
-});
+export const view = pgTable('view', {
+  slug: text('slug').primaryKey().notNull(),
+  count: integer('count').notNull(),
+})
+
+export const usr = pgTable('usr', {
+  id: text('id')
+    .default(sql`nanoid()`)
+    .primaryKey()
+    .notNull(),
+
+  name: text('name'),
+  email: text('email'),
+  email_verified: timestamp('email_verified', {
+    withTimezone: true,
+    mode: 'string',
+  }),
+  image: text('image'),
+  role: ROLE('role').default('USER').notNull(),
+})
 
 export const comment = pgTable(
-  "comment",
+  'comment',
   {
-    commentId: serial("comment_id").primaryKey().notNull(),
-    userId: text("user_id")
+    id: text('id')
+      .default(sql`nanoid()`)
+      .notNull(),
+    user_id: text('user_id')
       .notNull()
-      .references(() => user.userId, { onDelete: "cascade" }),
-    parentId: integer("parent_id"),
-    slug: text("slug").notNull(),
-    body: text("body"),
-    date: timestamp("date", { mode: "string" }).defaultNow().notNull(),
+      .references(() => usr.id, { onDelete: 'cascade' }),
+    parent_id: text('parent_id'),
+    slug: text('slug').notNull(),
+    body: text('body'),
+    date: timestamp('date', { withTimezone: true, mode: 'string' })
+      .defaultNow()
+      .notNull(),
   },
   (table) => {
     return {
-      slugIdx: index("comment_slug_idx").on(table.slug),
-      parentIdx: index("comment_parent_idx").on(table.parentId),
-      commentParentIdCommentCommentIdFk: foreignKey({
-        columns: [table.parentId],
-        foreignColumns: [table.commentId],
-        name: "comment_parent_id_comment_comment_id_fk",
-      }),
-    };
-  },
-);
+      slug_idx: index('comment_slug_idx').on(table.slug),
+      user_idx: index('comment_user_idx').on(table.user_id),
+    }
+  }
+)
 
-export const tweet = pgTable("tweet", {
-  key: text("key").primaryKey().notNull(),
-  value: jsonb("value").notNull(),
-});
+export const guestbook = pgTable('guestbook', {
+  id: serial('id').primaryKey().notNull(),
+  user_id: text('user_id')
+    .notNull()
+    .references(() => usr.id, { onDelete: 'cascade' }),
+  body: text('body'),
+  date: timestamp('date', { withTimezone: true, mode: 'string' })
+    .defaultNow()
+    .notNull(),
+})
 
-export const commentsLinearView = pgTable("comments_linear_view", {
-  commentId: integer("comment_id"),
-  slug: text("slug"),
-  date: timestamp("date", { mode: "string" }),
-  body: text("body"),
-  userId: text("user_id"),
-  parentId: integer("parent_id"),
-  author: jsonb("author"),
-  parent: jsonb("parent"),
-  replies: jsonb("replies"),
-});
-
-export const commentWithAuthor = pgTable("comment_with_author", {
-  commentId: integer("comment_id"),
-  slug: text("slug"),
-  date: timestamp("date", { mode: "string" }),
-  body: text("body"),
-  userId: text("user_id"),
-  parentId: integer("parent_id"),
-  author: jsonb("author"),
-});
-
-export const commentsWithAuthorVotes = pgTable("comments_with_author_votes", {
-  commentId: integer("comment_id"),
-  slug: text("slug"),
-  date: timestamp("date", { mode: "string" }),
-  body: text("body"),
-  userId: text("user_id"),
-  parentId: integer("parent_id"),
-  author: jsonb("author"),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  votes: bigint("votes", { mode: "number" }),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  upvotes: bigint("upvotes", { mode: "number" }),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  downvotes: bigint("downvotes", { mode: "number" }),
-});
-
-export const commentsThread = pgTable("comments_thread", {
-  commentId: integer("comment_id"),
-  slug: text("slug"),
-  date: timestamp("date", { mode: "string" }),
-  body: text("body"),
-  userId: text("user_id"),
-  parentId: integer("parent_id"),
-  author: jsonb("author"),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  votes: bigint("votes", { mode: "number" }),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  upvotes: bigint("upvotes", { mode: "number" }),
-  // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-  downvotes: bigint("downvotes", { mode: "number" }),
-  depth: integer("depth"),
-  path: integer("path"),
-  pathVotesRecent: integer("pathVotesRecent"),
-  pathLeastRecent: integer("pathLeastRecent"),
-  pathMostRecent: integer("pathMostRecent"),
-});
-
-export const commentsThreadWithUserVote = pgTable(
-  "comments_thread_with_user_vote",
+export const verification_token = pgTable(
+  'verification_token',
   {
-    commentId: integer("comment_id"),
-    slug: text("slug"),
-    date: timestamp("date", { mode: "string" }),
-    body: text("body"),
-    userId: text("user_id"),
-    parentId: integer("parent_id"),
-    author: jsonb("author"),
-    // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-    votes: bigint("votes", { mode: "number" }),
-    // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-    upvotes: bigint("upvotes", { mode: "number" }),
-    // You can use { mode: "bigint" } if numbers are exceeding js number limitations
-    downvotes: bigint("downvotes", { mode: "number" }),
-    depth: integer("depth"),
-    path: integer("path"),
-    pathVotesRecent: integer("pathVotesRecent"),
-    pathLeastRecent: integer("pathLeastRecent"),
-    pathMostRecent: integer("pathMostRecent"),
-    userVoteValue: integer("userVoteValue"),
-  },
-);
-
-export const guestbook = pgTable(
-  "guestbook",
-  {
-    id: text("id").primaryKey().notNull(),
-    parentId: text("parent_id"),
-    slug: text("slug"),
-    userId: text("user_id")
-      .notNull()
-      .references(() => user.userId, { onDelete: "cascade" }),
-    body: text("body"),
-    date: timestamp("date", { mode: "string" }).defaultNow().notNull(),
+    identifier: text('identifier').notNull(),
+    expires: timestamp('expires', {
+      withTimezone: true,
+      mode: 'string',
+    }).notNull(),
+    token: text('token').notNull(),
   },
   (table) => {
     return {
-      gbParentIdGbIdFk: foreignKey({
-        columns: [table.parentId],
-        foreignColumns: [table.id],
-        name: "gb_parent_id_gb_id_fk",
-      }),
-    };
-  },
-);
-
-export const guestbookView = pgTable("guestbook_view", {
-  id: text("id"),
-  slug: text("slug"),
-  date: timestamp("date", { mode: "string" }),
-  body: text("body"),
-  userId: text("user_id"),
-  parentId: text("parent_id"),
-  author: jsonb("author"),
-});
-
-export const likes = pgTable(
-  "likes",
-  {
-    userId: text("user_id")
-      .notNull()
-      .references(() => user.userId, {
-        onDelete: "cascade",
-        onUpdate: "cascade",
-      }),
-    commentId: integer("comment_id")
-      .notNull()
-      .references(() => comment.commentId, {
-        onDelete: "cascade",
-        onUpdate: "cascade",
-      }),
-  },
-  (table) => {
-    return {
-      likesPkey: primaryKey({
-        columns: [table.userId, table.commentId],
-        name: "likes_pkey",
-      }),
-    };
-  },
-);
-
-export const verificationToken = pgTable(
-  "verificationToken",
-  {
-    identifier: text("identifier").notNull(),
-    token: text("token").notNull(),
-    expires: timestamp("expires", { mode: "string" }).notNull(),
-  },
-  (table) => {
-    return {
-      verificationTokenIdentifierTokenPk: primaryKey({
+      verification_token_pkey: primaryKey({
         columns: [table.identifier, table.token],
-        name: "verificationToken_identifier_token_pk",
+        name: 'verification_token_pkey',
       }),
-    };
-  },
-);
-
-export const votes = pgTable(
-  "votes",
-  {
-    commentId: integer("comment_id")
-      .notNull()
-      .references(() => comment.commentId),
-    userId: text("user_id")
-      .notNull()
-      .references(() => user.userId),
-    value: integer("value").notNull(),
-  },
-  (table) => {
-    return {
-      votesPkey: primaryKey({
-        columns: [table.commentId, table.userId],
-        name: "votes_pkey",
-      }),
-    };
-  },
-);
+    }
+  }
+)
 
 export const account = pgTable(
-  "account",
+  'account',
   {
-    userId: text("user_id")
+    id: text('id')
+      .default(sql`nanoid()`)
+      .notNull(),
+    user_id: text('user_id')
       .notNull()
-      .references(() => user.userId, { onDelete: "cascade" }),
-    type: text("type").notNull(),
-    provider: text("provider").notNull(),
-    providerAccountId: text("providerAccountId").notNull(),
-    refreshToken: text("refresh_token"),
-    accessToken: text("access_token"),
-    expiresAt: integer("expires_at"),
-    tokenType: text("token_type"),
-    scope: text("scope"),
-    idToken: text("id_token"),
-    sessionState: text("session_state"),
+      .references(() => usr.id, { onDelete: 'cascade' }),
+    type: text('type').notNull(),
+    provider: text('provider').notNull(),
+    provider_acc_id: text('provider_acc_id').notNull(),
+    refresh_token: text('refresh_token'),
+    access_token: text('access_token'),
+    // You can use { mode: "bigint" } if numbers are exceeding js number limitations
+    expires_at: bigint('expires_at', { mode: 'number' }),
+    id_token: text('id_token'),
+    scope: text('scope'),
+    session_state: text('session_state'),
+    token_type: text('token_type'),
   },
   (table) => {
     return {
-      accountProviderProviderAccountIdPk: primaryKey({
-        columns: [table.provider, table.providerAccountId],
-        name: "account_provider_providerAccountId_pk",
+      account_pkey: primaryKey({
+        columns: [table.provider, table.provider_acc_id],
+        name: 'account_pkey',
       }),
-    };
-  },
-);
+    }
+  }
+)
+
+export type Comment = typeof comment.$inferSelect // return type when queried

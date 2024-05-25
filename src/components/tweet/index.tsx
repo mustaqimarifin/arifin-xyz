@@ -1,53 +1,53 @@
-import "./tweet.css";
-import Image from "next/image";
-import { Suspense } from "react";
 import {
   EmbeddedTweet,
   TweetNotFound,
   type TweetProps,
   TweetSkeleton,
-} from "react-tweet";
-import type { TwitterComponents } from "react-tweet";
-import { VideoPlayer } from "../client";
-import { getTweet } from "./cache";
+} from 'react-tweet'
+import type { TwitterComponents } from 'react-tweet'
+import { type JSX, Suspense } from 'react'
+import { VideoPlayer } from '../client'
+import { getTweet } from './cache'
+import Image from 'next/image'
+import './tweet.css'
 
 type VideoProps = {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-};
+  src: string
+  alt: string
+  width?: number
+  height?: number
+}
 type TComponents = {
-  VideoPlayer?: ((props: VideoProps) => JSX.Element) | undefined;
-} & TwitterComponents;
+  VideoPlayer?: ((props: VideoProps) => JSX.Element) | undefined
+} & TwitterComponents
 
 export const components: TComponents = {
   AvatarImg: (props) => <Image {...props} />,
   MediaImg: (props) => <Image {...props} fill />,
   VideoPlayer: (props) => <VideoPlayer {...props} />,
-};
+}
 
 const TweetContent = async ({ id, onError }: TweetProps) => {
-  let error;
-
-  const tweet = await getTweet(id!).catch((err) => {
+  let error
+  //@ts-expect-error balblablbalbalbalbalblablab you wont  stfu
+  const tweet = await getTweet(id).catch((err) => {
     if (onError) {
-      error = onError(err);
+      error = onError(err)
     } else {
-      console.error(err);
-      error = err;
+      console.error(err)
+      error = err
     }
-  });
+  })
 
   if (!tweet) {
-    const NotFound = components?.TweetNotFound || TweetNotFound;
-    return <NotFound error={error} />;
+    const NotFound = components?.TweetNotFound || TweetNotFound
+    return <NotFound error={error} />
   }
 
-  return <EmbeddedTweet tweet={tweet} components={components} />;
-};
+  return <EmbeddedTweet tweet={tweet} components={components} />
+}
 
-const ReactTweet = (props: TweetProps) => <TweetContent {...props} />;
+const ReactTweet = (props: TweetProps) => <TweetContent {...props} />
 
 export default function Tweet({ id }: { id: string }) {
   return (
@@ -58,7 +58,7 @@ export default function Tweet({ id }: { id: string }) {
         </Suspense>
       </div>
     </div>
-  );
+  )
 }
 
 /* const checksum = (content) => {

@@ -6,7 +6,6 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "moduleDetection": "force",
     "noEmit": true,
     "allowArbitraryExtensions": true,
     "incremental": true,
@@ -15,11 +14,11 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "strictNullChecks": true,
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"],
+      "content-collections": ["./.content-collections/generated"],
       "$$/*": ["./src/styles/*"],
       "@/*": ["./src/*"]
     },
@@ -34,16 +33,22 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated",
+    ".content-collections/generated",
     "src/meta/**/*.json",
-    "eslint.config.js",
-    "next.config.js",
-    "postcss.config.js",
-    "contentlayer.config.ts",
+    "next.config.mjs",
+    "eslint.config.mjs",
+    "postcss.config.mjs",
     "site.config.ts",
     "src/data/work2.yaml",
-    "src/scripts/nobody.ts",
-    "src/scripts/meta.mjs"
+    "src/utils/base32.mjs"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/meta/compiled-post.json",
+    "src/meta/serialized-posts.json",
+    "src/utils.base32.ts",
+    "test.json",
+    "queries.sql",
+    "eslintcache"
+  ]
 }

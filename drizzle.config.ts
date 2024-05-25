@@ -1,12 +1,12 @@
-import { defineConfig } from "drizzle-kit";
-import { env } from "site.config";
+import { type Config, defineConfig } from 'drizzle-kit'
 
 export default defineConfig({
-  schema: "./src/db/pg-schema.ts",
-  out: "./src/db/migrations",
-  driver: "pg",
+  schema: './src/db/schema2.ts',
+  out: './src/db/migrations',
+  dialect: 'postgresql',
   dbCredentials: {
-    connectionString: env.pgDirect!,
-    //authToken: env.tursoTKN,
+    url: 'postgresql://arifin:xyz@localhost:5432/psx',
   },
-});
+  verbose: true,
+  strict: true,
+}) as Config
